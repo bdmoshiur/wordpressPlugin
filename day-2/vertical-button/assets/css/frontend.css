@@ -1,0 +1,40 @@
+#btn-coupon {
+    position:fixed;
+    top:45%;
+    right: -56px;
+    padding: 15px 45px;
+    margin:0px;
+    background-color:SlateBlue;
+    border-radius: 8px 8px 0 0;
+    -moz-transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg);
+    -o-transform:rotate(-90deg);
+    -webkit-transform:rotate(-90deg);
+    border: 0;
+    outline: 0;
+    color: #fff;
+}
+
+#btn-coupon:hover {
+    opacity: 0.9;
+}
+
+
+#btn-description {
+    padding: 20px;
+    position: fixed;
+    bottom: 70px;
+    right: 5px;
+    background-color:Violet;
+    border-radius: 8px;
+    color: #eee;
+    width: 200px;
+    height: 150px;
+    overflow: scroll;
+    font-size: 16px;
+    display: none;
+}
+
+#btn-description.active {
+    display: block;
+}
