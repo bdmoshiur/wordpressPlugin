@@ -3,7 +3,7 @@
  * Plugin Name:       Modify Posts Email Notification
  * Plugin URI:        https://post-title-capitalize.com
  * Description:       Modify Post view with this plugin.
- * Version:           1.0
+ * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Moshiur Rahman
