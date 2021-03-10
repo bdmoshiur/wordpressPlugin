@@ -1,10 +1,9 @@
 <?php
-
 /**
  * Plugin Name:       SEO Meta Information
  * Plugin URI:        https://seo-meta-information.com
- * Description:       Handle the SEO Meta Information with this plugin.
- * Version:           1.0
+ * Description:       SEO Meta Information with this plugin.
+ * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Moshiur Rahman
@@ -15,26 +14,23 @@
  * Domain Path:       /languages
  */
 
- /**
+/**
  * Exit if accessed directly
- */ 
-
+ */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
-
 
 /**
  * The main class SEO Meta Information plugin
  */
 class Seo_Meta_information {
+
     /**
-     * constructor
+     * constructor function
      */
-    function __construct()
-    {
-        add_action('wp_head', [ $this, 'seo_meta_information'] );
+    public function __construct() {
+        add_action( 'wp_head', [ $this, 'seo_meta_information' ] );
     }
 
     /**
@@ -42,17 +38,13 @@ class Seo_Meta_information {
      *
      * @return void
      */
-    public function seo_meta_information()
-    {
+    public function seo_meta_information() {
         ?>
-
         <meta name="description" content="web Ddesign and development materials">
         <meta name="keywords" content="HTML, CSS, JavaScript, php, wordpress, laravel">
         <meta name="author" content="moshiur rahman">
-        
-        <?php
+       <?php
     }
-
 }
 
 /**
@@ -60,7 +52,7 @@ class Seo_Meta_information {
  *
  * @return object
  */
-function meta_information(){
+function meta_information() {
     return new Seo_Meta_information();
 }
 

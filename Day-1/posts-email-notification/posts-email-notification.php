@@ -1,10 +1,9 @@
 <?php
-
 /**
  * Plugin Name:       Posts Email Notification
  * Plugin URI:        https://post-title-capitalize.com
- * Description:       Handle the Modify Post view with this plugin.
- * Version:           1.0
+ * Description:       Modify Post view with this plugin.
+ * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Moshiur Rahman
@@ -15,49 +14,42 @@
  * Domain Path:       /languages
  */
 
- /**
+/**
  * Exit if accessed directly
- */ 
-
-if ( ! defined( 'ABSPATH' ) ) {
+ */
+if ( ! defined('ABSPATH' ) ) {
     exit;
 }
-
-
 
 /**
  * The main class Modify Posts View plugin
  */
-class Posts_Email_Notification {
+class Posts_Email_Notification
+{
 
-    function __construct()
+    public function __construct()
     {
-        add_action( 'publish_post', [$this,'post_published_notification'], 10, 2 );
+        add_action( 'publish_post', [ $this, 'post_published_notification' ], 10, 2 );
     }
 
     /**
      * The main function Email sent notification
      *
+     * @param int $post_id
+     * @param object $post
+     * 
      * @return  array
      */
-
-    function post_published_notification( $post_id , $post ) {
-        
-        // error_log(  print_r( $post , 1 ) );
-        
+    public function post_published_notification( $post_id, $post ) {
         $author = $post->post_author;
         $name = get_the_author_meta( 'display_name', $author );
         $email = get_the_author_meta( 'user_email', $author );
-        $to    = [ get_option( 'admin_email' ) ];
+        $to = [ get_option( 'admin_email' ) ];
         $subject = $post->post_title;
-        $message = "Test email sent. Author Email .$email.'Author Name'.$name";
-
-        $to  = apply_filters('modify_email', $to ); 
-
-        wp_mail( $to , $subject, $message);
-
+        $message = "Test email sent. Author Email .$email.'Author Name' . $name";
+        $to = apply_filters( 'modify_email', $to );
+        wp_mail( $to, $subject, $message );
     }
-
 }
 
 /**
@@ -65,7 +57,7 @@ class Posts_Email_Notification {
  *
  * @return object
  */
-function post_mail(){
+function post_mail() {
     return new Posts_Email_Notification();
 }
 

@@ -1,9 +1,8 @@
 <?php
-
 /**
  * Plugin Name:       Modify Post view
  * Plugin URI:        https://post-title-capitalize.com
- * Description:       Handle the Modify Post view with this plugin.
+ * Description:       Modify Post view with this plugin.
  * Version:           1.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -15,24 +14,21 @@
  * Domain Path:       /languages
  */
 
- /**
+/**
  * Exit if accessed directly
- */ 
-
+ */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
-
 
 /**
  * The main class Modify Posts View plugin
  */
 class Modify_Posts_View {
 
-    function __construct()
+    public function __construct()
     {
-        add_filter( 'modify_count_view', [ $this, 'modify_posts_view'] );
+        add_filter( 'modify_count_view', [ $this, 'modify_posts_view' ] );
     }
 
     /**
@@ -43,7 +39,7 @@ class Modify_Posts_View {
     public function modify_posts_view( $view )
     {
         return "<em>" . $view . "</em>";
-        
+
     }
 
 }
@@ -53,7 +49,8 @@ class Modify_Posts_View {
  *
  * @return object
  */
-function modify_post(){
+function modify_post()
+{
     return new Modify_Posts_View();
 }
 
@@ -61,4 +58,3 @@ function modify_post(){
  * object calling function
  */
 modify_post();
-

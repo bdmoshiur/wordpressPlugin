@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:       We Contact Form
  * Plugin URI:        https://contactform.com
@@ -30,8 +29,7 @@ class We_Contact_Form {
     /**
      * constructor function
      */
-    function __construct()
-    {
+    function __construct() {
         add_shortcode( 'we-add-form', [ $this, 'add_contact_form' ] );
         add_shortcode( 'we-add-field', [ $this, 'add_field_contact_form' ] );
     }
@@ -44,8 +42,7 @@ class We_Contact_Form {
     *
     * @return string
     */
-    public function add_contact_form( $atts, $content )
-    {
+    public function add_contact_form( $atts, $content ) {
        $atts = shortcode_atts( array(
            'title'       => 'Contact Form',
            'description' => 'weDevs is the maker of Dokan Multivendor,
@@ -78,7 +75,7 @@ class We_Contact_Form {
             'type'        => 'text',
             'placeholder' => 'Enter your text here',
             'value'       => 'Submit',
-            'lavel'       => 'First Name',
+            'lavel'       => 'Your Name',
             'option'      =>  'One',
         ), $atts );
         $type = $atts['type'];
@@ -87,11 +84,12 @@ class We_Contact_Form {
                             'number',
                             'password',
                             'phone',
+                            'tel',
                             'file',
                             'email',
                             'url',
                          );
-        if ( in_array( $atts['type'], $inputType ) ){
+        if ( in_array( $atts['type'], $inputType ) ) {
             $type = 'globalInput';
         }
         switch ( $type ) {
@@ -123,7 +121,6 @@ class We_Contact_Form {
             default:
                 return "<label> {$atts['lavel']} </label><input type='{$atts['type']}' name='{$atts['name']}'><br/>";
         }
-      
     }
 }
 
@@ -132,7 +129,7 @@ class We_Contact_Form {
  *
  * @return object
  */
-function we_contact_form(){
+function we_contact_form() {
     return new We_Contact_Form();
 }
 

@@ -1,9 +1,8 @@
 <?php
-
 /**
  * Plugin Name:       Modify Posts Email Notification
  * Plugin URI:        https://post-title-capitalize.com
- * Description:       Handle the Modify Post view with this plugin.
+ * Description:       Modify Post view with this plugin.
  * Version:           1.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -18,35 +17,34 @@
  /**
  * Exit if accessed directly
  */ 
-
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
 
 /**
  * The main class Modify Posts Email plugin
  */
 class Modify_Posts_Email_Notification {
 
-    function __construct()
-    {
-        add_filter( 'modify_email', [$this,'modify_post_published_notification'] );
+    /**
+     * Constructor function
+     */
+    function __construct() {
+        add_filter( 'modify_email', [ $this,'modify_post_published_notification' ] );
     }
 
     /**
      * The main function Email sent
      *
+     * @param string $to
+     * 
      * @return array
      */
-
     function modify_post_published_notification( $to ) {
-        
       $to      = [ get_option( 'admin_email' ), 'test@gmail.com', 'hello@gmail.com' ];
+
       return  $to;
-
     }
-
 }
 
 /**
@@ -54,10 +52,10 @@ class Modify_Posts_Email_Notification {
  *
  * @return object
  */
-
-function modify_post_mail(){
+function modify_post_mail() {
     return new Modify_Posts_Email_Notification();
 }
+
 /**
  * object calling function
  */

@@ -29,7 +29,7 @@ class Mrm_Post_Excerpt {
     /**
      * Constructor function
      *
-     * @return miexd
+     * @return void
      */
     function __construct() {
         add_action( 'add_meta_boxes', [ $this , 'mrm_add_metabox' ] );
