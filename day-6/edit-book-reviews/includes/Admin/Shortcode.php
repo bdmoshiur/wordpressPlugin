@@ -80,10 +80,10 @@ class Shortcode {
             echo '<ol>';
              while ( $query->have_posts() ) {
                 $query->the_post();
-                $title = get_the_title();
-                $excerpt = get_the_excerpt();
-                $purma_link =  get_the_permalink();
-                $image =  get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' );
+                $title      = get_the_title();
+                $excerpt    = get_the_excerpt();
+                $purma_link = get_the_permalink();
+                $image      = get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' );
                 printf( '<li><img src="%s" width="150px" height="150px" >',  $image );
                 printf( '<p> %s <a href="%s">Read More</a> </p>', $title, $purma_link );
                 printf( '<p> %s </p></li>', $excerpt );
