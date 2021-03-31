@@ -1,0 +1,21 @@
+{
+    "name": "moshiur1998/we-crud",
+    "description": "my we crud",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "moshiur rahman",
+            "email": "moshiurcse888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4" : {
+            "We\\Crud\\" : "includes/"
+        },
+        "files": [ "includes/functions.php" ]
+    }
+
+}
