@@ -4,8 +4,8 @@ namespace Formsubmit\Ajax;
 /**
  * The frontend main Class
  */
-class Frontend {
+class Mrm_Frontend {
     function __construct() {
-        new Frontend\Ajax_Form_Shortcode();
+        new Frontend\Mrm_Ajax_Form_Shortcode();
     }
 }

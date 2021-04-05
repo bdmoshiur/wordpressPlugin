@@ -4,7 +4,7 @@ namespace Formsubmit\Ajax;
 /**
  * The Assets main Class
  */
-class Assets {
+class Mrm_Assets {
 
     /**
      * constructor function 

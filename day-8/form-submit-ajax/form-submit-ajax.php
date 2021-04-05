@@ -31,7 +31,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 /**
  * The Main Plugin class
  */
-final class Form_Submit_Ajax {
+final class Mrm_Form_Submit_Ajax {
     /**
      * plugin Version
      * 
@@ -57,7 +57,7 @@ final class Form_Submit_Ajax {
      *  
      * @since 1.0.0
      * 
-     * @return \Form_Submit_Ajax
+     * @return \Mrm_Form_Submit_Ajax
      */
     public static function init() {
         static $instance = false;
@@ -91,13 +91,13 @@ final class Form_Submit_Ajax {
      * return void
      */
     public function init_plugin() {
-        new Formsubmit\Ajax\Assets();
+        new Formsubmit\Ajax\Mrm_Assets();
 
         if( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            new Formsubmit\Ajax\Ajax();
+            new Formsubmit\Ajax\Mrm_Ajax();
         }
         
-        new Formsubmit\Ajax\Frontend();
+        new Formsubmit\Ajax\Mrm_Frontend();
     }
 
     /**
@@ -123,11 +123,11 @@ final class Form_Submit_Ajax {
  *
  * @since 1.0.0
  *  
- * @return \Form_Submit_Ajax 
+ * @return \Mrm_Form_Submit_Ajax 
  */
 function mrm_form_submit_ajax() {
      
-    return Form_Submit_Ajax::init();
+    return Mrm_Form_Submit_Ajax::init();
 }
  
 /**
