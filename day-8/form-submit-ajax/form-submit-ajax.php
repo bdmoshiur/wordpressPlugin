@@ -93,7 +93,7 @@ final class Form_Submit_Ajax {
     public function init_plugin() {
         new Formsubmit\Ajax\Assets();
 
-        if( defined( 'DOING_AJAX' ) && DOING_AJAX ){
+        if( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             new Formsubmit\Ajax\Ajax();
         }
         

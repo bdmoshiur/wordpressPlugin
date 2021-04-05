@@ -5,6 +5,7 @@ namespace Formsubmit\Ajax;
  * The main ajax Class
  */
 class Ajax {
+    
     /**
      * constructor function
      * 
