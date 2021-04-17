@@ -51,6 +51,13 @@ class Shortcode {
          $the_query = new \WP_Query( $args );
          set_transient( 'feature_post_transient_data', $the_query, MINUTE_IN_SECONDS );
       }
+      
+      /**
+       * Removes transient in case of form update
+       */
+      if ( isset( $_POST['featured-posts-setting'] ) ) {
+         delete_transient( 'feature_post_transient_data' );
+        }
 
       if ( $the_query->have_posts() ) {
          $posts = $the_query->posts;

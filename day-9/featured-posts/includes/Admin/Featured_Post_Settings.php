@@ -48,7 +48,7 @@ class Featured_Post_Settings {
                 <?php 
                     do_settings_sections( 'post_options' );
                     settings_fields( 'post_sections' );
-                    submit_button(); 
+                    submit_button( __( 'Save Changes', 'featured-posts' ), 'primary', 'featured-posts-setting' );
                 ?>
             </form>
         <?php
