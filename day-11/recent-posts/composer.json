@@ -1,0 +1,19 @@
+{
+  "name": "rajan/recent-posts",
+  "description": "Display recent posts plugin on wordPress dashboard",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "moshiurrahman",
+      "email": "moshiurcse888@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Recent\\Posts\\" : "includes/"
+    }
+  }
+}
