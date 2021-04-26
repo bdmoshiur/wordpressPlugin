@@ -44,7 +44,7 @@ class Mrm_Assets {
      */
     public function get_styles() {
         return [
-            'form-style'  => [
+            'form-style' => [
                 'src'     => FORM_AJAX_SUBMIT_ASSETS . '/css/frontend.css',
                 'version' => filemtime( FORM_AJAX_SUBMIT_PATH . '/assets/css/frontend.css' ),
             ]

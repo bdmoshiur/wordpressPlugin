@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       Form Submit Ajax
+ * Plugin Name:       Update Contact Form
  * Plugin URI:        https://moshiur.com/plugins/
- * Description:       Form Submit Ajax plugin.
+ * Description:       Update contact form plugin.
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -17,7 +17,7 @@
 /**
  * Exit if accessed directly
  */
-if ( ! defined( 'ABSPATH' ) ) { 
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
@@ -93,11 +93,15 @@ final class Mrm_Form_Submit_Ajax {
     public function init_plugin() {
         new Formsubmit\Ajax\Mrm_Assets();
 
-        if( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+        if( defined( 'DOING_AJAX' ) && DOING_AJAX ){
             new Formsubmit\Ajax\Mrm_Ajax();
         }
         
-        new Formsubmit\Ajax\Mrm_Frontend();
+        if( is_admin() ) {
+            new Formsubmit\Ajax\Admin();
+        }else {
+            new Formsubmit\Ajax\Frontend();
+        }
     }
 
     /**
@@ -108,13 +112,8 @@ final class Mrm_Form_Submit_Ajax {
      * @return void
      */
     public function activate() {
-       $installed = get_option( 'ajax_form_time' );
-
-        if ( ! $installed ) {
-            update_option( 'ajax_form_time', time() );
-        }
-
-       update_option( 'ajax_form_version', FORM_AJAX_SUBMIT_VERSION );
+        $installer = new Formsubmit\Ajax\Installer();
+        $installer->run();
     }
 }
 
