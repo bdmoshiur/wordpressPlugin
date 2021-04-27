@@ -20,11 +20,19 @@ class Post_Widget extends \WP_Widget {
             'Related Post Widget'
         );
  
-        add_action( 'widgets_init', function() {
-            register_widget( 'Post\Widget\Admin\Post_Widget' );
-        });
+        add_action( 'widgets_init', [ $this, 'related_post_widget_register' ] );
     }
 
+    /**
+     * Widget register function
+     *
+     * @since 1.0.0
+     * 
+     * @return void
+     */
+    public function related_post_widget_register() {
+        register_widget( 'Post\Widget\Admin\Post_Widget' );
+    }
 
     /**
      * Front-end display of widget.
