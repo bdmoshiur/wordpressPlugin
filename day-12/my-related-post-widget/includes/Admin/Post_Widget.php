@@ -53,6 +53,7 @@ class Post_Widget extends \WP_Widget {
     );
     public function widget( $args, $instance ) {
         if ( is_single() ) {
+            
             echo $args['before_widget'];
 
             $title   = ! empty( $instance['title'] ) ? $instance['title']            : '';
@@ -73,13 +74,16 @@ class Post_Widget extends \WP_Widget {
             ];
 
             $the_query = new \WP_Query( $post_args );
+
             if ( $the_query->have_posts() ) {
                 while ( $the_query->have_posts() ) {
                     $the_query->the_post();
                     echo '<a href="'.get_the_permalink().'"><li>' . get_the_title() . '</li></a><br>';
+
                     if( 1 == $excerpt ) {
                         echo '<h3>' . the_excerpt() . '</h3><br>';
                     }
+
                     if( 1 == $image ) {
                         echo '<h3>' . get_the_post_thumbnail() . '</h3><br>';
                     }
@@ -126,10 +130,10 @@ class Post_Widget extends \WP_Widget {
      * @return array Updated safe values to be saved.
      */
     public function update( $new_instance, $old_instance ) {
-        $instance          = array();
-        $instance['title'] = ( !empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ): '';
-        $instance['no-of-post'] = ( !empty( $new_instance['no-of-post'] ) ) ? sanitize_text_field( $new_instance['no-of-post'] ): '';
-        $instance['show-image'] = ( !empty( $new_instance['show-image'] ) ) ? sanitize_text_field( $new_instance['show-image'] ): '';
+        $instance                 = array();
+        $instance['title']        = ( !empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] )              : '';
+        $instance['no-of-post']   = ( !empty( $new_instance['no-of-post'] ) ) ? sanitize_text_field( $new_instance['no-of-post'] )    : '';
+        $instance['show-image']   = ( !empty( $new_instance['show-image'] ) ) ? sanitize_text_field( $new_instance['show-image'] )    : '';
         $instance['show-excerpt'] = ( !empty( $new_instance['show-excerpt'] ) ) ? sanitize_text_field( $new_instance['show-excerpt'] ): '';
 
         return $instance;
