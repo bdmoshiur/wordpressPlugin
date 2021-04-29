@@ -1,0 +1,20 @@
+{
+    "name": "moshiur1998/author-box",
+    "description": "author box plugin",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "moshiur rahman",
+            "email": "moshiurcse888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4" : {
+            "Author\\Box\\" : "includes/"
+        },
+        "files": []
+    }
+}
