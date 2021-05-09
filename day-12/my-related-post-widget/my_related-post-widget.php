@@ -16,6 +16,8 @@
 
 /**
  * Don't call the file directly
+ * 
+ * @since 1.0.0
  */ 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -41,6 +43,8 @@ final class Related_Post_Widget {
     /**
      * Plugin version
      *
+     * @since 1.0.0
+     * 
      * @var string
      */
     const VERSION = '1.0.0';
@@ -67,6 +71,7 @@ final class Related_Post_Widget {
      */
     public static function init() {
         static $instance = false;
+
         if ( ! $instance ) {
             $instance = new self();
         }
@@ -98,6 +103,7 @@ final class Related_Post_Widget {
      */
     public function activate() {
         $installer = get_option( 'rpw_widget_install' );
+
         if ( ! $installer ) {
             update_option( 'rpw_widget_install', time() );
         }

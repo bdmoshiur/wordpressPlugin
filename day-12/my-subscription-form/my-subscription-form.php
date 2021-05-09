@@ -65,6 +65,7 @@ final class Mrm_Subscription_Form {
      */
     public static function init() {
         static $instance = false;
+        
         if ( ! $instance ) {
             $instance = new self();
         }
