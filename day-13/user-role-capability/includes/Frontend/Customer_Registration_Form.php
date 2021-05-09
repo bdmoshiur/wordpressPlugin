@@ -47,7 +47,7 @@ class Customer_Registration_Form {
             $user_id = wp_insert_user( $userdata );
     
             if ( is_wp_error( $user_id ) ) {
-                echo 'Sorry, Something went wrong !';
+                echo __( 'Sorry, Something went wrong !', 'user-role-capability' );
             } else {
                 $user = get_user_by( 'ID', $user_id );
                 
@@ -91,7 +91,7 @@ class Customer_Registration_Form {
                         }
                         break;
                 }
-                echo 'Data inserted successfull';
+                echo __( 'Data inserted successfull', 'user-role-capability' );
             }
         }
         

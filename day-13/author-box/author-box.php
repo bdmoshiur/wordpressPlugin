@@ -59,6 +59,7 @@ final class Author_Box {
      */
     public static function init() {
         static $instance = false;
+        
         if ( ! $instance ) {
             $instance = new self();
         }

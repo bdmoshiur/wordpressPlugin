@@ -65,6 +65,7 @@ final class User_Role_Capability {
      */
     public static function init() {
         static $instance = false;
+        
         if ( ! $instance ) {
             $instance = new self();
         }
