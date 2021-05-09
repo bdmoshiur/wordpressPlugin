@@ -16,6 +16,8 @@
 
  /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */ 
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,6 +31,10 @@ class Vertical_Button {
 
     /**
      * constructor function
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     function __construct() {
         add_action( 'wp_head', [ $this,  'vertical_button_front_site' ] );
@@ -42,22 +48,19 @@ class Vertical_Button {
      *
      * @return void
      */
-    public function vertical_button_front_site()
-    {
-        $title = '<button id="btn-coupon">'. esc_html_e( 'Coupons', 'vertical-button' ) . '</button>';
-       echo  $change_title = apply_filters( 'modify_title',  $title );
+    public function vertical_button_front_site() {
+        $title                  = '<button id = "btn-coupon">'. esc_html_e( 'Coupons', 'vertical-button' ) . '</button>';
+        echo $change_title      = apply_filters( 'modify_title',  $title );
 
-       $help_description = '<div id="btn-description">' .
-                               esc_html_e( ' Dokan saves you hundreds of work hours while creating an online
-                               marketplace. See some of the many reasons that make it the #1
-                               Open-source Multi Vendor Solution' , 'vertical-button' )
-                            . '</div>';
+        $help_description       = '<div id    = "btn-description">' . esc_html_e( ' Dokan saves you hundreds of work hours while creating an online marketplace. See some of the many reasons that make it the #1 Open-source Multi Vendor Solution' , 'vertical-button' ) . '</div>';
         echo  $help_description = apply_filters('help_description',  $help_description );
     }
 
     /**
      * Button Title change function 
      *
+     * @since 1.0.0
+     * 
      * @param string
      * 
      * @return string
@@ -69,14 +72,17 @@ class Vertical_Button {
     }
 
     public function description_text( $modify_help_description ) {
-        $modify_help_description = '<div id="btn-description">' . esc_html_e('weDevs is the maker of Dokan Multivendor,
-                                            WP Project Manager, WP User Frontend,
-                                            WP ERP and many more', 'vertical-button' ) . '</div>';
+        $modify_help_description = '<div id="btn-description">' . esc_html_e('weDevs is the maker of Dokan Multivendor, WP Project Manager, WP User Frontend, WP ERP and many more', 'vertical-button' ) . '</div>';
+
         return $modify_help_description;
     }
 
     /**
      * CSS & JS file loaded function
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     public function enqueue_script_site() {
         wp_enqueue_style( 'Vertical-button', plugin_dir_url( __FILE__ ) . '/assets/css/frontend.css' );
@@ -87,13 +93,17 @@ class Vertical_Button {
 /**
  * The main class instance
  *
+ * @since 1.0.0
+ * 
  * @return object
  */
-function vertical_button() {
+function mrm_vertical_button() {
     return new Vertical_Button();
 }
 
 /**
  * object calling function
+ * 
+ * @since 1.0.0
  */
-vertical_button();
+mrm_vertical_button();

@@ -16,6 +16,8 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -28,6 +30,10 @@ class Seo_Meta_information {
 
     /**
      * constructor function
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     public function __construct() {
         add_action( 'wp_head', [ $this, 'seo_meta_information' ] );
@@ -36,13 +42,15 @@ class Seo_Meta_information {
     /**
      * The main function SEO Meta Information
      *
+     * @since 1.0.0
+     * 
      * @return void
      */
     public function seo_meta_information() {
         ?>
-        <meta name="description" content="web Ddesign and development materials">
-        <meta name="keywords" content="HTML, CSS, JavaScript, php, wordpress, laravel">
-        <meta name="author" content="moshiur rahman">
+            <meta name="description" content="web Ddesign and development materials">
+            <meta name="keywords" content="HTML, CSS, JavaScript, php, wordpress, laravel">
+            <meta name="author" content="moshiur rahman">
        <?php
     }
 }
@@ -50,13 +58,18 @@ class Seo_Meta_information {
 /**
  * The main class instance
  *
+ * @since 1.0.0
+ * 
  * @return object
  */
-function meta_information() {
+function mrm_meta_information() {
+    
     return new Seo_Meta_information();
 }
 
 /**
  * object calling function
+ * 
+ * @since 1.0.0
  */
-meta_information();
+mrm_meta_information();

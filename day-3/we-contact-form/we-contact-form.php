@@ -16,6 +16,8 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
 */ 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -28,31 +30,38 @@ class We_Contact_Form {
 
     /**
      * constructor function
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     function __construct() {
         add_shortcode( 'we-add-form', [ $this, 'add_contact_form' ] );
         add_shortcode( 'we-add-field', [ $this, 'add_field_contact_form' ] );
     }
 
-   /**
-    * Contact form function
-    *
-    * @param array $atts
-    * @param string/mixed $content
-    *
-    * @return string
-    */
+    /**
+     * Contact form function
+     * 
+     * @since 1.0.0
+     * 
+     * @param array $atts
+     * @param string/mixed $content
+     * 
+     * @return string
+     */
     public function add_contact_form( $atts, $content ) {
-       $atts = shortcode_atts( array(
-           'title'       => 'Contact Form',
-           'description' => 'weDevs is the maker of Dokan Multivendor,
-                            WP Project Manager, WP User Frontend,
-                            WP ERP and many more',
-       ), $atts );
-       ?>
+        $atts = shortcode_atts( 
+            [
+                'title'       => __( 'Contact Form', 'we-contact-form' ),
+                'description' => __( 'weDevs is the maker of Dokan Multivendor WP Project Manager WP User Frontend WP ERP and many more', 'we-contact-form' ),
+            ],
+            $atts
+        );
+        ?>
            <div>
-                <h2><?php echo $atts[ 'title' ]; ?></h2>
-                <p><?php  echo $atts[ 'description' ]; ?></p>
+                <h2><?php esc_html_e( $atts[ 'title' ], 'we-contact-form' ); ?></h2>
+                <p><?php  esc_html_e( $atts[ 'description' ], 'we-contact-form' ) ; ?></p>
                 <br>
                 <form action="" method="">
                     <?php echo do_shortcode( $content ); ?>
@@ -69,29 +78,34 @@ class We_Contact_Form {
      * @return string
      */
     public function add_field_contact_form( $atts ) {
-        $atts = shortcode_atts( 
-            array (
-            'name'        => 'name-' . time(),
-            'type'        => 'text',
-            'placeholder' => 'Enter your text here',
-            'value'       => 'Submit',
-            'lavel'       => 'Your Name',
-            'option'      =>  'One',
-        ), $atts );
+        $atts = shortcode_atts(
+            [
+                'name'        => 'name-' . time(),
+                'type'        => __( 'text', 'we-contact-form' ),
+                'placeholder' => __( 'Enter your text here', 'we-contact-form' ),
+                'value'       => __( 'Submit', 'we-contact-form' ),
+                'lavel'       => __( 'Your Name', 'we-contact-form' ),
+                'option'      =>  __( 'One', 'we-contact-form' ),
+            ],
+            $atts
+        );
+
         $type = $atts['type'];
-        $inputType = array( 
-                            'text',
-                            'number',
-                            'password',
-                            'phone',
-                            'tel',
-                            'file',
-                            'email',
-                            'url',
-                         );
+        $inputType = [
+            'text',
+            'number',
+            'password',
+            'phone',
+            'tel',
+            'file',
+            'email',
+            'url',
+        ];
+
         if ( in_array( $atts['type'], $inputType ) ) {
             $type = 'globalInput';
         }
+
         switch ( $type ) {
             case 'globalInput':
                 return "<label> {$atts['lavel']} </label><input type='{$atts['type']}' name='{$atts['name']}' placeholder='{$atts['placeholder']}'><br/>";

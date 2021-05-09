@@ -51,7 +51,7 @@ class Mrm_Post_Excerpt {
         add_meta_box( 
             'textarea_excerpt_metabox',
             'Excerpt Under Post',
-            [ $this, 'mrm_textarea_excerpt_metabox'],
+            [ $this, 'mrm_textarea_excerpt_metabox' ],
             'post'
         );
     }
@@ -65,7 +65,7 @@ class Mrm_Post_Excerpt {
      */
     public function mrm_textarea_excerpt_metabox( $posts ) {
         $post_excerpt = get_post_meta( $posts->ID, 'excerpt_under_post', true );
-        $description    = ! empty( $post_excerpt['description'] ) ?  $post_excerpt['description'] : '';
+        $description  = ! empty( $post_excerpt['description'] ) ?  $post_excerpt['description']: '';
         ?>
         <?php wp_nonce_field( 'mrm_textarea_excerpt_metabox', 'textarea_excerpt_metabox_nonce' ); ?>
             <div class="form-group">
@@ -83,8 +83,8 @@ class Mrm_Post_Excerpt {
      * @return object
      */
     public function mrm_save_post_meta( $post_id ) {
-        $nonce = isset( $_POST[ 'textarea_excerpt_metabox_nonce' ] ) ? $_POST[ 'textarea_excerpt_metabox_nonce' ] : '';
-        $description = isset( $_POST['description'] ) ? sanitize_text_field( $_POST['description'] ) : '';
+        $nonce       = isset( $_POST['textarea_excerpt_metabox_nonce'] ) ? $_POST['textarea_excerpt_metabox_nonce']: '';
+        $description = isset( $_POST['description'] ) ? sanitize_text_field( $_POST['description'] )                   : '';
 
         if ( ! wp_verify_nonce( $nonce, 'mrm_textarea_excerpt_metabox' ) ) {
             return;
@@ -105,25 +105,26 @@ class Mrm_Post_Excerpt {
      */
     public function mrm_latest_post_count( $atts, $content ) {
          $atts = shortcode_atts( 
-            array (
-            'id'       => '',
-            'category' => '',
-            'post_no'  => '10',
-        ), $atts );
+            [
+                'id'       => '',
+                'category' => '',
+                'post_no'  => '10',
+            ],
+            $atts
+        );
 
         /* Wp query argument set */
-        $args = array(
+        $args = [
             'post_type'      => 'post', 
             'meta_key'       => 'excerpt_under_post', 
             'posts_per_page' => $atts['post_no'],
             'order'          => 'DESC',
             'orderby'        => 'excerpt_under_post',
             'post_status'    => 'publish'
-        );
+        ];
 
-          /* Check category Name*/
-          if ( $atts['category'] != '' ) {
-            // print_r($category_name);exit();
+        /* Check category Name*/
+        if ( $atts['category'] != '' ) {
             $args['category_name'] = $atts['category'];
         }
 
