@@ -67,9 +67,10 @@ final class Related_Post_Widget {
      */
     public static function init() {
         static $instance = false;
-        if( ! $instance ) {
+        if ( ! $instance ) {
             $instance = new self();
         }
+        
         return $instance;
     }
 
@@ -97,7 +98,7 @@ final class Related_Post_Widget {
      */
     public function activate() {
         $installer = get_option( 'rpw_widget_install' );
-        if( ! $installer ) {
+        if ( ! $installer ) {
             update_option( 'rpw_widget_install', time() );
         }
         update_option( 'rpw_widget_version', RPW_Widget_VERSION );
@@ -123,6 +124,7 @@ final class Related_Post_Widget {
  * @return \Related_Post_Widget
  */
 function rpw_related_post_widget() {
+
     return Related_Post_Widget::init();
 } 
 

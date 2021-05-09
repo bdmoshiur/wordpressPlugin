@@ -3,8 +3,6 @@ namespace Subscription\Form\Admin;
 
 /**
  * The min class of widget.
- * 
- * @since  1.0.0
  */
 class Subscription_Form_Widget extends \WP_Widget {
     
@@ -55,6 +53,7 @@ class Subscription_Form_Widget extends \WP_Widget {
         
         $title          = ! empty( $instance['title'] ) ? $instance['title']                  : '';
         $mailchimp_list = ! empty( $instance['mailchimp_list'] ) ? $instance['mailchimp_list']: '';
+
         echo $args['before_title'] . '<h2>' . apply_filters( 'widget_title', $title  ) . '</h2>' . $args['after_title'];
         
         $template = __DIR__ . '/views/view_subscription_widget.php';

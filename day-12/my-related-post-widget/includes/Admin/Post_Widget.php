@@ -1,11 +1,8 @@
 <?php
-
 namespace Post\Widget\Admin;
 
 /**
  * The min class of widget.
- * 
- * @since  1.0.0
  */
 class Post_Widget extends \WP_Widget {
     
@@ -19,7 +16,6 @@ class Post_Widget extends \WP_Widget {
             'related-post-widget',
             'Related Post Widget'
         );
- 
         add_action( 'widgets_init', [ $this, 'related_post_widget_register' ] );
     }
 
@@ -65,8 +61,8 @@ class Post_Widget extends \WP_Widget {
 
             $post_args = [
                 'post_type'      => 'post',
-                'category__in'   => wp_get_post_categories(get_the_ID()),
-                'post__not_in'   => array(get_the_ID()),
+                'category__in'   => wp_get_post_categories( get_the_ID() ),
+                'post__not_in'   => array( get_the_ID() ),
                 'posts_per_page' =>  $limit,
                 'status'         => 'publish',
                 'orderby'        => 'date',
@@ -80,15 +76,16 @@ class Post_Widget extends \WP_Widget {
                     $the_query->the_post();
                     echo '<a href="'.get_the_permalink().'"><li>' . get_the_title() . '</li></a><br>';
 
-                    if( 1 == $excerpt ) {
+                    if ( 1 == $excerpt ) {
                         echo '<h3>' . the_excerpt() . '</h3><br>';
                     }
 
-                    if( 1 == $image ) {
+                    if ( 1 == $image ) {
                         echo '<h3>' . get_the_post_thumbnail() . '</h3><br>';
                     }
                 }
             }
+
             /* Restore original Post Data */
             wp_reset_postdata();
 
@@ -114,7 +111,7 @@ class Post_Widget extends \WP_Widget {
 
         $template = __DIR__ . '/views/view_post_widget.php';
         
-        if( file_exists( $template ) ) {
+        if ( file_exists( $template ) ) {
             include $template;
         }
     }

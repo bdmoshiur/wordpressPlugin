@@ -16,15 +16,19 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) { 
-      exit;
-  }
+    exit;
+}
 
 /**
  * composer file loaded
+ * 
+ * @since 1.0.0
  */
-require_once  __DIR__ . '/vendor/autoload.php'; 
+require_once  __DIR__ . '/vendor/autoload.php';
 
 /**
  * The Main Plugin class
@@ -33,21 +37,29 @@ final class Mrm_Subscription_Form {
     /**
      * plugin Version
      * 
+     * @since 1.0.0
+     * 
      * @return string
      */
     const VERSION = '1.0.0';
 
     /**
-     * class contructor 
+     * class contructor
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     private function __construct() {
         $this->define_constants();
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
-     }
+    }
 
     /**
      * initialize a singleton instance 
+     * 
+     * @since 1.0.0
      * 
      * @return \Mrm_Subscription_Form
      */
@@ -56,11 +68,14 @@ final class Mrm_Subscription_Form {
         if ( ! $instance ) {
             $instance = new self();
         }
+        
         return $instance;
     }
 
     /**
      * Define the Required Plugin Constants
+     * 
+     * @since 1.0.0
      * 
      * @return void
      */
@@ -75,7 +90,9 @@ final class Mrm_Subscription_Form {
     /**
      * Initialize the plugin
      * 
-     * return void
+     * @since 1.0.0
+     * 
+     * @return void
      */
     public function init_plugin() {
         new Subscription\Form\Mrm_Assets();
@@ -89,31 +106,37 @@ final class Mrm_Subscription_Form {
     /**
      * Do Staff Upon Plugin Activation
      * 
+     * @since 1.0.0
+     * 
      * @return void
      */
     public function activate() {
-       $installed = get_option( 'subscribtion_form_time' );
+        $installed = get_option( 'subscribtion_form_time' );
 
-       if ( ! $installed ) {
+        if ( ! $installed ) {
            update_option( 'subscribtion_form_time', time() );
-       }
-       update_option( 'subscribtion_form_version', SUBSCRIP_FORM_VERSION );
+        }
+        update_option( 'subscribtion_form_version', SUBSCRIP_FORM_VERSION );
     }
 }
 
- /**
-  * initialize the main plugin
-  *  
-  * @return \Mrm_Subscription_Form 
-  */
- function mrm_subscription_form() {
+/**
+ * initialize the main plugin
+ * 
+ * @since 1.0.0
+ * 
+ * @return \Mrm_Subscription_Form 
+ */
+function mrm_subscription_form() {
      
-     return Mrm_Subscription_Form::init();
- }
- 
- /**
-  * Kick of The Plugin
-  */
-  mrm_subscription_form();
+    return Mrm_Subscription_Form::init();
+}
+
+/**
+ * Kick of The Plugin
+ * 
+ * @since 1.0.0
+ */
+mrm_subscription_form();
 
 
