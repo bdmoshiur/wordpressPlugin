@@ -16,6 +16,8 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -28,9 +30,10 @@ class Posts_View_Count {
 
     /**
      * Constructor Function
+     * 
+     * @since 1.0.0
      */
-    public function __construct()
-    {
+    public function __construct() {
         add_filter( 'the_content', [ $this, 'posts_view_count' ] );
         add_shortcode( 'post_count_view', [ $this, 'mrm_post_count_view' ] );
     }

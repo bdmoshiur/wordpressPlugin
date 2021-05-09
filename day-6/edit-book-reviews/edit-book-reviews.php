@@ -16,6 +16,8 @@
 
 /**
  * The Main Plugin class
+ * 
+ * @since 1.0.0
 */
 if ( ! defined( 'ABSPATH' ) ) { 
     exit;
@@ -30,8 +32,6 @@ require_once  __DIR__ . '/vendor/autoload.php';
 
 /**
  * The main class of plugin
- * 
- * @since 1.0.0
 */
 final class Demo_Test {
 

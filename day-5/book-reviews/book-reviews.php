@@ -16,21 +16,23 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */ 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
 /**
- * The main class of title capitalize plugin 
- * 
- * @since 1.0.0
+ * The main class of title capitalize plugin
  */
 class Mrm_Book_Reviews {
 
     /**
      * Constructor function
      *
+     * @since 1.0.0
+     * 
      * @return void
      */
     public function __construct() {
@@ -42,6 +44,8 @@ class Mrm_Book_Reviews {
     /**
      * Register a custom post type called "book".
      *
+     * @since 1.0.0
+     * 
      * @see get_post_type_labels() for label keys.
      */
     public function mrm_book_reviews_init() {
@@ -162,9 +166,6 @@ class Mrm_Book_Reviews {
      * @return void
      */
     public function book_reviews_metabox_save( $post_ID, $post ) {
-        /**
-         * Retrive data in database
-         */
         $nonce          = isset( $_POST['book_reviews_nonce'] ) ? $_POST['book_reviews_nonce']         : '';
         $book_name      = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] )              : "";
         $publish_date   = isset( $_POST['date'] ) ? $_POST['date']                                     : "";
