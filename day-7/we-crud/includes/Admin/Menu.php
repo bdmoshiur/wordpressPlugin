@@ -10,7 +10,13 @@ namespace We\Crud\Admin;
  */
 class Menu {
 
+    /**
+     * Addressbook variable
+     *
+     * @var object
+     */
     public $addressbook;
+
     /**
      * Cronstructor function
      * 
@@ -22,6 +28,7 @@ class Menu {
         $this->addressbook = $addressbook;
         add_action( 'admin_menu', [ $this,'admin_menu'] );
     }
+
     /**
      * Admin_menu function
      *
@@ -44,8 +51,7 @@ class Menu {
      * 
      * @return string
      */
-    public function settings_page()
-    {
+    public function settings_page() {
         echo "Hello Settings";
     }
 }

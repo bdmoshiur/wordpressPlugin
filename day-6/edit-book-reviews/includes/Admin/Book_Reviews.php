@@ -79,7 +79,7 @@ class Book_Reviews {
      * @return void
      */
     public function book_review_meta_box_add() {
-        add_meta_box( 'book_review_meta_boox', 'Book Information', [ $this, 'book_reviews_meta_box_information' ], 'book', 'side', 'high' );
+        add_meta_box( 'book_review_meta_boox', __( 'Book Information', 'edit-book-reviews' ), [ $this, 'book_reviews_meta_box_information' ], 'book', 'side', 'high' );
     }
     
     /**

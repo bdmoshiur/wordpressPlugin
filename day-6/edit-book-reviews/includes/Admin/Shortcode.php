@@ -37,8 +37,8 @@ class Shortcode {
         $data = ob_get_clean();
         echo $data;
         $search_value = '';
-        if( isset( $_POST[ 'btn_search' ] ) ) { 
-            $search_value = ( $_POST[ 'book_search' ] ) ? $_POST[ 'book_search' ] : '';
+        if ( isset( $_POST['btn_search'] ) ) { 
+            $search_value = ( $_POST['book_search'] ) ? $_POST['book_search'] : '';
             $args = [
                 'post_type'  => 'book',
                 'post_status' => 'publish',
@@ -89,6 +89,7 @@ class Shortcode {
                 printf( '<p> %s </p></li>', $excerpt );
             }
             echo '</ol>';
+
             wp_reset_postdata();
         }
     }

@@ -19,7 +19,7 @@
 */
 if ( ! defined( 'ABSPATH' ) ) { 
     exit;
-  }
+}
 
 /**
  * composer file loaded
@@ -64,9 +64,11 @@ final class Demo_Test {
     */
     public static function init() {
         static $instance = false;
-        if( ! $instance ) {
+
+        if ( ! $instance ) {
             $instance = new self();
         }
+
         return $instance;
     }
 
@@ -92,7 +94,7 @@ final class Demo_Test {
      * 
      * return void
     */
-    public function init_plugin( ) {
+    public function init_plugin() {
         new Demo\Test\Admin();
     }
 
@@ -105,6 +107,7 @@ final class Demo_Test {
     */
     public function activate() {
         $installed = get_option( 'demo_test_time' );
+
         if ( ! $installed ) {
            update_option( 'demo_test_time', time() );
         }
@@ -120,6 +123,7 @@ final class Demo_Test {
  * @return \Demo_Test 
 */
 function mrm_demo_test() {
+
     return Demo_Test::init();
 }
  

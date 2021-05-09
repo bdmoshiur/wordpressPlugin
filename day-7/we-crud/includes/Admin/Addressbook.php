@@ -31,6 +31,7 @@ class Addressbook {
          */
         $action = isset( $_GET['action'] ) ? $_GET['action'] : 'list';
         $id = isset( $_GET['id'] ) ? intval( $_GET['id'] ) : 0;
+        
         switch ( $action ) {
             case 'new':
                 $template = __DIR__ . '/views/address-new.php';
@@ -102,7 +103,7 @@ class Addressbook {
             'phone'   => $phone,
         ];
 
-        if( $id ) {
+        if ( $id ) {
             $args['id'] = $id;
         }
         $inser_id = wp_fp_insert_address( $args );
@@ -111,7 +112,7 @@ class Addressbook {
             wp_die( $inser_id->get_error_message() );
         }
 
-        if( $id ) {
+        if ( $id ) {
             $redirect_to  = admin_url( 'admin.php?page=we-crud&action=edit&address-updated=true&id=' . $id );
         } else {
             $redirect_to  = admin_url( 'admin.php?page=we-crud&inserted=true' );
@@ -139,7 +140,7 @@ class Addressbook {
 
         $id = isset( $_REQUEST[ 'id' ] ) ? intval( $_REQUEST[ 'id' ] ) : 0 ;
         
-        if( wp_fp_delete_address( $id ) ) {
+        if ( wp_fp_delete_address( $id ) ) {
             $redirect_to  = admin_url( 'admin.php?page=we-crud&address-deleted=true' );
         } else {
             $redirect_to  = admin_url( 'admin.php?page=we-crud&address-deleted=false' );

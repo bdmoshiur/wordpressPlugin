@@ -39,7 +39,7 @@ trait Form_Error {
      * @return boolean
      */
     public function get_error( $key ) {
-        if( isset( $this->errors[ $key ] ) ) {
+        if ( isset( $this->errors[ $key ] ) ) {
             return $this->errors[ $key ];
         }
 

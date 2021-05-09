@@ -25,7 +25,7 @@ function wp_fp_insert_address( $args = [] ) {
     ];
     $data     = wp_parse_args( $args, $defaults );
 
-    if( isset( $data['id'] ) ) {
+    if ( isset( $data['id'] ) ) {
 
         $id = $data['id'];
         unset( $data['id'] );
@@ -45,7 +45,7 @@ function wp_fp_insert_address( $args = [] ) {
         );
 
         return $updated;
-    }else{
+    } else {
         $inserted = $wpdb->insert( 
             "{$wpdb->prefix}fp_addresses",
             $data,

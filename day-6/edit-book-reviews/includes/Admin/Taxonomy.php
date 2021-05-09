@@ -35,7 +35,7 @@ class Taxonomy {
             'new_item_name'     => __( 'New Subject Name' ),
             'menu_name'         => __( 'Subjects' ),
         );    
-        register_taxonomy('subjects',array('book'), array(
+        register_taxonomy( 'subjects',array('book' ), array(
             'hierarchical'      => true,
             'labels'            => $labels,
             'show_ui'           => true,

@@ -152,7 +152,7 @@ class Address_list extends \WP_List_Table {
          * 
          * @since 1.0.0 
          */
-        if( isset( $_REQUEST['orderby'] ) && isset( $_REQUEST['order'] ) ) {
+        if ( isset( $_REQUEST['orderby'] ) && isset( $_REQUEST['order'] ) ) {
             $args['orderby'] = $_REQUEST['orderby'];
             $args['order']   = $_REQUEST['order'];
         }

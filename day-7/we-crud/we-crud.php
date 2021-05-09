@@ -40,7 +40,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 * @return mixed
 */
 final class We_Crud {
-
+    
     /**
     * plugin Version
     *
@@ -70,7 +70,8 @@ final class We_Crud {
     */
     public static function init() {
         static $instance = false;
-        if( ! $instance ) {
+
+        if ( ! $instance ) {
             $instance = new self();
         }
 
@@ -100,9 +101,9 @@ final class We_Crud {
      * @return void
     */
     public function init_plugin() {
-        if( is_admin() ){
+        if ( is_admin() ) {
             new We\Crud\Admin();
-        }else{
+        } else {
             new We\Crud\Frontend();
         }
     }
@@ -128,6 +129,7 @@ final class We_Crud {
 * @return \We_Crud
 */
 function mrm_we_crud() {
+
     return We_Crud::init();
 }
  
