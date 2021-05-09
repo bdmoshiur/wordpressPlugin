@@ -16,6 +16,8 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -26,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * 
  * @since 1.0.0
  */
-require_once  __DIR__ . '/vendor/autoload.php'; 
+require_once  __DIR__ . '/vendor/autoload.php';
 
 /**
  * The Main Plugin class
@@ -34,6 +36,8 @@ require_once  __DIR__ . '/vendor/autoload.php';
 final class Mrm_Form_Submit_Ajax {
     /**
      * plugin Version
+     * 
+     * @since 1.0.0
      * 
      * @return string
      */
@@ -44,7 +48,7 @@ final class Mrm_Form_Submit_Ajax {
      * 
      * @since 1.0.0
      * 
-     * @return void 
+     * @return void
      */
     private function __construct() {
         $this->define_constants();
@@ -61,6 +65,7 @@ final class Mrm_Form_Submit_Ajax {
      */
     public static function init() {
         static $instance = false;
+
         if( ! $instance ) {
             $instance = new self();
         }
@@ -93,13 +98,13 @@ final class Mrm_Form_Submit_Ajax {
     public function init_plugin() {
         new Formsubmit\Ajax\Mrm_Assets();
 
-        if( defined( 'DOING_AJAX' ) && DOING_AJAX ){
+        if ( defined( 'DOING_AJAX' ) && DOING_AJAX ){
             new Formsubmit\Ajax\Mrm_Ajax();
         }
         
-        if( is_admin() ) {
+        if ( is_admin() ) {
             new Formsubmit\Ajax\Admin();
-        }else {
+        } else {
             new Formsubmit\Ajax\Frontend();
         }
     }
@@ -122,7 +127,7 @@ final class Mrm_Form_Submit_Ajax {
  *
  * @since 1.0.0
  *  
- * @return \Mrm_Form_Submit_Ajax 
+ * @return \Mrm_Form_Submit_Ajax
  */
 function mrm_form_submit_ajax() {
      
@@ -134,6 +139,6 @@ function mrm_form_submit_ajax() {
  * 
  * @since 1.0.0
  */
-  mrm_form_submit_ajax();
+mrm_form_submit_ajax();
 
 

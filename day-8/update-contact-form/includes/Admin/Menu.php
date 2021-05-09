@@ -1,14 +1,10 @@
 <?php
-
 namespace Formsubmit\Ajax\Admin;
 
 /**
  * The main menu class
- * 
- * @since 1.0.0
  */
 class Menu {
-
     /**
      * Addressbook class instance
      * 

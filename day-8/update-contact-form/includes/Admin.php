@@ -1,14 +1,10 @@
 <?php
-
 namespace Formsubmit\Ajax;
 
 /**
  * The frontend main Class
- * 
- * @since 1.0.0
  */
 class Admin {
-
     /**
      * Constructor function
      * 
@@ -31,6 +27,5 @@ class Admin {
      */
     public function wd_dispatch_actions( $addressbook ) {
         add_action( 'admin_post_wd-af-delete-address', [ $addressbook, 'delete_address'] );
-        
     }
 }

@@ -10,7 +10,7 @@
 function wp_af_insert_address( $args = [] ) {
     global $wpdb;
 
-    if( empty( $args['fname'] )  ){
+    if ( empty( $args['fname'] ) ){
         return new \WP_Error( 'no-name', __( 'You must provide a first name', 'form_submit_ajax' ) );
     }
 
@@ -38,7 +38,7 @@ function wp_af_insert_address( $args = [] ) {
         ]
     );
 
-    if( ! $inserted  ) {
+    if ( ! $inserted  ) {
         return new \WP_Error( 'fail-to-insert', __( 'Fail to insert data', 'form_submit_ajax' ) );
     }
 
@@ -54,7 +54,6 @@ function wp_af_insert_address( $args = [] ) {
  */
 function wp_af_get_address( $args = [] ) {
     global $wpdb;
-
     $defaults = [
         'number' => 20,
         'offset' => 0,
@@ -68,7 +67,6 @@ function wp_af_get_address( $args = [] ) {
         LIMIT %d, %d",
         $args['offset'], $args['number']
         );
-
     $items = $wpdb->get_results( $sql );
 
     return $items;
@@ -83,6 +81,7 @@ function wp_af_get_address( $args = [] ) {
  */
 function wp_af_count_address() {
     global $wpdb;
+
     return (int) $wpdb->get_var( "SELECT COUNT(id) FROM {$wpdb->prefix}af_address" );
 }
 
@@ -101,6 +100,5 @@ function wp_af_delete_address( $id ) {
         [ 'id' => $id ],
         [ '%d' ]
     );
-
 }
 

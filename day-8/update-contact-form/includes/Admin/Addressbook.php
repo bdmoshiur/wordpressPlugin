@@ -1,14 +1,10 @@
 <?php
-
 namespace Formsubmit\Ajax\Admin;
 
 /**
  * The main addressbook class
- * 
- * @since 1.0.0
  */
 class Addressbook {
-
     /**
      * Plugin template render function
      *
@@ -59,6 +55,7 @@ class Addressbook {
         } else{
             $redirect_to = admin_url( 'admin.php?page=user-information&address_deleted=false' );
         }
+
         wp_redirect( $redirect_to );
     }
 }    

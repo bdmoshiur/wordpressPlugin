@@ -1,5 +1,4 @@
 <?php
-
 namespace Formsubmit\Ajax\Admin;
 
 /**
@@ -7,7 +6,7 @@ namespace Formsubmit\Ajax\Admin;
  * 
  * @since 1.0.0
  */
-if( ! class_exists( 'WP_List_Table' ) ) {
+if ( ! class_exists( 'WP_List_Table' ) ) {
     require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
@@ -17,7 +16,6 @@ if( ! class_exists( 'WP_List_Table' ) ) {
  * @since 1.0.0
  */
 class Address_List extends \WP_List_Table {
-
     /**
      * Constructor function
      * 
@@ -39,16 +37,15 @@ class Address_List extends \WP_List_Table {
      * @return string
      */
     public function get_columns() {
-     return [
-         'cb' => "<input type='checkbox'>",
-         'fname' => __( 'First Name', 'form_submit_ajax' ),
-         'lname' => __( 'Last Name', 'form_submit_ajax' ),
-         'email' => __( 'Email', 'form_submit_ajax' ),
-         'message' => __( 'Message', 'form_submit_ajax' ),
-         'created_at' => __( 'Date', 'form_submit_ajax' ),
-     ];
+        return [
+            'cb' => "<input type='checkbox'>",
+            'fname' => __( 'First Name', 'form_submit_ajax' ),
+            'lname' => __( 'Last Name', 'form_submit_ajax' ),
+            'email' => __( 'Email', 'form_submit_ajax' ),
+            'message' => __( 'Message', 'form_submit_ajax' ),
+            'created_at' => __( 'Date', 'form_submit_ajax' ),
+        ];
     }
-
 
     /**
      * Sortable column get function
@@ -79,7 +76,9 @@ class Address_List extends \WP_List_Table {
                 # code...
                 break;
             default:
+            
                 return isset( $item->$column_name ) ? $item->$column_name : '';
+                break;
         }
     }
 
@@ -146,6 +145,4 @@ class Address_List extends \WP_List_Table {
             'per_page'    => $per_page
         ] );
     }
-
-
 }
