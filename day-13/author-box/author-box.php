@@ -42,7 +42,9 @@ final class Author_Box {
     const VERSION = '1.0.0';
 
     /**
-     * class contructor 
+     * class contructor
+     * 
+     * @since 1.0.0
      */
     private function __construct() {
         $this->define_constants();
@@ -81,6 +83,7 @@ final class Author_Box {
 
     /**
      * Initialize the plugin
+     * 
      * @since 1.0.0
      * 
      * @return void

@@ -19,7 +19,7 @@
  * 
  * @since 1.0.0
  */
-if ( ! defined( 'ABSPATH' ) ) { 
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
@@ -57,7 +57,7 @@ final class Mrm_Subscription_Form {
     }
 
     /**
-     * initialize a singleton instance 
+     * initialize a singleton instance
      * 
      * @since 1.0.0
      * 

@@ -16,6 +16,8 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -23,13 +25,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * composer loaded
+ * 
+ * @since 1.0.0
  */
 require_once __DIR__ . '/vendor/autoload.php';
-
 
 final class Recent_Posts {
     /**
      * Plugin version
+     * 
+     * @since 1.0.0
      * 
      * @var string version
      */
@@ -38,18 +43,20 @@ final class Recent_Posts {
     /**
      * Class constructor
      * 
+     * @since 1.0.0
+     * 
      * @return void
      */
     private function __construct() {
         $this->define_constants();
-
         register_activation_hook( __FILE__, [ $this, 'activate' ] );
-
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
     }
 
     /**
      * Run all necessary plugin functionalities
+     * 
+     * @since 1.0.0
      * 
      * @return void
      */
@@ -59,12 +66,13 @@ final class Recent_Posts {
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             new Recent\Posts\Ajax();
         }
-        
         new Recent\Posts\Dashboard();
     }
 
     /**
      * Define all necessary constants
+     * 
+     * @since 1.0.0
      * 
      * @return void
      */
@@ -79,6 +87,8 @@ final class Recent_Posts {
     /**
      * Add plugin version and time
      * 
+     * @since 1.0.0
+     * 
      * @return void
      */
     public function activate() {
@@ -87,12 +97,13 @@ final class Recent_Posts {
         if ( ! $installed ) {
             update_option( 'recent_posts_time', time() );
         }
-
         update_option( 'recent_posts_version', RECENT_POSTS_VERSION );
     }
 
     /**
      * Initialize Singleton Instance
+     * 
+     * @since 1.0.0
      * 
      * @return \Recent_Posts
      */
@@ -111,11 +122,17 @@ final class Recent_Posts {
 /**
  * Initialize the plugin
  * 
+ * @since 1.0.0
+ * 
  * @return \Recent_Posts
  */
 function mrm_recent_posts_boot() {
     return Recent_Posts::init();
 }
 
-// Start the plugin
+/**
+ * Start the plugin
+ * 
+ * @since 1.0.0
+ */
 mrm_recent_posts_boot();

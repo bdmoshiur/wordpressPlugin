@@ -4,11 +4,13 @@ namespace Recent\Posts;
 
 /**
  * Assets class
- * 
  */
 class Assets {
     /**
      * Class constructor
+     * 
+     * @since 1.0.0
+     * @return void
      */
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'register_script' ] );
@@ -17,6 +19,8 @@ class Assets {
 
     /**
      * Register scripts
+     * 
+     * @since 1.0.0
      * 
      * @return void
      */
@@ -28,5 +32,4 @@ class Assets {
             'nonce'    => wp_create_nonce( 'dashboard_form_handle' ),
         ] );
     }
-    
 }

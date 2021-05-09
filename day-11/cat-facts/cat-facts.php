@@ -17,13 +17,14 @@
 /**
  * Exit if accessed directly
  */
-if ( ! defined( 'ABSPATH' ) ) { 
-      exit;
-  }
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * composer loaded
  */
-require_once  __DIR__ . '/vendor/autoload.php'; 
+require_once  __DIR__ . '/vendor/autoload.php';
 
 /**
  * The Main Plugin class
@@ -37,7 +38,9 @@ final class Cat_Facts {
     const VERSION = '1.0.0';
 
     /**
-     * class contructor 
+     * class contructor
+     * 
+     * @since 1.0.0
      */
     private function __construct() {
         $this->define_constants();
@@ -52,14 +55,18 @@ final class Cat_Facts {
      */
     public static function init() {
         static $instance = false;
-        if( ! $instance ) {
+
+        if ( ! $instance ) {
             $instance = new self();
         }
+
         return $instance;
     }
 
     /**
      * Define the Required Plugin Constants
+     * 
+     * @since 1.0.0
      * 
      * @return void
      */
@@ -74,10 +81,12 @@ final class Cat_Facts {
     /**
      * Initialize the plugin
      * 
-     * return void
+     * @since 1.0.0
+     * 
+     * @return void
      */
     public function init_plugin() {
-        if( is_admin() ){
+        if ( is_admin() ){
             new Cat\Facts\Admin();
         }
     }
@@ -85,31 +94,35 @@ final class Cat_Facts {
     /**
      * Do Staff Upon Plugin Activation
      * 
+     * @since 1.0.0
+     * 
      * @return void
      */
     public function activate() {
-       $installed = get_option( 'cat-facts_time' );
+        $installed = get_option( 'cat-facts_time' );
 
-       if ( ! $installed ) {
+        if ( ! $installed ) {
            update_option( 'cat-facts_time', time() );
-       }
-       update_option( 'cat-facts_version', CAT_FACTS_VERSION );
+        }
+        update_option( 'cat-facts_version', CAT_FACTS_VERSION );
     }
 }
 
- /**
-  * initialize the main plugin
-  *  
-  * @return \Cat_Facts 
-  */
- function mrm_cat_acts() {
+/**
+ * initialize the main plugin
+ * 
+ * @since 1.0.0
+ *  
+ * @return \Cat_Facts 
+ */
+function mrm_cat_acts() {
      
-     return Cat_Facts::init();
- }
+    return Cat_Facts::init();
+}
  
- /**
-  * Kick of The Plugin
-  */
-  mrm_cat_acts();
+/**
+ * Kick of The Plugin
+ */
+mrm_cat_acts();
 
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace Recent\Posts;
 
 /**
@@ -9,6 +8,8 @@ class Ajax {
     /**
      * Class constructor
      * 
+     * @since 1.0.0
+     * 
      * @return void
      */
     public function __construct() {
@@ -17,6 +18,8 @@ class Ajax {
 
     /**
      * Handle ajax request
+     * 
+     * @since 1.0.0
      * 
      * @return string
      */
