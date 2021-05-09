@@ -18,16 +18,20 @@
  * Exit if accessed directly
  */
 if ( ! defined( 'ABSPATH' ) ) {
-      exit;
-  }
+    exit;
+}
 
 /**
  * composer loaded
+ * 
+ * @since 1.0.0
  */
 require_once  __DIR__ . '/vendor/autoload.php';
 
 /**
  * The Main Plugin class
+ * 
+ * @since 1.0.0
  */
 final class User_Role_Capability {
     /**
@@ -43,6 +47,8 @@ final class User_Role_Capability {
      * class contructor
      * 
      * @since 1.0.0
+     * 
+     * @return void
      */
     private function __construct() {
         $this->define_constants();
@@ -59,7 +65,7 @@ final class User_Role_Capability {
      */
     public static function init() {
         static $instance = false;
-        if( ! $instance ) {
+        if ( ! $instance ) {
             $instance = new self();
         }
         return $instance;
@@ -99,34 +105,34 @@ final class User_Role_Capability {
      * @return void
      */
     public function activate() {
-       $installed = get_option( 'role_capability_time' );
+        $installed = get_option( 'role_capability_time' );
 
-       if ( ! $installed ) {
+        if ( ! $installed ) {
            update_option( 'role_capability_time', time() );
-       }
-       update_option( 'role_capability_version', ROLE_CAPABILITY_VERSION );
+        }
+        update_option( 'role_capability_version', ROLE_CAPABILITY_VERSION );
 
-       add_role( 'customer_role', 'Customer Role' );
+        add_role( 'customer_role', 'Customer Role' );
     }
 }
 
- /**
-  * initialize the main plugin
-  * 
-  * @since 1.0.0
-  *
-  * @return \User_Role_Capability
-  */
- function mrm_user_role_capability() {
+/**
+ * initialize the main plugin
+ * 
+ * @since 1.0.0
+ * 
+ * @return \User_Role_Capability
+ */
+function mrm_user_role_capability() {
      
-     return User_Role_Capability::init();
- }
- 
- /**
-  * Kick of The Plugin
-  *
-  * @since 1.0.0
-  */
-  mrm_user_role_capability();
+    return User_Role_Capability::init();
+}
+
+/**
+ * Kick of The Plugin
+ * 
+ * @since 1.0.0
+ */ 
+mrm_user_role_capability();
 
 

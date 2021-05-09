@@ -25,9 +25,9 @@ class Customer_Registration_Form {
      * @return void
      */
     public function render_user_registration_form( $atts , $content ='' ) {
-        if(  isset( $_POST['send_shortcode'] ) ) {
+        if (  isset( $_POST['send_shortcode'] ) ) {
 
-            if( ! wp_verify_nonce( $_POST['_wpnonce'], 'nonce_from_shortcode' ) ) {
+            if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'nonce_from_shortcode' ) ) {
                 wp_die( 'Aru you Cheating nonce' );
             }
 
@@ -62,7 +62,7 @@ class Customer_Registration_Form {
                             'read'              => true,
                         ];
     
-                        foreach ($data as $key => $value) {
+                        foreach ( $data as $key => $value ) {
                             $user->add_cap( $key, $value );
                         }
                         break;
@@ -75,10 +75,10 @@ class Customer_Registration_Form {
                             'read'              => true,
                         ];
     
-                        foreach ($data as $key => $value) {
+                        foreach ( $data as $key => $value ) {
                             $user->add_cap( $key, $value );
                         }
-                        break;    
+                        break;
                     
                     default:
                         $data = [
@@ -86,7 +86,7 @@ class Customer_Registration_Form {
                             'read'          => true,
                         ];
     
-                        foreach ($data as $key => $value) {
+                        foreach ( $data as $key => $value ) {
                             $user->add_cap( $key, $value );
                         }
                         break;
@@ -100,6 +100,6 @@ class Customer_Registration_Form {
 
         if ( file_exists( $template ) ) {
             include $template;
-        } 
+        }
     }
 }

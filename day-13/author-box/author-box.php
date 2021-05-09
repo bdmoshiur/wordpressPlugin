@@ -16,15 +16,19 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
-if ( ! defined( 'ABSPATH' ) ) { 
-      exit;
-  }
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
   
 /**
  * composer loaded
+ * 
+ * @since 1.0.0
  */
-require_once  __DIR__ . '/vendor/autoload.php'; 
+require_once  __DIR__ . '/vendor/autoload.php';
 
 /**
  * The Main Plugin class
@@ -44,23 +48,26 @@ final class Author_Box {
         $this->define_constants();
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
-     }
+    }
 
     /**
-     * initialize a singleton instance 
+     * initialize a singleton instance
      * 
      * @return \Author_Box
      */
     public static function init() {
         static $instance = false;
-        if( ! $instance ) {
+        if ( ! $instance ) {
             $instance = new self();
         }
+        
         return $instance;
     }
 
     /**
      * Define the Required Plugin Constants
+     * 
+     * @since 1.0.0
      * 
      * @return void
      */
@@ -74,13 +81,14 @@ final class Author_Box {
 
     /**
      * Initialize the plugin
+     * @since 1.0.0
      * 
-     * return void
+     * @return void
      */
     public function init_plugin() {
-        if( is_admin() ){
+        if ( is_admin() ){
             new Author\Box\Admin();
-        }else{
+        } else {
             new Author\Box\Frontend();
         }
     }
@@ -88,31 +96,37 @@ final class Author_Box {
     /**
      * Do Staff Upon Plugin Activation
      * 
+     * @since 1.0.0
+     * 
      * @return void
      */
     public function activate() {
-       $installed = get_option( 'author_box_time' );
+        $installed = get_option( 'author_box_time' );
 
-       if ( ! $installed ) {
+        if ( ! $installed ) {
            update_option( 'author_box_time', time() );
-       }
-       update_option( 'author_box_version', AUTHOR_BOX_VERSION );
+        }
+        update_option( 'author_box_version', AUTHOR_BOX_VERSION );
     }
 }
 
- /**
-  * initialize the main plugin
-  *  
-  * @return \Author_Box 
-  */
- function mrm_author_box() {
+/**
+ * initialize the main plugin
+ * 
+ * @since 1.0.0
+ * 
+ * @return \Author_Box 
+ */
+function mrm_author_box() {
      
-     return Author_Box::init();
- }
- 
- /**
-  * Kick of The Plugin
-  */
-  mrm_author_box();
+    return Author_Box::init();
+}
+
+/**
+ * Kick of The Plugin
+ * 
+ * @since 1.0.0
+ */
+mrm_author_box();
 
 

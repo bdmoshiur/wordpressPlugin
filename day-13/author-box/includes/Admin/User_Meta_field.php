@@ -1,5 +1,4 @@
 <?php
-
 namespace Author\Box\Admin;
 
 /**
@@ -28,6 +27,7 @@ class User_Meta_field {
         $methods[ 'facebook' ] = __( 'Facebook', 'author-box' );
         $methods[ 'twitter' ]  = __( 'Twitter', 'author-box' );
         $methods[ 'linkedin' ] = __( 'Linkedin', 'author-box' );
+
         return $methods;
     }
 }

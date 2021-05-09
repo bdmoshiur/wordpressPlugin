@@ -1,5 +1,4 @@
 <?php
-
 namespace Author\Box\Frontend;
 
 /**
