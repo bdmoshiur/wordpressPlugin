@@ -16,17 +16,19 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
-if ( ! defined( 'ABSPATH' ) ) { 
-      exit;
-  }
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 /**
  * composer loaded
  * 
  * @since 1.0.0
  */
-require_once  __DIR__ . '/vendor/autoload.php'; 
+require_once  __DIR__ . '/vendor/autoload.php';
 
 /**
  * The Main Plugin class
@@ -58,7 +60,7 @@ final class Featured_Posts {
      }
 
     /**
-     * initialize a singleton instance 
+     * initialize a singleton instance
      * 
      * @since 1.0.0
      * 
@@ -66,9 +68,11 @@ final class Featured_Posts {
      */
     public static function init() {
         static $instance = false;
-        if( ! $instance ) {
+
+        if ( ! $instance ) {
             $instance = new self();
         }
+
         return $instance;
     }
 
@@ -95,9 +99,9 @@ final class Featured_Posts {
      * return void
      */
     public function init_plugin() {
-        if( is_admin() ){
+        if ( is_admin() ){
             new Featured\Posts\Admin();
-        }else{
+        } else{
             new Featured\Posts\Frontend();
         }
     }
@@ -119,23 +123,23 @@ final class Featured_Posts {
     }
 }
 
- /**
-  * initialize the main plugin
-  *  
-  * @since 1.0.0
-  *
-  * @return \Featured_Posts 
-  */
- function mrm_featured_posts() {
+/**
+ * initialize the main plugin
+ *  
+ * @since 1.0.0
+ *
+ * @return \Featured_Posts 
+ */
+function mrm_featured_posts() {
      
-     return Featured_Posts::init();
- }
+    return Featured_Posts::init();
+}
  
- /**
-  * Kick of The Plugin
-  *
-  * @since 1.0.0
-  */
-  mrm_featured_posts();
+/**
+ * Kick of The Plugin
+ *
+ * @since 1.0.0
+ */
+mrm_featured_posts();
 
 

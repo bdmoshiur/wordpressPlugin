@@ -28,7 +28,7 @@ class Featured_Post_Settings {
      * @return void
      */
     public function fps_add_options_menu() {
-        add_options_page( 'Featured posts setting', 'Featured Posts', 'manage_options', 'post_options', [ $this, 'fps_display_options_menu' ] );
+        add_options_page( __( 'Featured posts setting', 'featured-posts ' ), __( 'Featured Posts', 'featured-posts' ), 'manage_options', 'post_options', [ $this, 'fps_display_options_menu' ] );
     }
 
     /**
@@ -61,7 +61,6 @@ class Featured_Post_Settings {
      * 
      * @return void
      */
-
     public function fps_featured_posts_field_register() {
         add_settings_section( 'post_sections', __( 'Featured Posts Setting', 'featured-posts' ), [ $this,'fps_add_field' ], 'post_options' );
 
@@ -106,15 +105,15 @@ class Featured_Post_Settings {
      */
     public function post_order_display() {
         $option = get_option( 'posts_order' );
-        $orders = array(
+        $orders = [
             __( 'Random', 'featured-posts' ),
             __( 'ASE', 'featured-posts' ),
             __( 'DESC', 'featured-posts' ),
-        );
+        ];
         printf( "<select class='regular-text' id='%s' name='%s' >", 'posts_order', 'posts_order' );
         foreach( $orders as $order ){
             $selected = '';
-            if( $option == $order ) {
+            if ( $option == $order ) {
                 $selected = "Selected";
             }
             printf( "<option value='%s' %s >%s</option>", $order, $selected, $order );

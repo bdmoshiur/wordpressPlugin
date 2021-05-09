@@ -47,14 +47,12 @@ class Shortcode {
       );
 
       $the_query = get_transient( 'feature_post_transient_data' );
+
       if( false == $the_query ) {
          $the_query = new \WP_Query( $args );
          set_transient( 'feature_post_transient_data', $the_query, MINUTE_IN_SECONDS );
       }
-      
-      /**
-       * Removes transient in case of form update
-       */
+
       if ( isset( $_POST['featured-posts-setting'] ) ) {
          delete_transient( 'feature_post_transient_data' );
         }
@@ -67,6 +65,7 @@ class Shortcode {
          }
          echo '</ul>';
       }
+      
       wp_reset_postdata();
    }
 }
