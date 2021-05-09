@@ -1,11 +1,8 @@
 <?php
-
 namespace Jobs\Search;
 
 /**
  * Shortcode handler class
- * 
- * @since  1.0.0
  */
 class Shortcode {
 
@@ -13,6 +10,8 @@ class Shortcode {
      * Initialize the class
      *
      * @since  1.0.0
+     * 
+     * @return void
      */
     public function __construct() {
         add_shortcode( 'search-jobs', [ $this, 'jobs_search_form_render' ] );

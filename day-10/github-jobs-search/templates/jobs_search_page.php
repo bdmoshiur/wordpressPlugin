@@ -1,12 +1,3 @@
-<?php
-/**
- * Template: Jobs search form shortcode
- *
- * HMTL template for job searcing form
- *
- * @since 1.0.0
- */
-?>
 <div class="job-search-form-wrapper">
     <form action="" method="get" id="job-search-form">
         <input type="text" name="search-keyword" id="search-keyword" placeholder="<?php esc_attr_e( 'Search Jobs Keyword', 'github_jobs_earch' ); ?>">
@@ -20,4 +11,3 @@
         <input type="submit" name="job-search-submit" value="<?php esc_attr_e( 'Jobs Search', 'github_jobs_earch' ); ?>">
     </form>
 </div>
-<?php

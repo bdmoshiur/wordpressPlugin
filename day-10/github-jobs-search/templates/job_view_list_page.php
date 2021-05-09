@@ -1,12 +1,3 @@
-<?php
-/**
- * Template: Job list viwer
- *
- * HMTL template for job list preview
- *
- * @since 1.0.0
- */
-?>
 <div class="single-job-wrapper">
     <h4><a href="<?php echo esc_attr( '?search-id='. $single_job_search->id ); ?>"><?php echo esc_html( $single_job_search->title ); ?></a></h4>
     <p>
@@ -18,4 +9,4 @@
         <?php echo esc_html( $single_job_search->location ); ?>
     </p>
 </div>
-<?php
+

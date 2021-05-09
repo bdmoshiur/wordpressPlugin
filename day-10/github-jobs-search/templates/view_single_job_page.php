@@ -1,12 +1,3 @@
-<?php
-/**
- * Template: Single job viwer
- *
- * HMTL template for single job preview
- *
- * @since 1.0.0
- */
-?>
 <div class="single-job-wrapper">
     <h4><?php echo esc_html( $job_search_result->title ); ?></h4>
     <p>
@@ -21,4 +12,3 @@
         <?php echo wp_kses_post( $job_search_result->description ); ?>
     </div>
 </div>
-<?php

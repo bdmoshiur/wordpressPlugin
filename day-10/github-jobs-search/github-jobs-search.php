@@ -16,13 +16,17 @@
 
 /**
  * Don't call the file directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+    exit;    
 }
 
 /**
  * Include the autoloader
+ * 
+ * @since 1.0.0
  */
 if ( ! file_exists( __DIR__ . "/vendor/autoload.php" ) ) {
     return;
@@ -31,17 +35,13 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 /**
  * Main plugin class
- *
- * @class Mrm_Jobs_Search
- *
- * The class that holds
- * the entire plugin
  */
 final class Mrm_Jobs_Search {
-
     /**
      * Plugin version
-     *
+     * 
+     * @since 1.0.0
+     * 
      * @var string
      */
     const VERSION = '1.0.0';
@@ -50,12 +50,12 @@ final class Mrm_Jobs_Search {
      * Class constructor
      *
      * @since  1.0.0
+     * 
+     * @return void
      */
     public function __construct() {
         $this->define_constants();
-
         register_activation_hook( __FILE__, [ $this, 'activate' ] );
-
         $this->init_plugin();
     }
 
@@ -69,7 +69,7 @@ final class Mrm_Jobs_Search {
     public static function init() {
         static $instance = false;
 
-        if( ! $instance ) {
+        if ( ! $instance ) {
             $instance = new self();
         }
 
@@ -112,17 +112,18 @@ final class Mrm_Jobs_Search {
     public function activate() {
         $installed = get_option( 'mrm_jobs_search_installed' );
 
-        if( ! $installed ) {
+        if ( ! $installed ) {
             update_option( 'mrm_jobs_search_installed', time() );
         }
-
         update_option( 'mrm_jobs_search_version', MRM_JOBS_SEARCH_VERSION );
     }
 }
 
 /**
  * Initialize the main plugin
- *
+ * 
+ * @since 1.0.0
+ * 
  * @return \Mrm_Jobs_Search
  */
 function mrm_jobs_search() {
