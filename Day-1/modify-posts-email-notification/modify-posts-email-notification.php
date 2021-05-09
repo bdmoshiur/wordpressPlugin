@@ -16,6 +16,8 @@
 
  /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */ 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -28,6 +30,10 @@ class Modify_Posts_Email_Notification {
 
     /**
      * Constructor function
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     function __construct() {
         add_filter( 'modify_email', [ $this,'modify_post_published_notification' ] );
@@ -36,27 +42,38 @@ class Modify_Posts_Email_Notification {
     /**
      * The main function Email sent
      *
+     * @since 1.0.0
+     * 
      * @param string $to
      * 
      * @return array
      */
     function modify_post_published_notification( $to ) {
-      $to      = [ get_option( 'admin_email' ), 'test@gmail.com', 'hello@gmail.com' ];
+        $to = [
+            get_option( 'admin_email' ),
+            'test@gmail.com',
+            'hello@gmail.com'
+        ];
 
-      return  $to;
+        return  $to;
     }
 }
 
 /**
  * The main class instance
  *
+ * @since 1.0.0
+ * 
  * @return object
  */
-function modify_post_mail() {
+function mrm_modify_post_mail() {
+
     return new Modify_Posts_Email_Notification();
 }
 
 /**
  * object calling function
+ * 
+ * @since 1.0.0
  */
-modify_post_mail();
+mrm_modify_post_mail();

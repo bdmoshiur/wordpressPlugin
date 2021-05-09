@@ -29,10 +29,11 @@ class Posts_View_Count {
     /**
      * Constructor Function
      * 
+     * @since 1.0.0
+     * 
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         add_filter( 'the_content', [ $this, 'posts_view_count' ] );
           /**
          * Post view & title show shortcode
@@ -43,12 +44,13 @@ class Posts_View_Count {
     /**
      * The main function post view count
      *
+     * @since 1.0.0
+     * 
      * @param string $content
      * 
      * @return array
      */
-    public function posts_view_count( $content )
-    {
+    public function posts_view_count( $content ) {
         if ( is_single() ) {
             $post_id = get_the_ID();
             $post_view = get_post_meta( $post_id, 'view_post_single_page', true );
@@ -63,66 +65,73 @@ class Posts_View_Count {
     /**
      * Undocumented function
      *
+     * @since 1.0.0
+     * 
      * @param array $atts
      * 
      * @return string
      */
     public function mrm_post_count_view( $atts, $content ) {
         $atts = shortcode_atts( 
-           array (
-           'id'       => '',
-           'category' => '',
-           'post_no'  => '10',
-           'order'    => 'DESC',
-       ), $atts );
+            [
+                'id'       => '',
+                'category' => '',
+                'post_no'  => '10',
+                'order'    => 'DESC',
+            ],
+            $atts
+        );
 
-       /* Wp query argument set */
-       $args = array(
+        /* Wp query argument set */
+        $args = [
            'post_type'      => 'post', 
            'meta_key'       => 'view_post_single_page', 
            'posts_per_page' => $atts['post_no'],
            'order'          => $atts['order'],
            'orderby'        => 'meta_value_num',
            'post_status'    => 'publish'
-       );
+        ];
 
-         /* Check category Name*/
-         if ( $atts['category'] != '' ) {
+        /* Check category Name*/
+        if ( $atts['category'] != '' ) {
            $args['category_name'] = $atts['category'];
-       }
+        }
 
-       /* Check post id */
-       if ( $atts['id']  != '' ) {
+        /* Check post id */
+        if ( $atts['id']  != '' ) {
            $post_id = explode( ',', $atts['id'] );
            $args['post__in'] = $post_id;
            unset( $args['category_name'] );
-       }
+        }
 
-       /* Main Query */
-       $query = new \WP_Query( $args );
-       while ( $query->have_posts() ) {
+        /* Main Query */
+        $query = new \WP_Query( $args );
+        while ( $query->have_posts() ) {
            $query->the_post();
            echo '<li>' . get_the_title() . ' ( ' . $query->post->view_post_single_page . ' ) ' . '</li>';
-       }
+        }
 
-       /* Restore original Post Data */
-       wp_reset_postdata();
+        /* Restore original Post Data */
+        wp_reset_postdata();
 
-       return $content;
+        return $content;
     }
 }
 
 /**
  * The main class instance
  *
+ * @since 1.0.0
+ * 
  * @return object
  */
-function posts_view()
-{
+function mrm_posts_view() {
     return new Posts_View_Count();
 }
 
 /**
  * object calling function
+ * 
+ * @since 1.0.0
  */
-posts_view();
+mrm_posts_view();

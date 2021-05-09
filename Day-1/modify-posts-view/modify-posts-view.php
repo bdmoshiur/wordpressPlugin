@@ -16,6 +16,8 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -26,35 +28,45 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Modify_Posts_View {
 
-    public function __construct()
-    {
+    /**
+     * Constuctor function
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
+     */
+    public function __construct() {
         add_filter( 'modify_count_view', [ $this, 'modify_posts_view' ] );
     }
 
     /**
      * The main function Modify Posts View
      *
+     * @since 1.0.0
+     * 
      * @return void
      */
-    public function modify_posts_view( $view )
-    {
+    public function modify_posts_view( $view ) {
+
         return "<em>" . $view . "</em>";
-
     }
-
 }
 
 /**
  * The main class instance
  *
+ * @return mixed
+ * 
  * @return object
  */
-function modify_post()
-{
+function mrm_modify_post() {
+    
     return new Modify_Posts_View();
 }
 
 /**
  * object calling function
+ * 
+ * @since 1.0.0
  */
-modify_post();
+mrm_modify_post();

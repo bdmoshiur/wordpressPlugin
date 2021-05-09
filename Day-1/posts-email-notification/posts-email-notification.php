@@ -16,6 +16,8 @@
 
 /**
  * Exit if accessed directly
+ * 
+ * @since 1.0.0
  */
 if ( ! defined('ABSPATH' ) ) {
     exit;
@@ -24,30 +26,38 @@ if ( ! defined('ABSPATH' ) ) {
 /**
  * The main class Modify Posts View plugin
  */
-class Posts_Email_Notification
-{
+class Posts_Email_Notification {
 
-    public function __construct()
-    {
+    /**
+     * Constructor function
+     * 
+     * @since 1.0.0
+     * 
+     * @return void
+     */
+    public function __construct() {
         add_action( 'publish_post', [ $this, 'post_published_notification' ], 10, 2 );
     }
 
     /**
      * The main function Email sent notification
      *
+     * @since 1.0.0
+     * 
      * @param int $post_id
      * @param object $post
      * 
      * @return  array
      */
     public function post_published_notification( $post_id, $post ) {
-        $author = $post->post_author;
-        $name = get_the_author_meta( 'display_name', $author );
-        $email = get_the_author_meta( 'user_email', $author );
-        $to = [ get_option( 'admin_email' ) ];
+        $author  = $post->post_author;
+        $name    = get_the_author_meta( 'display_name', $author );
+        $email   = get_the_author_meta( 'user_email', $author );
+        $to      = [ get_option( 'admin_email' ) ];
         $subject = $post->post_title;
         $message = "Test email sent. Author Email .$email.'Author Name' . $name";
-        $to = apply_filters( 'modify_email', $to );
+        $to      = apply_filters( 'modify_email', $to );
+
         wp_mail( $to, $subject, $message );
     }
 }
@@ -55,13 +65,17 @@ class Posts_Email_Notification
 /**
  * The main class instance
  *
+ * @since 1.0.0
+ * 
  * @return object
  */
-function post_mail() {
+function mrm_post_mail() {
     return new Posts_Email_Notification();
 }
 
 /**
  * object calling function
+ * 
+ * @since 1.0.0
  */
-post_mail();
+mrm_post_mail();
