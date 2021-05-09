@@ -19,12 +19,12 @@
 	
 		<?php
 		the_content();
-        $id = get_the_ID();
-        $book_name_show = get_post_meta( $id, 'br_book_name' , true );
-        $book_date_show = get_post_meta( $id, 'br_book_date' , true );
-        $book_code_show = get_post_meta( $id, 'br_book_code' , true );
-        $author_name_show = get_post_meta( $id, 'br_book_author_name' , true );
-        $author_email_show = get_post_meta( $id, 'br_book_email' , true );
+        $id                  = get_the_ID();
+        $book_name_show      = get_post_meta( $id, 'br_book_name' , true );
+        $book_date_show      = get_post_meta( $id, 'br_book_date' , true );
+        $book_code_show      = get_post_meta( $id, 'br_book_code' , true );
+        $author_name_show    = get_post_meta( $id, 'br_book_author_name' , true );
+        $author_email_show   = get_post_meta( $id, 'br_book_email' , true );
         $author_address_show = get_post_meta( $id, 'br_book_address' , true );
 
         echo '<div style="width:900px; text-align:center">';
@@ -37,22 +37,21 @@
         echo '</div>';
 
 		wp_link_pages(
-			array(
+			[
 				'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'twentytwentyone' ) . '">',
 				'after'    => '</nav>',
-				/* translators: %: page number. */
 				'pagelink' => esc_html__( 'Page %', 'twentytwentyone' ),
-			)
+			]
 		);
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer default-max-width">
 		<?php twenty_twenty_one_entry_meta_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</footer>
 
 	<?php if ( ! is_singular( 'attachment' ) ) : ?>
 		<?php get_template_part( 'template-parts/post/author-bio' ); ?>
 	<?php endif; ?>
 
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>

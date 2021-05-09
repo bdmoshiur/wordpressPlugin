@@ -60,13 +60,13 @@ class Book_Reviews {
             'show_ui'            => true,
             'show_in_menu'       => true,
             'query_var'          => true,
-            'rewrite'            => [ 'slug' => 'book' ],
+            'rewrite'            => ['slug' => 'book'],
             'capability_type'    => 'post',
             'has_archive'        => true,
             'hierarchical'       => false,
             'menu_position'      => null,
-            'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ],
-            'taxonomies'         => [ 'subjects' , 'category' , 'post_tag' ],
+            'supports'           => ['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'],
+            'taxonomies'         => ['subjects' , 'category' , 'post_tag'],
         ];
         register_post_type( 'book', $args );
     }

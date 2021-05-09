@@ -45,7 +45,7 @@ class Mrm_Book_Reviews {
      * @see get_post_type_labels() for label keys.
      */
     public function mrm_book_reviews_init() {
-        $labels = array(
+        $labels = [
             'name'                  => _x( 'Books', 'Post type general name', 'book-reviews' ),
             'singular_name'         => _x( 'Book', 'Post type singular name', 'book-reviews' ),
             'menu_name'             => _x( 'Books', 'Admin Menu text', 'book-reviews' ),
@@ -70,23 +70,23 @@ class Mrm_Book_Reviews {
             'filter_items_list'     => _x( 'Filter books list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'book-reviews' ),
             'items_list_navigation' => _x( 'Books list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'book-reviews' ),
             'items_list'            => _x( 'Books list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'book-reviews' ),
-        );
+        ];
 
-        $args = array(
+        $args = [
             'labels'             => $labels,
             'public'             => true,
             'publicly_queryable' => true,
             'show_ui'            => true,
             'show_in_menu'       => true,
             'query_var'          => true,
-            'rewrite'            => array( 'slug' => 'book' ),
+            'rewrite'            => ['slug' => 'book'],
             'capability_type'    => 'post',
             'has_archive'        => true,
             'hierarchical'       => false,
             'menu_position'      => null,
-            'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-            'taxonomies'         => array( 'category' ),
-        );
+            'supports'           => ['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'],
+            'taxonomies'         => ['category'],
+        ];
 
         register_post_type( 'book', $args );
     }
@@ -99,7 +99,7 @@ class Mrm_Book_Reviews {
      * @return void
      */
     public function book_review_meta_box_add() {
-        add_meta_box( 'book_review_meta_boox', 'Book Information', [ $this, 'book_reviews_meta_box_information' ], 'book', 'side', 'high' );
+        add_meta_box( 'book_review_meta_boox', __( 'Book Information', 'book-reviews' ), [ $this, 'book_reviews_meta_box_information' ], 'book', 'side', 'high' );
     }
     
     /**
@@ -165,7 +165,7 @@ class Mrm_Book_Reviews {
         /**
          * Retrive data in database
          */
-        $nonce          = isset( $_POST[ 'book_reviews_nonce' ] ) ? $_POST[ 'book_reviews_nonce' ]     : '';
+        $nonce          = isset( $_POST['book_reviews_nonce'] ) ? $_POST['book_reviews_nonce']         : '';
         $book_name      = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] )              : "";
         $publish_date   = isset( $_POST['date'] ) ? $_POST['date']                                     : "";
         $book_code      = isset( $_POST['code'] ) ? sanitize_text_field( $_POST['code']  )             : "";
@@ -204,6 +204,7 @@ class Mrm_Book_Reviews {
  * @return object
  */
 function mrm_br_book_reviews() {
+
     return new Mrm_Book_Reviews();
 }
 

@@ -22,7 +22,7 @@ class Taxonomy {
      * @since 1.0.0
      */
     public function books_custom_taxonomy() {
-        $labels = array(
+        $labels = [
             'name'              => _x( 'Subjects', 'taxonomy general name' ),
             'singular_name'     => _x( 'Subject', 'taxonomy singular name' ),
             'search_items'      => __( 'Search Subjects' ),
@@ -34,15 +34,15 @@ class Taxonomy {
             'add_new_item'      => __( 'Add New Subject' ),
             'new_item_name'     => __( 'New Subject Name' ),
             'menu_name'         => __( 'Subjects' ),
-        );    
-        register_taxonomy( 'subjects',array('book' ), array(
+        ];    
+        register_taxonomy( 'subjects',['book'], [
             'hierarchical'      => true,
             'labels'            => $labels,
             'show_ui'           => true,
             'show_in_rest'      => true,
             'show_admin_column' => true,
             'query_var'         => true,
-            'rewrite'           => array( 'slug' => 'subject' ),
-        ) );
+            'rewrite'           => ['slug' => 'subject'],
+        ] );
     }
 }
