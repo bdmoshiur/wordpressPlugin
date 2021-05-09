@@ -132,5 +132,7 @@ function mrm_jobs_search() {
 
 /**
  * Kick-off the plugin
+ * 
+ * @since 1.0.0
  */
 mrm_jobs_search();

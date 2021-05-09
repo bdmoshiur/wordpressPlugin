@@ -27,11 +27,15 @@ class Shortcode {
      * @return void
      */
     public function jobs_search_form_render( $atts ) {
-        $atts = shortcode_atts( apply_filters( 'mrm-jobs-search-fields', [
-            'keyword'  => '',
-            'location' => '',
-            'fulltime' => '',
-        ] ), $atts );
+        $atts = shortcode_atts( apply_filters( 'mrm-jobs-search-fields',
+                [
+                    'keyword'  => '',
+                    'location' => '',
+                    'fulltime' => '',
+                ] 
+            ),
+            $atts
+        );
 
         ob_start();
         include MRM_JOBS_SEARCH_PATH . '/templates/jobs_search_page.php';
