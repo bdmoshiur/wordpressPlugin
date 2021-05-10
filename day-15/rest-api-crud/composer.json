@@ -1,0 +1,20 @@
+{
+    "name": "moshiurcse1998/wedevs-academy",
+    "description": "Test plugin Create",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "moshiur rahman",
+            "email": "moshiurcse888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Wedevs\\Academy\\": "includes/"
+        },
+        "files": ["includes/functions.php"]
+    }
+}
