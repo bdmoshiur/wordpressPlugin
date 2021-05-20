@@ -1,5 +1,6 @@
 <?php
-namespace Wedevs\Academy;
+
+namespace Rest\Product;
 
 /**
  * Plugin install class

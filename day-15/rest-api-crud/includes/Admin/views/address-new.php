@@ -14,7 +14,7 @@
                     </td>
                 </tr>
                 <tr class="row<?php echo $this->has_error( 'address' ) ? ' form-invalid' : '' ;?>">
-                    <th scope="row"><label for="address"><?php esc_html_e( 'Name', 'wedevs-acadeny' ) ?></label></th>
+                    <th scope="row"><label for="address"><?php esc_html_e( 'Address', 'wedevs-acadeny' ) ?></label></th>
                     <td>
                        <textarea class="regular-text" name="address" id="address" placeholder="Enter the address"></textarea>
                        <?php if( $this->has_error('address') ) { ?>
@@ -23,7 +23,7 @@
                     </td>
                 </tr>
                 <tr class="row<?php echo $this->has_error( 'phone' ) ? ' form-invalid' : '' ;?>">
-                    <th scope="row"><label for="phone"><?php esc_html_e( 'Name', 'wedevs-acadeny' ) ?></label></th>
+                    <th scope="row"><label for="phone"><?php esc_html_e( 'Phone', 'wedevs-acadeny' ) ?></label></th>
                     <td>
                         <input class="regular-text" name="phone" id="phone" value="" placeholder="Enter tha phone">
                         <?php if( $this->has_error('phone') ) { ?>

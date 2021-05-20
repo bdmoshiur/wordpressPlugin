@@ -1,6 +1,7 @@
 <?php
-namespace Wedevs\Academy\Admin;
-use Wedevs\Academy\Traits\Form_Error;
+
+namespace Rest\Product\Admin;
+use Rest\Product\Traits\Form_Error;
 
 /**
  * The main class of address book
@@ -19,7 +20,7 @@ class Addressbook {
     public function plugin_page() {
 
         $action = isset( $_GET['action'] ) ? $_GET['action']: 'list';
-        $id     = isset( $_GET['id'] ) ? $_GET['id']        : 0;
+        $id     = isset( $_GET['id'] ) ? intval( $_GET['id'] )        : 0;
 
         switch ( $action ) {
             case 'new':
@@ -63,6 +64,7 @@ class Addressbook {
             wp_die( 'Aru you Cheating not user');
         }
 
+        $id      = isset( $_POST['id'] ) ? intval( $_POST['id'] )                           : 0;
         $name    = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] )          : '';
         $address = isset( $_POST['address'] ) ? sanitize_textarea_field( $_POST['address'] ): '';
         $phone   = isset( $_POST['phone'] ) ? sanitize_text_field( $_POST['phone'] )        : '';
@@ -70,9 +72,11 @@ class Addressbook {
         if ( empty( $name ) ) {
             $this->errors['name'] = __( 'Please provide a name', 'wedevs-academy' );
         }
+
         if ( empty( $address ) ) {
             $this->errors['address'] = __( 'Please provide a address', 'wedevs-academy' );
         }
+
         if ( empty( $phone ) ) {
             $this->errors['phone'] = __( 'Please provide a phone no', 'wedevs-academy' );
         }
@@ -81,18 +85,47 @@ class Addressbook {
             return;
         }
 
+        $args =  [
+            'name'    => $name,
+            'address' => $address,
+            'phone'   => $phone,
+        ];
 
-        $insert_id = wp_ac_insert_address( [
-           'name'    => $name,
-           'address' => $address,
-           'phone'   => $phone,
-        ] );
+        if ( $id ) {
+            $args['id'] = $id;
+        }
+
+        $insert_id = wp_ac_insert_address( $args );
 
         if ( is_wp_error( $insert_id ) ) {
             wp_die( $insert_id->get_error_message() );
         }
 
-        $redirect_to = admin_url( 'admin.php?page=wedevs-academy&inserted=true' );
+        if ( $id ) {
+            $redirect_to = admin_url( 'admin.php?page=wedevs-academy&action=edit&address-updated=true&id=' . $id );
+        } else {
+            $redirect_to = admin_url( 'admin.php?page=wedevs-academy&inserted=true' );
+        }
+        wp_redirect( $redirect_to );
+    }
+
+    public function delete_address() {
+        if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'wd-ac-delete-address' ) ) {
+            wp_die( 'Aru you Cheating nonce' );
+        }
+
+        if ( ! current_user_can( 'manage_options') ) {
+            wp_die( 'Aru you Cheating not user');
+        }
+
+        $id = isset( $_REQUEST['id'] ) ? intval( $_REQUEST['id'] ) : 0 ;
+
+        if ( wp_ac_delete_address( $id ) ) {
+            $redirect_to = admin_url( 'admin.php?page=wedevs-academy&address-deleted=true' );
+        } else {
+            $redirect_to = admin_url( 'admin.php?page=wedevs-academy&address-deleted=false' );
+        }
+
         wp_redirect( $redirect_to );
     }
 }    

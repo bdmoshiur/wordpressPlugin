@@ -1,5 +1,6 @@
 <?php
-namespace Wedevs\Academy;
+
+namespace Rest\Product;
 
 /**
  * Api class
@@ -14,7 +15,7 @@ class API {
      * @return void
      */
     function __construct() {
-        add_action( 'rest_api_init', 'registet_api');
+        add_action( 'rest_api_init', [ $this,'registet_api' ] );
     }
 
     /**

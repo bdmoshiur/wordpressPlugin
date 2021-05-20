@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Wedevs\\Academy\\' => array($baseDir . '/includes'),
+    'Rest\\Product\\' => array($baseDir . '/includes'),
 );

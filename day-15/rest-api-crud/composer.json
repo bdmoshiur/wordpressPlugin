@@ -1,5 +1,5 @@
 {
-    "name": "moshiurcse1998/wedevs-academy",
+    "name": "moshiurcse1998/rest-product",
     "description": "Test plugin Create",
     "type": "wordpress-plugin",
     "license": "GPLv2",
@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Wedevs\\Academy\\": "includes/"
+            "Rest\\Product\\": "includes/"
         },
         "files": ["includes/functions.php"]
     }

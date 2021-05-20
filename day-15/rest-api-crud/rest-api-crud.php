@@ -36,7 +36,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main class of plugin
  */
-final class Wedevs_Academy {
+final class Rest_Book {
 
     /**
      * Plugin version
@@ -65,7 +65,7 @@ final class Wedevs_Academy {
      *
      * @since  1.0.0
      *
-     * @return \Wedevs_Academy
+     * @return \Rest_Book
      */
     public static function init() {
         static $instance = false;
@@ -100,7 +100,7 @@ final class Wedevs_Academy {
      * @return void
      */
     public function activeted() {
-        $installer = new Wedevs\Academy\Installer();
+        $installer = new Rest\Product\Installer();
         $installer->run();
     }
 
@@ -114,11 +114,11 @@ final class Wedevs_Academy {
     public function init_plugin() {
 
         if ( is_admin() ) {
-            new Wedevs\Academy\Admin();
+            new Rest\Product\Admin();
         } else {
-            new Wedevs\Academy\Frontend();
+            new Rest\Product\Frontend();
         }
-        new Wedevs\Academy\API();
+        new Rest\Product\API();
     }
 }
 
@@ -129,9 +129,9 @@ final class Wedevs_Academy {
  * 
  * @return object
  */
-function wd_wedevs_academy() {
+function rest_book_api() {
     
-    return Wedevs_Academy::init();
+    return Rest_Book::init();
 }
 
 /**
@@ -139,4 +139,4 @@ function wd_wedevs_academy() {
  * 
  * @since 1.0.0
  */
-wd_wedevs_academy();
+rest_book_api();

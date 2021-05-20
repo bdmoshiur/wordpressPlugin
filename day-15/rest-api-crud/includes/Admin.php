@@ -1,5 +1,6 @@
 <?php
-namespace Wedevs\Academy;
+
+namespace Rest\Product;
 
 /**
  * Admin Class
@@ -27,6 +28,7 @@ class Admin {
      * @return void
      */
     public function dispatch_actions( $addressbook ) {
-        add_action( 'admin_init', [ $addressbook, 'form_handler'] ); 
+        add_action( 'admin_init', [ $addressbook, 'form_handler'] );
+        add_action( 'admin_post_wd-ac-delete-address', [ $addressbook, 'delete_address'] );
     }
 } 

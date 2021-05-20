@@ -1,5 +1,6 @@
 <?php
-namespace Wedevs\Academy\Traits;
+
+namespace Rest\Product\Traits;
 
 /**
  * All error message show trait

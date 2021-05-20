@@ -24,23 +24,46 @@ function wp_ac_insert_address( $args = [] ) {
 
     $data = wp_parse_args( $args, $defaults );
 
-    $inserted = $wpdb->insert(
-        "{$wpdb->prefix}ac_address",
-        $data,
-        [
-            '%s',
-            '%s',
-            '%s',
-            '%d',
-            '%s',
-        ]
-    );
+    if ( $data['id'] ) {
+        
+        $id = $data['id'];
+        unset( $data['id'] );
 
-    if ( ! $inserted  ) {
-        return new \WP_Error( 'fail-to-insert', __( 'Fail to insert data', 'wedevs-academy' ) );
+        $updated = $wpdb->update(
+            "{$wpdb->prefix}ac_address",
+            $data,
+            [ 'id' => $id ],
+            [
+                '%s',
+                '%s',
+                '%s',
+                '%d',
+                '%s',
+            ],
+            [ '%d' ]
+        );
+
+        return $updated;
+    } else {
+
+        $inserted = $wpdb->insert(
+            "{$wpdb->prefix}ac_address",
+            $data,
+            [
+                '%s',
+                '%s',
+                '%s',
+                '%d',
+                '%s',
+            ]
+        );
+
+        if ( ! $inserted  ) {
+            return new \WP_Error( 'fail-to-insert', __( 'Fail to insert data', 'wedevs-academy' ) );
+        }
+
+        return $wpdb->insert_id;
     }
-
-    return $wpdb->insert_id;
 }
 
 /**

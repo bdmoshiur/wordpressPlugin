@@ -1,5 +1,6 @@
 <?php
-namespace Wedevs\Academy\Admin;
+
+namespace Rest\Product\Admin;
 
 /**
  * Addressbook menu class
