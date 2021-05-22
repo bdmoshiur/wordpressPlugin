@@ -1,6 +1,6 @@
 {
-    "name": "moshiur1998/demo-test",
-    "description": "demo test plugin",
+    "name": "moshiur1998/book-review",
+    "description": "book review plugin",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "authors": [
@@ -13,7 +13,7 @@
     "require": {},
     "autoload": {
         "psr-4" : {
-            "Demo\\Test\\" : "includes/"
+            "Ubrp\\Book\\Review\\" : "includes/"
         },
         "files": []
     }

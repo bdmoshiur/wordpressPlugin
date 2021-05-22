@@ -1,5 +1,5 @@
 <?php
-namespace Demo\Test;
+namespace Ubrp\Book\Review;
 
 /**
  * The admin Class

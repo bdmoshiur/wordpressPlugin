@@ -1,5 +1,5 @@
 <?php
-namespace Demo\Test\Admin;
+namespace Ubrp\Book\Review\Admin;
 
 /**
  * The Shortcode Handale Class
@@ -16,7 +16,7 @@ class Shortcode {
      * @return  void
      */
     public function __construct() {
-        add_shortcode( 'book_search', [ $this, 'search_book_reviews' ] );
+        add_shortcode( 'edit_book_search', [ $this, 'search_book_reviews' ] );
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php
-namespace Demo\Test\Admin;
+namespace Ubrp\Book\Review\Admin;
 
 /**
  * The main class of title capitalize plugin 

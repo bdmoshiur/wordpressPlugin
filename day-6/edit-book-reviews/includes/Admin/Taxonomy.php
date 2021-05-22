@@ -1,5 +1,5 @@
 <?php
-namespace Demo\Test\Admin;
+namespace Ubrp\Book\Review\Admin;
 
 /**
  * The Taxonomy Handale Class

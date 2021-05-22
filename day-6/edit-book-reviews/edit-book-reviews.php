@@ -33,7 +33,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 /**
  * The main class of plugin
 */
-final class Demo_Test {
+final class Ubrp_Book_Review {
 
     /**
      * plugin Version
@@ -60,7 +60,7 @@ final class Demo_Test {
      * 
      * @since 1.0.0
      * 
-     * @return \Demo_Test
+     * @return \Ubrp_Book_Review
     */
     public static function init() {
         static $instance = false;
@@ -80,11 +80,11 @@ final class Demo_Test {
      * @return void
     */
     public function define_constants() {
-        define( 'DEMO_TEST_VERSION', self::VERSION );
-        define( 'DEMO_TEST_FILE', __FILE__  );
-        define( 'DEMO_TEST_PATH', __DIR__  );
-        define( 'DEMO_TEST_URL', plugins_url('', DEMO_TEST_FILE ) );
-        define( 'DEMO_TEST_ASSETS',  DEMO_TEST_URL . '/assets' );
+        define( 'UBRP_BOOK_REVIEW_VERSION', self::VERSION );
+        define( 'UBRP_BOOK_REVIEW_FILE', __FILE__  );
+        define( 'UBRP_BOOK_REVIEW_PATH', __DIR__  );
+        define( 'UBRP_BOOK_REVIEW_URL', plugins_url('', UBRP_BOOK_REVIEW_FILE ) );
+        define( 'UBRP_BOOK_REVIEW_ASSETS',  UBRP_BOOK_REVIEW_URL . '/assets' );
     }
 
     /**
@@ -95,7 +95,7 @@ final class Demo_Test {
      * return void
     */
     public function init_plugin() {
-        new Demo\Test\Admin();
+        new Ubrp\Book\Review\Admin();
     }
 
     /**
@@ -111,7 +111,7 @@ final class Demo_Test {
         if ( ! $installed ) {
            update_option( 'demo_test_time', time() );
         }
-        update_option( 'demo_test_version', DEMO_TEST_VERSION );
+        update_option( 'demo_test_version', UBRP_BOOK_REVIEW_VERSION );
     }
 }
 
@@ -120,11 +120,11 @@ final class Demo_Test {
  *
  * @since 1.0.0
  *
- * @return \Demo_Test 
+ * @return \Ubrp_Book_Review 
 */
-function mrm_demo_test() {
+function ubrp_book_review() {
 
-    return Demo_Test::init();
+    return Ubrp_Book_Review::init();
 }
  
 /**
@@ -132,6 +132,6 @@ function mrm_demo_test() {
  *
  * @since 1.0.0
 */
-mrm_demo_test();
+ubrp_book_review();
 
 
