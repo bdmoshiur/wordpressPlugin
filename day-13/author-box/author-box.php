@@ -34,6 +34,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * The Main Plugin class
  */
 final class Author_Box {
+
     /**
      * plugin Version
      * 
@@ -48,7 +49,9 @@ final class Author_Box {
      */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
     }
 
@@ -110,6 +113,7 @@ final class Author_Box {
         if ( ! $installed ) {
            update_option( 'author_box_time', time() );
         }
+
         update_option( 'author_box_version', AUTHOR_BOX_VERSION );
     }
 }
@@ -122,7 +126,6 @@ final class Author_Box {
  * @return \Author_Box 
  */
 function mrm_author_box() {
-     
     return Author_Box::init();
 }
 

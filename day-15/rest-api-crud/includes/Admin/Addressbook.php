@@ -1,6 +1,7 @@
 <?php
 
 namespace Rest\Product\Admin;
+
 use Rest\Product\Traits\Form_Error;
 
 /**
@@ -18,7 +19,6 @@ class Addressbook {
      * @return void
      */
     public function plugin_page() {
-
         $action = isset( $_GET['action'] ) ? $_GET['action']: 'list';
         $id     = isset( $_GET['id'] ) ? intval( $_GET['id'] )        : 0;
 
@@ -51,7 +51,6 @@ class Addressbook {
      * @return void
      */
     public function form_handler() {
-        
         if ( ! isset( $_POST['submit_address'] ) ) {
             return;
         }
@@ -106,6 +105,7 @@ class Addressbook {
         } else {
             $redirect_to = admin_url( 'admin.php?page=wedevs-academy&inserted=true' );
         }
+        
         wp_redirect( $redirect_to );
     }
 

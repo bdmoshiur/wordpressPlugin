@@ -1,4 +1,5 @@
 <?php
+
 namespace We\Crud\Admin;
 
 /**
@@ -132,20 +133,22 @@ class Address_list extends \WP_List_Table {
      * @return void
      */
     public function prepare_items() {
-        $column                = $this->get_columns();
-        $hidden                = [];
-        $sortable              = $this->get_sortable_columns();
+        $column   = $this->get_columns();
+        $hidden   = [];
+        $sortable = $this->get_sortable_columns();
+
         $this->_column_headers = [ $column, $hidden, $sortable ];
 
-        $per_page              = 20;
-        $current_page          = $this->get_pagenum();
-        $offset                = ($current_page - 1 ) * $per_page ;
+        $per_page     = 20;
+        $current_page = $this->get_pagenum();
+        $offset       = ($current_page - 1 ) * $per_page ;
 
-        $args                  =  [
+        $args =  [
             'number'=> $per_page,
             'offset'=> $offset,
         ];
-        $this->items           = wp_fp_get_address( $args );
+        
+        $this->items = wp_fp_get_address( $args );
 
         /**
          * Check column name sortable 

@@ -1,4 +1,5 @@
 <?php
+
 namespace Jobs\Search;
 
 /**
@@ -38,7 +39,7 @@ class Shortcode {
         );
 
         ob_start();
-        include MRM_JOBS_SEARCH_PATH . '/templates/jobs_search_page.php';
+            include MRM_JOBS_SEARCH_PATH . '/templates/jobs_search_page.php';
         echo ob_get_clean();
 
         $job_search_keyword  = isset( $_REQUEST['search-keyword'] ) ? sanitize_text_field( $_REQUEST['search-keyword'] ) : $atts['keyword'];

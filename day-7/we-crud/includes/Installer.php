@@ -1,4 +1,5 @@
 <?php
+
 namespace We\Crud;
 
 /**
@@ -35,6 +36,7 @@ class Installer {
         if ( ! $installed ) {
             update_option( 'we_crud_install', time() );
         }
+
         update_option( 'we_crud_version', WE_CRUD_VERSION );
     }
 
@@ -47,6 +49,7 @@ class Installer {
      */
     public function create_tables() {
         global $wpdb;
+
         $charset_collate = $wpdb->get_charset_collate();
         $schema = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}fp_addresses` (
             `id` int(11) NOT NULL AUTO_INCREMENT,

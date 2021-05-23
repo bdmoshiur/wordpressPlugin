@@ -1,4 +1,5 @@
 <?php
+
 namespace Subscription\Form;
 
 /**
@@ -26,7 +27,6 @@ class Mrm_Assets {
      * @return array
      */
     public function get_scripts() {
-        
         return [
             'form-script' => [
                 'src'     => SUBSCRIP_FORM_ASSETS . '/js/frontend.js',

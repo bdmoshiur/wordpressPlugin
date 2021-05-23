@@ -1,4 +1,5 @@
 <?php
+
 namespace Ubrp\Book\Review\Admin;
 
 /**
@@ -37,7 +38,9 @@ class Shortcode {
         $data = ob_get_clean();
         echo $data;
         $search_value = '';
-        if ( isset( $_POST['btn_search'] ) ) { 
+
+        if ( isset( $_POST['btn_search'] ) ) {
+            
             $search_value = ( $_POST['book_search'] ) ? $_POST['book_search'] : '';
             $args = [
                 'post_type'  => 'book',
@@ -78,6 +81,7 @@ class Shortcode {
             ];
             $query = new \WP_Query( $args ); 
             echo '<ol>';
+
              while ( $query->have_posts() ) {
                 $query->the_post();
                 $title      = get_the_title();
@@ -88,6 +92,7 @@ class Shortcode {
                 printf( '<p> %s <a href="%s">Read More</a> </p>', $title, $purma_link );
                 printf( '<p> %s </p></li>', $excerpt );
             }
+
             echo '</ol>';
 
             wp_reset_postdata();

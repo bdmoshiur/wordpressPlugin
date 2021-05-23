@@ -1,10 +1,12 @@
 <?php
+
 namespace Recent\Posts;
 
 /**
  * Ajax class
  */
 class Ajax {
+    
     /**
      * Class constructor
      * 

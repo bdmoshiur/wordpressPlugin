@@ -34,6 +34,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * @since 1.0.0
  */
 final class User_Role_Capability {
+
     /**
      * plugin Version
      * 
@@ -52,7 +53,9 @@ final class User_Role_Capability {
      */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
      }
 
@@ -69,6 +72,7 @@ final class User_Role_Capability {
         if ( ! $instance ) {
             $instance = new self();
         }
+
         return $instance;
     }
 
@@ -111,6 +115,7 @@ final class User_Role_Capability {
         if ( ! $installed ) {
            update_option( 'role_capability_time', time() );
         }
+
         update_option( 'role_capability_version', ROLE_CAPABILITY_VERSION );
 
         add_role( 'customer_role', 'Customer Role' );
@@ -125,7 +130,6 @@ final class User_Role_Capability {
  * @return \User_Role_Capability
  */
 function mrm_user_role_capability() {
-     
     return User_Role_Capability::init();
 }
 

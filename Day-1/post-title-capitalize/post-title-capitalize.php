@@ -49,9 +49,11 @@ class Title_capitalize {
      * @return string
      */
     public function post_title_capitalize( $data ) {
+
         if ( 'post' != $data ['post_type'] ) {
             return $data;
         }
+
         $data['post_title'] = ucwords( $data['post_title'] );
 
         return apply_filters( 'modify_post_title', $data );
@@ -66,7 +68,6 @@ class Title_capitalize {
  * @return object
  */
 function mrm_title_capitalize() {
-    
     return new Title_capitalize();
 }
 

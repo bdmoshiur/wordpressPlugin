@@ -31,6 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 final class Recent_Posts {
+
     /**
      * Plugin version
      * 
@@ -49,7 +50,9 @@ final class Recent_Posts {
      */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__, [ $this, 'activate' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
     }
 
@@ -66,6 +69,7 @@ final class Recent_Posts {
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             new Recent\Posts\Ajax();
         }
+
         new Recent\Posts\Dashboard();
     }
 
@@ -97,6 +101,7 @@ final class Recent_Posts {
         if ( ! $installed ) {
             update_option( 'recent_posts_time', time() );
         }
+        
         update_option( 'recent_posts_version', RECENT_POSTS_VERSION );
     }
 

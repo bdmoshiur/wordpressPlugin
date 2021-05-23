@@ -55,7 +55,9 @@ final class Featured_Posts {
      */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+        
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
      }
 
@@ -99,9 +101,9 @@ final class Featured_Posts {
      * return void
      */
     public function init_plugin() {
-        if ( is_admin() ){
+        if ( is_admin() ) {
             new Featured\Posts\Admin();
-        } else{
+        } else {
             new Featured\Posts\Frontend();
         }
     }
@@ -119,6 +121,7 @@ final class Featured_Posts {
        if ( ! $installed ) {
            update_option( 'featured_posts_time', time() );
        }
+
        update_option( 'featured_posts_version', FEATURED_POSTS_VERSION );
     }
 }
@@ -131,7 +134,6 @@ final class Featured_Posts {
  * @return \Featured_Posts 
  */
 function mrm_featured_posts() {
-     
     return Featured_Posts::init();
 }
  
@@ -141,5 +143,3 @@ function mrm_featured_posts() {
  * @since 1.0.0
  */
 mrm_featured_posts();
-
-

@@ -1,10 +1,12 @@
 <?php
+
 namespace Userrole\Capability\Frontend;
 
 /**
  * The Menu Handale Class
  */
 class Customer_Registration_Form {
+    
     /**
      * Initialize the class
      * 

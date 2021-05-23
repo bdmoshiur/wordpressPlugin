@@ -205,7 +205,6 @@ class Mrm_Book_Reviews {
  * @return object
  */
 function mrm_br_book_reviews() {
-
     return new Mrm_Book_Reviews();
 }
 

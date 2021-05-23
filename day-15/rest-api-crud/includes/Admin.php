@@ -16,7 +16,9 @@ class Admin {
      */
     function __construct() {
         $addressbook = new Admin\Addressbook();
+
         $this->dispatch_actions( $addressbook );
+        
         new Admin\Menu( $addressbook );
     }
 

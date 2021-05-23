@@ -1,4 +1,3 @@
-
 <form id="mrm_dashboard_form" action=""  method="">
     <div class="input-text-wrap" id="title-wrap">
         <label for="mrm_posts_no"><strong><?php echo esc_html__( 'Posts no', 'recent-posts' ); ?></strong></label>

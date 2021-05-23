@@ -1,4 +1,5 @@
 <?php
+
 namespace Post\Widget\Admin;
 
 /**
@@ -16,6 +17,7 @@ class Post_Widget extends \WP_Widget {
             'related-post-widget',
             'Related Post Widget'
         );
+
         add_action( 'widgets_init', [ $this, 'related_post_widget_register' ] );
     }
 
@@ -31,6 +33,18 @@ class Post_Widget extends \WP_Widget {
     }
 
     /**
+     * Set argument variable
+     *
+     * @var array
+     */
+    public $args = array(
+        'before_title'  => '<h4 class="widgettitle">',
+        'after_title'   => '</h4>',
+        'before_widget' => '<div class="widget-wrap">',
+        'after_widget'  => '</div>'
+    );
+
+    /**
      * Front-end display of widget.
      *
      * @since 1.0.0
@@ -41,12 +55,6 @@ class Post_Widget extends \WP_Widget {
      * 
      * @return mixed
      */
-    public $args = array(
-        'before_title'  => '<h4 class="widgettitle">',
-        'after_title'   => '</h4>',
-        'before_widget' => '<div class="widget-wrap">',
-        'after_widget'  => '</div>'
-    );
     public function widget( $args, $instance ) {
         if ( is_single() ) {
             
@@ -72,6 +80,7 @@ class Post_Widget extends \WP_Widget {
             $the_query = new \WP_Query( $post_args );
 
             if ( $the_query->have_posts() ) {
+                
                 while ( $the_query->have_posts() ) {
                     $the_query->the_post();
                     echo '<a href="'.get_the_permalink().'"><li>' . get_the_title() . '</li></a><br>';

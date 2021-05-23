@@ -47,7 +47,6 @@ class Modify_Posts_View {
      * @return void
      */
     public function modify_posts_view( $view ) {
-
         return "<em>" . $view . "</em>";
     }
 }
@@ -60,7 +59,6 @@ class Modify_Posts_View {
  * @return object
  */
 function mrm_modify_post() {
-    
     return new Modify_Posts_View();
 }
 

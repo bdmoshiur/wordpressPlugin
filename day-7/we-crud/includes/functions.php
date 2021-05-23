@@ -16,6 +16,7 @@ function wp_fp_insert_address( $args = [] ) {
 
         return New \WP_Error( 'no-name', __( 'You must provide a Name', 'we-crud') );
     }
+    
     $defaults = [
         'name'       => '',
         'address'    => '',
@@ -23,7 +24,8 @@ function wp_fp_insert_address( $args = [] ) {
         'created_by' => get_current_user_id(),
         'created_at' => current_time( 'mysql' ),
     ];
-    $data     = wp_parse_args( $args, $defaults );
+    
+    $data = wp_parse_args( $args, $defaults );
 
     if ( isset( $data['id'] ) ) {
 
@@ -78,6 +80,7 @@ function wp_fp_insert_address( $args = [] ) {
  */
 function wp_fp_get_address( $args = [] ) {
     global $wpdb;
+    
     $defaults = [
         'number'  => 20,
         'offset'  => 0,

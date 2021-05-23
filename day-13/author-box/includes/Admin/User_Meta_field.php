@@ -1,10 +1,12 @@
 <?php
+
 namespace Author\Box\Admin;
 
 /**
  * The Menu Handale Class
  */
 class User_Meta_field {
+    
     /**
      * Initialize the class
      * 

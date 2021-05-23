@@ -1,10 +1,12 @@
 <?php
+
 namespace Author\Box\Frontend;
 
 /**
  * The Menu Handale Class
  */
 class User_Meta_Bio {
+
     /**
      * Initialize the class
      * 
@@ -35,8 +37,8 @@ class User_Meta_Bio {
      */
     public function render_user_bio_methods( $content ) {
         global $post;
+        
         $author   = get_user_by( 'id', $post->post_author );
-
         $bio      = get_user_meta( $author->ID, 'description', true );
         $facebook = get_user_meta( $author->ID, 'facebook', true );
         $twitter  = get_user_meta( $author->ID, 'twitter', true );

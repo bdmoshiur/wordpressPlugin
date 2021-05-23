@@ -1,10 +1,12 @@
 <?php
+
 namespace Recent\Posts;
 
 /**
  * Dashboard class
  */
 class Dashboard {
+
     /**
      * Class constructor
      * 
@@ -42,16 +44,14 @@ class Dashboard {
         wp_enqueue_script( 'mrm-main' );
 
         $categories      = get_categories();
-        
-        $mrm_posts_no = get_option( 'mrm_posts_no' );   
-        $mrm_order    = get_option( 'mrm_order' );
-        $mrm_category = get_option( 'mrm_category_items' );
-        
-        $category_select  = $mrm_category;
-        
-        $posts_no      = ( ! empty( $mrm_posts_no ) ) ? $mrm_posts_no                : 5;
-        $order         = ( ! empty( $mrm_order ) ) ? $mrm_order                      : '';
-        $category_name = ( ! empty( $mrm_category ) ) ? implode( ',', $mrm_category ): '';
+        $mrm_posts_no    = get_option( 'mrm_posts_no' );   
+        $mrm_order       = get_option( 'mrm_order' );
+        $mrm_category    = get_option( 'mrm_category_items' );
+
+        $category_select = $mrm_category;
+        $posts_no        = ( ! empty( $mrm_posts_no ) ) ? $mrm_posts_no: 5;
+        $order           = ( ! empty( $mrm_order ) ) ? $mrm_order      : '';
+        $category_name   = ( ! empty( $mrm_category ) ) ? implode( ',', $mrm_category ): '';
 
         $args = [
             'post_type'      => 'post',
@@ -61,6 +61,7 @@ class Dashboard {
             'order'          => $order,
             'category_name'  => $category_name,
         ];
+
         $the_query = new \WP_Query( $args );
 
         include RECENT_POSTS_PATH . '/assets/templates/dashboard-template.php';

@@ -102,6 +102,7 @@ class Posts_View_Count {
 
         /* Main Query */
         $query = new \WP_Query( $args );
+        
         while ( $query->have_posts() ) {
             $query->the_post();
             echo '<li>' . get_the_title() . ' ( ' . $query->post->view_post_single_page . ' ) ' . '</li>';

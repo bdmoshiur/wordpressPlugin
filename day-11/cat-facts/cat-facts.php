@@ -32,6 +32,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * The Main Plugin class
  */
 final class Cat_Facts {
+
     /**
      * plugin Version
      * 
@@ -46,7 +47,9 @@ final class Cat_Facts {
      */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
      }
 
@@ -106,6 +109,7 @@ final class Cat_Facts {
         if ( ! $installed ) {
            update_option( 'cat-facts_time', time() );
         }
+
         update_option( 'cat-facts_version', CAT_FACTS_VERSION );
     }
 }
@@ -118,7 +122,6 @@ final class Cat_Facts {
  * @return \Cat_Facts 
  */
 function mrm_cat_acts() {
-     
     return Cat_Facts::init();
 }
  

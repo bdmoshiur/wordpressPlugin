@@ -37,6 +37,7 @@ require_once __DIR__ . "/vendor/autoload.php";
  * Main plugin class
  */
 final class Mrm_Jobs_Search {
+
     /**
      * Plugin version
      * 
@@ -55,7 +56,9 @@ final class Mrm_Jobs_Search {
      */
     public function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__, [ $this, 'activate' ] );
+
         $this->init_plugin();
     }
 
@@ -115,6 +118,7 @@ final class Mrm_Jobs_Search {
         if ( ! $installed ) {
             update_option( 'mrm_jobs_search_installed', time() );
         }
+        
         update_option( 'mrm_jobs_search_version', MRM_JOBS_SEARCH_VERSION );
     }
 }

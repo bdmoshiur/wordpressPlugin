@@ -1,10 +1,12 @@
 <?php
+
 namespace Formsubmit\Ajax;
 
 /**
  * The frontend main Class
  */
 class Admin {
+
     /**
      * Constructor function
      * 
@@ -14,7 +16,9 @@ class Admin {
      */
     function __construct() {
         $addressbook = new Admin\Addressbook();
+
         $this->wd_dispatch_actions( $addressbook );
+        
         new Admin\Menu( $addressbook );
     }
 

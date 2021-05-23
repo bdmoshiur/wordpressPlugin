@@ -1,10 +1,12 @@
 <?php
+
 namespace Formsubmit\Ajax\Frontend;
 
 /**
  * The Shortcode class of plugin
  */
 class Mrm_Ajax_Form_Shortcode {
+    
     /**
      * constructor function
      * 

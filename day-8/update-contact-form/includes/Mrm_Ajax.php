@@ -1,10 +1,12 @@
 <?php
+
 namespace Formsubmit\Ajax;
 
 /**
  * The main ajax Class
  */
 class Mrm_Ajax {
+
     /**
      * constructor function
      * 

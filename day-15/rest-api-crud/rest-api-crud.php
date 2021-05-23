@@ -56,7 +56,9 @@ final class Rest_Book {
      */
     private function __construct() {
         $this->define_constant();
+
         register_activation_hook( __FILE__ , [ $this, 'activeted' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
     }
 
@@ -118,6 +120,7 @@ final class Rest_Book {
         } else {
             new Rest\Product\Frontend();
         }
+
         new Rest\Product\API();
     }
 }
@@ -130,7 +133,6 @@ final class Rest_Book {
  * @return object
  */
 function rest_book_api() {
-    
     return Rest_Book::init();
 }
 

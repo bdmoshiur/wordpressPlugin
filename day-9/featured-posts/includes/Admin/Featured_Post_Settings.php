@@ -1,4 +1,5 @@
 <?php
+
 namespace Featured\Posts\Admin;
 
 /**
@@ -42,7 +43,9 @@ class Featured_Post_Settings {
         if ( ! current_user_can( 'manage_options' ) ) {
             return;
         }
+
         settings_errors( 'wporg_messages' );
+
         ?>
             <form action="options.php" method="post">
                 <?php 
@@ -110,14 +113,19 @@ class Featured_Post_Settings {
             __( 'ASE', 'featured-posts' ),
             __( 'DESC', 'featured-posts' ),
         ];
+
         printf( "<select class='regular-text' id='%s' name='%s' >", 'posts_order', 'posts_order' );
-        foreach( $orders as $order ){
-            $selected = '';
-            if ( $option == $order ) {
-                $selected = "Selected";
+
+            foreach( $orders as $order ){
+                $selected = '';
+
+                if ( $option == $order ) {
+                    $selected = "Selected";
+                }
+                
+                printf( "<option value='%s' %s >%s</option>", $order, $selected, $order );
             }
-            printf( "<option value='%s' %s >%s</option>", $order, $selected, $order );
-        }
+
         echo "</select>";
     }
 
@@ -129,8 +137,9 @@ class Featured_Post_Settings {
      * @return void
      */
     public function post_category_display() {
-        $option = get_option( 'posts_category' );
+        $option     = get_option( 'posts_category' );
         $categories = get_categories();
+
         foreach( $categories as $category ){
             echo '<input type="checkbox" id="'.$category->cat_ID.'" name="posts_category['. $category->slug .']" value="'. $category->slug .'"'.checked( $category->slug, $option, false ).'>';
             echo '<label for="'. $category->slug .'">'. $category->name .'</label><br>';

@@ -117,6 +117,7 @@ function wp_ac_count_address() {
  */
 function wp_ac_edit_address( $id ) {
     global $wpdb;
+    
     return $wpdb->get_row(
         $wpdb->prepare(
             "SELECT * FROM {$wpdb->prefix}ac_address WHERE id= %d",  $id

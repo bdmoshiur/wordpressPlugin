@@ -66,7 +66,7 @@ class Vertical_Button {
      * @return string
      */
     public function modify_title_text( $test ) {
-        $test =  '<button id="btn-coupon">' . esc_html_e( 'Click me', 'vertical-button' ) . '</button>';
+        $test = '<button id="btn-coupon">' . esc_html_e( 'Click me', 'vertical-button' ) . '</button>';
 
         return $test;
     }

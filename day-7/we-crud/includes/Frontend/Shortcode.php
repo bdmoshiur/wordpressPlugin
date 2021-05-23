@@ -1,4 +1,5 @@
 <?php
+
 namespace We\Crud\Frontend;
 
 /**
@@ -32,7 +33,6 @@ class shortcode {
      * @return string
      */
     public function render_shortcode( $atts, $content = '' ) {
-        
         return "Hello From shortcode";
     }
 }

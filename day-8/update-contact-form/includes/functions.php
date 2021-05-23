@@ -54,6 +54,7 @@ function wp_af_insert_address( $args = [] ) {
  */
 function wp_af_get_address( $args = [] ) {
     global $wpdb;
+
     $defaults = [
         'number' => 20,
         'offset' => 0,
@@ -61,7 +62,7 @@ function wp_af_get_address( $args = [] ) {
         'order' => 'ASC',
     ];
     $args = wp_parse_args( $args, $defaults );
-    $sql = $wpdb->prepare(
+    $sql  = $wpdb->prepare(
         "SELECT * FROM {$wpdb->prefix}af_address
         ORDER BY {$args['orderby']} {$args['order']}
         LIMIT %d, %d",

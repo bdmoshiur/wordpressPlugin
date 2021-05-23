@@ -2,7 +2,6 @@
 
 namespace Rest\Product\Frontend;
 
-
 /**
  * Frontend render shortcode class
  */

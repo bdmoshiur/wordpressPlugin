@@ -1,4 +1,5 @@
 <?php
+
 namespace Subscription\Form\Admin;
 
 /**
@@ -16,6 +17,7 @@ class Subscription_Form_Widget extends \WP_Widget {
             'subscription-form-widget',
             'Subscription Form Widget'
         );
+
         add_action( 'widgets_init', [ $this, 'subscription_form_register' ] );
     }
 
@@ -31,6 +33,18 @@ class Subscription_Form_Widget extends \WP_Widget {
     }
 
     /**
+     * Set Argument
+     *
+     * @var array
+     */
+    public $args = array(
+        'before_title'  => '<h4 class="widgettitle">',
+        'after_title'   => '</h4>',
+        'before_widget' => '<div class="widget-wrap">',
+        'after_widget'  => '</div>'
+    );
+
+    /**
      * Front-end display of widget.
      *
      * @since 1.0.0
@@ -41,12 +55,6 @@ class Subscription_Form_Widget extends \WP_Widget {
      * 
      * @return void
      */
-    public $args = array(
-        'before_title'  => '<h4 class="widgettitle">',
-        'after_title'   => '</h4>',
-        'before_widget' => '<div class="widget-wrap">',
-        'after_widget'  => '</div>'
-    );
     public function widget( $args, $instance ) {
         wp_enqueue_script( 'form-script' );
         echo $args['before_widget'];

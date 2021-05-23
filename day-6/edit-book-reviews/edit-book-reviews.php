@@ -51,7 +51,9 @@ final class Ubrp_Book_Review {
     */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+        
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
      }
 
@@ -111,6 +113,7 @@ final class Ubrp_Book_Review {
         if ( ! $installed ) {
            update_option( 'demo_test_time', time() );
         }
+
         update_option( 'demo_test_version', UBRP_BOOK_REVIEW_VERSION );
     }
 }
@@ -123,7 +126,6 @@ final class Ubrp_Book_Review {
  * @return \Ubrp_Book_Review 
 */
 function ubrp_book_review() {
-
     return Ubrp_Book_Review::init();
 }
  

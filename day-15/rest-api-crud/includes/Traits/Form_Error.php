@@ -6,6 +6,12 @@ namespace Rest\Product\Traits;
  * All error message show trait
  */
 trait Form_Error {
+
+    /**
+     * Set variable
+     *
+     * @var array
+     */
     public $errors = [];
 
     /**

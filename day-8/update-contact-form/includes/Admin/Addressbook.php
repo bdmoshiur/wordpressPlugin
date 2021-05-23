@@ -1,10 +1,12 @@
 <?php
+
 namespace Formsubmit\Ajax\Admin;
 
 /**
  * The main addressbook class
  */
 class Addressbook {
+
     /**
      * Plugin template render function
      *
@@ -49,10 +51,11 @@ class Addressbook {
             wp_die( 'Aru you Cheating not user');
         }
 
-        $id    = isset( $_REQUEST['id'] ) ? sanitize_text_field( $_REQUEST['id'] ) : 0;
-        if ( wp_af_delete_address( $id ) ){
+        $id = isset( $_REQUEST['id'] ) ? sanitize_text_field( $_REQUEST['id'] ) : 0;
+
+        if ( wp_af_delete_address( $id ) ) {
             $redirect_to = admin_url( 'admin.php?page=user-information&address_deleted=true' );
-        } else{
+        } else {
             $redirect_to = admin_url( 'admin.php?page=user-information&address_deleted=false' );
         }
 

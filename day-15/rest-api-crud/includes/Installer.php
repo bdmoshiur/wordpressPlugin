@@ -28,6 +28,7 @@ class Installer {
         if ( ! $install ) {
             update_option( 'mrm_academy_install', time() );
         }
+
         update_option( 'wd_academy_version', WD_ACADEMY_VERSION );
     }
     
@@ -57,6 +58,7 @@ class Installer {
         if ( ! function_exists( 'dbDelta' ) ) {
             require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         }
+        
         dbDelta( $schema );
     }
 }

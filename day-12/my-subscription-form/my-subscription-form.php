@@ -34,6 +34,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * The Main Plugin class
  */
 final class Mrm_Subscription_Form {
+
     /**
      * plugin Version
      * 
@@ -52,7 +53,9 @@ final class Mrm_Subscription_Form {
      */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
     }
 
@@ -101,6 +104,7 @@ final class Mrm_Subscription_Form {
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
             new Subscription\Form\Mrm_Ajax();
         }
+
         new Subscription\Form\Admin();
     }
 
@@ -117,6 +121,7 @@ final class Mrm_Subscription_Form {
         if ( ! $installed ) {
            update_option( 'subscribtion_form_time', time() );
         }
+
         update_option( 'subscribtion_form_version', SUBSCRIP_FORM_VERSION );
     }
 }
@@ -129,7 +134,6 @@ final class Mrm_Subscription_Form {
  * @return \Mrm_Subscription_Form 
  */
 function mrm_subscription_form() {
-     
     return Mrm_Subscription_Form::init();
 }
 

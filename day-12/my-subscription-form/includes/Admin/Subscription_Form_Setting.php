@@ -1,4 +1,5 @@
 <?php
+
 namespace Subscription\Form\Admin;
 
 /**
@@ -22,7 +23,9 @@ class Subscription_Form_Setting {
      */
     public function render_subscrip_setting () {
         add_settings_section( 'mailchimp_section', __( 'Mailchimp', 'my-subscription-form' ), [ $this, 'render_api_section'], 'general' );
+
         add_settings_field( 'mailchimp_link', __( 'Mailchimp Api Link', 'my-subscription-form' ), [ $this, 'render_api_field'], 'general', 'mailchimp_section' );
+        
         register_setting( 'general', 'mailchimp_link' );
     }
 

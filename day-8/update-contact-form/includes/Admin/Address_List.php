@@ -1,4 +1,5 @@
 <?php
+
 namespace Formsubmit\Ajax\Admin;
 
 /**
@@ -16,6 +17,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
  * @since 1.0.0
  */
 class Address_List extends \WP_List_Table {
+
     /**
      * Constructor function
      * 
@@ -76,7 +78,6 @@ class Address_List extends \WP_List_Table {
                 # code...
                 break;
             default:
-            
                 return isset( $item->$column_name ) ? $item->$column_name : '';
                 break;
         }

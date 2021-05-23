@@ -63,7 +63,6 @@ class Seo_Meta_information {
  * @return object
  */
 function mrm_meta_information() {
-    
     return new Seo_Meta_information();
 }
 

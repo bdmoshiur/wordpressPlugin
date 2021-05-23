@@ -1,4 +1,5 @@
 <?php
+
 namespace We\Crud\Traits;
 
 /**
@@ -9,6 +10,7 @@ namespace We\Crud\Traits;
  * @return mixed
  */
 trait Form_Error {
+    
     /**
      * Error property declare
      * 

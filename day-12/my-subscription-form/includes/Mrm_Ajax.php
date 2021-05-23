@@ -1,10 +1,12 @@
 <?php
+
 namespace Subscription\Form;
 
 /**
  * The main ajax Class
  */
 class Mrm_Ajax {
+
     /**
      * constructor function
      * 

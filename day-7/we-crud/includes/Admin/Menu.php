@@ -1,4 +1,5 @@
 <?php
+
 namespace We\Crud\Admin;
 
 /**
@@ -38,7 +39,8 @@ class Menu {
      */
     public function admin_menu () {
         $parent_slug = 'we-crud';
-        $capability = 'manage_options';
+        $capability  = 'manage_options';
+
         add_menu_page( __('We Crud','we-crud'), __('We Crud','we-crud'), $capability, $parent_slug, [  $this->addressbook, 'plugin_page'], 'dashicons-admin-customizer' );
         add_submenu_page( $parent_slug, __('Address Book','we-crud'), __('Addtess Book','we-crud'), $capability, $parent_slug,[  $this->addressbook,'plugin_page' ] );
         add_submenu_page( $parent_slug, __('Settings','we-crud'), __('Settings Book','we-crud'), $capability, 'we-crud-settings',[ $this,'settings_page' ] );

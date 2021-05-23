@@ -58,7 +58,9 @@ final class Related_Post_Widget {
      */
     private function __construct() {
         $this->define_constant();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+
         add_action( 'plugin_loaded', [ $this, 'init_plugin' ] );
     }
 
@@ -107,6 +109,7 @@ final class Related_Post_Widget {
         if ( ! $installer ) {
             update_option( 'rpw_widget_install', time() );
         }
+
         update_option( 'rpw_widget_version', RPW_Widget_VERSION );
     }
 
@@ -118,7 +121,7 @@ final class Related_Post_Widget {
      * @return void
      */
     public function init_plugin() {
-            new Post\Widget\Admin();
+        new Post\Widget\Admin();
     }
 }
 
@@ -130,7 +133,6 @@ final class Related_Post_Widget {
  * @return \Related_Post_Widget
  */
 function rpw_related_post_widget() {
-
     return Related_Post_Widget::init();
 } 
 

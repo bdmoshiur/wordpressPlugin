@@ -57,7 +57,9 @@ final class We_Crud {
     */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
      }
 
@@ -129,7 +131,6 @@ final class We_Crud {
 * @return \We_Crud
 */
 function mrm_we_crud() {
-
     return We_Crud::init();
 }
  

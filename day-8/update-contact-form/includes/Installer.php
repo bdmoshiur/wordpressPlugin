@@ -1,10 +1,12 @@
 <?php
+
 namespace Formsubmit\Ajax;
 
 /**
  * Plugin default assets install class
  */
 class Installer {
+
     /**
      * Version/Table run function
      *
@@ -30,6 +32,7 @@ class Installer {
         if ( ! $installed ) {
             update_option( 'ajax_form_time', time() );
         }
+
        update_option( 'ajax_form_version', FORM_AJAX_SUBMIT_VERSION );
     }
     
@@ -42,6 +45,7 @@ class Installer {
      */
     public function create_tables() {
         global $wpdb;
+
         $charset_collate = $wpdb->get_charset_collate();
 
         $schema = "CREATE TABLE IF NOT EXISTS `project`.`{$wpdb->prefix}af_address` ( 

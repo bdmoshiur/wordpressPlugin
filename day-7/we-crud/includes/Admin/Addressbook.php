@@ -1,5 +1,7 @@
 <?php
+
 namespace We\Crud\Admin;
+
 use We\Crud\Traits\Form_Error;
 
 /**
@@ -47,7 +49,7 @@ class Addressbook {
                 break;
 
             default:
-            $template = __DIR__ . '/views/address-list.php';
+                $template = __DIR__ . '/views/address-list.php';
                 break;
         }
 
@@ -106,6 +108,7 @@ class Addressbook {
         if ( $id ) {
             $args['id'] = $id;
         }
+        
         $inser_id = wp_fp_insert_address( $args );
 
         if ( is_wp_error( $inser_id ) ) {

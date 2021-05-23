@@ -7,6 +7,13 @@ namespace Rest\Product\Admin;
  */
 class Menu {
 
+    /**
+     * Set variable
+     *
+     * @since 1.0.0
+     * 
+     * @var object
+     */
     public $addressbook;
 
     /**
@@ -18,6 +25,7 @@ class Menu {
      */
     function __construct( $addressbook ) {
         $this->addressbook = $addressbook;
+        
         add_action( 'admin_menu', [ $this, 'admin_menu'] );
     }
 

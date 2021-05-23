@@ -34,6 +34,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * The Main Plugin class
  */
 final class Mrm_Form_Submit_Ajax {
+
     /**
      * plugin Version
      * 
@@ -52,7 +53,9 @@ final class Mrm_Form_Submit_Ajax {
      */
     private function __construct() {
         $this->define_constants();
+
         register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+
         add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
      }
 
@@ -66,7 +69,7 @@ final class Mrm_Form_Submit_Ajax {
     public static function init() {
         static $instance = false;
 
-        if( ! $instance ) {
+        if ( ! $instance ) {
             $instance = new self();
         }
 
@@ -130,7 +133,6 @@ final class Mrm_Form_Submit_Ajax {
  * @return \Mrm_Form_Submit_Ajax
  */
 function mrm_form_submit_ajax() {
-     
     return Mrm_Form_Submit_Ajax::init();
 }
  

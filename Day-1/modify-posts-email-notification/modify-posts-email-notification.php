@@ -67,7 +67,6 @@ class Modify_Posts_Email_Notification {
  * @return object
  */
 function mrm_modify_post_mail() {
-
     return new Modify_Posts_Email_Notification();
 }
 

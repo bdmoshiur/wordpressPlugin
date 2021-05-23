@@ -6,6 +6,7 @@ namespace Recent\Posts;
  * Assets class
  */
 class Assets {
+    
     /**
      * Class constructor
      * 

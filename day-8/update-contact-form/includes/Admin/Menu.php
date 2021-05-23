@@ -1,10 +1,12 @@
 <?php
+
 namespace Formsubmit\Ajax\Admin;
 
 /**
  * The main menu class
  */
 class Menu {
+
     /**
      * Addressbook class instance
      * 
@@ -33,7 +35,8 @@ class Menu {
      */
     public function admin_menu() {
         $parent_slug = 'user-information';
-        $capability = 'manage_options';
+        $capability  = 'manage_options';
+        
         add_menu_page( __( 'User Information', 'form_submit_ajax' ), __( 'Contact Form info', 'form_submit_ajax' ), $capability, $parent_slug, [ $this->addressbook, 'plugin_page' ], 'dashicons-admin-users' );
         add_submenu_page( $parent_slug, __('Users Address', 'form_submit_ajax' ), __( 'User Information', 'form_submit_ajax' ), $capability, $parent_slug, [ $this->addressbook, 'plugin_page' ] );
         add_submenu_page( $parent_slug, __( 'Address Setting', 'form_submit_ajax' ), __( 'Setting', 'form_submit_ajax' ), $capability, 'address-setting', [ $this, 'wd_menu_setting' ] );

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ubrp\Book\Review\Admin;
 
 /**
@@ -7,6 +8,7 @@ namespace Ubrp\Book\Review\Admin;
  * @since 1.0.0
  */
 class Taxonomy {
+
     /**
      * Constructor function
      *
