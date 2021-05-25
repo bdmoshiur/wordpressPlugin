@@ -36,7 +36,7 @@ require_once __DIR__ . "/vendor/autoload.php";
 /**
  * Main plugin class
  */
-final class Mrm_Jobs_Search {
+final class Js_Jobs_Search {
 
     /**
      * Plugin version
@@ -67,7 +67,7 @@ final class Mrm_Jobs_Search {
      *
      * @since  1.0.0
      *
-     * @return \Mrm_Jobs_Search
+     * @return \Js_Jobs_Search
      */
     public static function init() {
         static $instance = false;
@@ -128,10 +128,10 @@ final class Mrm_Jobs_Search {
  * 
  * @since 1.0.0
  * 
- * @return \Mrm_Jobs_Search
+ * @return \Js_Jobs_Search
  */
-function mrm_jobs_search() {
-    return Mrm_Jobs_Search::init();
+function js_jobs_search() {
+    return Js_Jobs_Search::init();
 }
 
 /**
@@ -139,4 +139,4 @@ function mrm_jobs_search() {
  * 
  * @since 1.0.0
  */
-mrm_jobs_search();
+js_jobs_search();

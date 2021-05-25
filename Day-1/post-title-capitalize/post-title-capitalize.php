@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class of title capitalize plugin 
  */
-class Title_capitalize {
+class Tc_Title_capitalize {
     
     /**
      * Constructor function
@@ -65,10 +65,10 @@ class Title_capitalize {
  * 
  * @since 1.0.0
  * 
- * @return object
+ * @return \Tc_Title_capitalize
  */
-function mrm_title_capitalize() {
-    return new Title_capitalize();
+function tc_title_capitalize() {
+    return new Tc_Title_capitalize();
 }
 
 /**
@@ -76,4 +76,4 @@ function mrm_title_capitalize() {
  * 
  * @since 1.0.0
  */
-mrm_title_capitalize();
+tc_title_capitalize();

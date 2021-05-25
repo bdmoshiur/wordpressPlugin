@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class of title capitalize plugin
  */
-class Mrm_Book_Reviews {
+class Br_Book_Reviews {
 
     /**
      * Constructor function
@@ -202,10 +202,10 @@ class Mrm_Book_Reviews {
  *
  * @since 1.0.0
  * 
- * @return object
+ * @return \Br_Book_Reviews
  */
-function mrm_br_book_reviews() {
-    return new Mrm_Book_Reviews();
+function br_book_reviews() {
+    return new Br_Book_Reviews();
 }
 
 /**
@@ -213,4 +213,4 @@ function mrm_br_book_reviews() {
  * 
  * @since 1.0.0
  */
-mrm_br_book_reviews();
+br_book_reviews();

@@ -36,7 +36,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main class of plugin
  */
-final class Rest_Book {
+final class Rb_Rest_Book {
 
     /**
      * Plugin version
@@ -67,7 +67,7 @@ final class Rest_Book {
      *
      * @since  1.0.0
      *
-     * @return \Rest_Book
+     * @return \Rb_Rest_Book
      */
     public static function init() {
         static $instance = false;
@@ -130,10 +130,10 @@ final class Rest_Book {
  *
  * @since 1.0.0
  * 
- * @return object
+ * @return \Rb_Rest_Book
  */
-function rest_book_api() {
-    return Rest_Book::init();
+function rbi_rest_book_api() {
+    return Rb_Rest_Book::init();
 }
 
 /**
@@ -141,4 +141,4 @@ function rest_book_api() {
  * 
  * @since 1.0.0
  */
-rest_book_api();
+rbi_rest_book_api();

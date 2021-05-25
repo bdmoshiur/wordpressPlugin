@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class of title capitalize plugin 
  */
-class Mrm_Post_Excerpt {
+class Pe_Post_Excerpt {
 
     /**
      * Constructor function
@@ -153,13 +153,13 @@ class Mrm_Post_Excerpt {
 /**
  * The main class instance create function
  *
- * @return object
+ * @return \Pe_Post_Excerpt
  */
-function mrm_post_excerpt() {
-    return new Mrm_Post_Excerpt();
+function pe_post_excerpt() {
+    return new Pe_Post_Excerpt();
 }
 
 /**
  * object calling function
  */
-mrm_post_excerpt();
+pe_post_excerpt();

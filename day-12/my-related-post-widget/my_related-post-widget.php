@@ -38,7 +38,7 @@ require_once __DIR__ . "/vendor/autoload.php";
  *
  * The class that holds the entire plugin
  */
-final class Related_Post_Widget {
+final class Rpw_Related_Post_Widget {
 
     /**
      * Plugin version
@@ -69,7 +69,7 @@ final class Related_Post_Widget {
      *
      * @since  1.0.0
      *
-     * @return \Related_Post_Widget
+     * @return \Rpw_Related_Post_Widget
      */
     public static function init() {
         static $instance = false;
@@ -130,10 +130,10 @@ final class Related_Post_Widget {
  *
  * @since 1.0.0
  * 
- * @return \Related_Post_Widget
+ * @return \Rpw_Related_Post_Widget
  */
 function rpw_related_post_widget() {
-    return Related_Post_Widget::init();
+    return Rpw_Related_Post_Widget::init();
 } 
 
 /**

@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class Vertical Button plugin
  */
-class Vertical_Button {
+class Vb_Vertical_Button {
 
     /**
      * constructor function
@@ -95,10 +95,10 @@ class Vertical_Button {
  *
  * @since 1.0.0
  * 
- * @return object
+ * @return \Vb_Vertical_Button
  */
-function mrm_vertical_button() {
-    return new Vertical_Button();
+function vb_vertical_button() {
+    return new Vb_Vertical_Button();
 }
 
 /**
@@ -106,4 +106,4 @@ function mrm_vertical_button() {
  * 
  * @since 1.0.0
  */
-mrm_vertical_button();
+vb_vertical_button();

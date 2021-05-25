@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 require_once __DIR__ . '/vendor/autoload.php';
 
-final class Recent_Posts {
+final class Rc_Recent_Posts {
 
     /**
      * Plugin version
@@ -110,7 +110,7 @@ final class Recent_Posts {
      * 
      * @since 1.0.0
      * 
-     * @return \Recent_Posts
+     * @return \Rc_Recent_Posts
      */
     public static function init() {
         $instance = false;
@@ -129,10 +129,10 @@ final class Recent_Posts {
  * 
  * @since 1.0.0
  * 
- * @return \Recent_Posts
+ * @return \Rc_Recent_Posts
  */
-function mrm_recent_posts_boot() {
-    return Recent_Posts::init();
+function rc_recent_posts_boot() {
+    return Rc_Recent_Posts::init();
 }
 
 /**
@@ -140,4 +140,4 @@ function mrm_recent_posts_boot() {
  * 
  * @since 1.0.0
  */
-mrm_recent_posts_boot();
+rc_recent_posts_boot();

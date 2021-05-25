@@ -33,7 +33,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 /**
  * The Main Plugin class
  */
-final class Author_Box {
+final class Ab_Author_Box {
 
     /**
      * plugin Version
@@ -58,7 +58,7 @@ final class Author_Box {
     /**
      * initialize a singleton instance
      * 
-     * @return \Author_Box
+     * @return \Ab_Author_Box
      */
     public static function init() {
         static $instance = false;
@@ -123,10 +123,10 @@ final class Author_Box {
  * 
  * @since 1.0.0
  * 
- * @return \Author_Box 
+ * @return \Ab_Author_Box 
  */
-function mrm_author_box() {
-    return Author_Box::init();
+function ab_author_box() {
+    return Ab_Author_Box::init();
 }
 
 /**
@@ -134,6 +134,6 @@ function mrm_author_box() {
  * 
  * @since 1.0.0
  */
-mrm_author_box();
+ab_author_box();
 
 

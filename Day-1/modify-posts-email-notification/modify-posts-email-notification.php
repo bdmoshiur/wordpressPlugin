@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class Modify Posts Email plugin
  */
-class Modify_Posts_Email_Notification {
+class Pe_Modify_Posts_Email_Notification {
 
     /**
      * Constructor function
@@ -64,10 +64,10 @@ class Modify_Posts_Email_Notification {
  *
  * @since 1.0.0
  * 
- * @return object
+ * @return \Pe_Modify_Posts_Email_Notification
  */
-function mrm_modify_post_mail() {
-    return new Modify_Posts_Email_Notification();
+function pe_modify_post_mail() {
+    return new Pe_Modify_Posts_Email_Notification();
 }
 
 /**
@@ -75,4 +75,4 @@ function mrm_modify_post_mail() {
  * 
  * @since 1.0.0
  */
-mrm_modify_post_mail();
+pe_modify_post_mail();

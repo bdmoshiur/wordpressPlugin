@@ -35,7 +35,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * 
  * @since 1.0.0
  */
-final class Featured_Posts {
+final class Fp_Featured_Posts {
 
     /**
      * plugin Version
@@ -66,7 +66,7 @@ final class Featured_Posts {
      * 
      * @since 1.0.0
      * 
-     * @return \Featured_Posts
+     * @return \Fp_Featured_Posts
      */
     public static function init() {
         static $instance = false;
@@ -131,10 +131,10 @@ final class Featured_Posts {
  *  
  * @since 1.0.0
  *
- * @return \Featured_Posts 
+ * @return \Fp_Featured_Posts 
  */
-function mrm_featured_posts() {
-    return Featured_Posts::init();
+function fp_featured_posts() {
+    return Fp_Featured_Posts::init();
 }
  
 /**
@@ -142,4 +142,4 @@ function mrm_featured_posts() {
  *
  * @since 1.0.0
  */
-mrm_featured_posts();
+fp_featured_posts();

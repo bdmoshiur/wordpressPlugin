@@ -39,7 +39,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 *
 * @return mixed
 */
-final class We_Crud {
+final class Wc_We_Crud {
     
     /**
     * plugin Version
@@ -68,7 +68,7 @@ final class We_Crud {
     *
     * @since 1.0.0
     *
-    * @return \We_Crud
+    * @return \Wc_We_Crud
     */
     public static function init() {
         static $instance = false;
@@ -128,10 +128,10 @@ final class We_Crud {
 *
 * @since 1.0.0
 * 
-* @return \We_Crud
+* @return \Wc_We_Crud
 */
-function mrm_we_crud() {
-    return We_Crud::init();
+function wc_we_crud() {
+    return Wc_We_Crud::init();
 }
  
 /**
@@ -141,4 +141,4 @@ function mrm_we_crud() {
 *
 * @return object
 */
-mrm_we_crud();
+wc_we_crud();

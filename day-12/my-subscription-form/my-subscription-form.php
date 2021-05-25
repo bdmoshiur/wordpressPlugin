@@ -33,7 +33,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 /**
  * The Main Plugin class
  */
-final class Mrm_Subscription_Form {
+final class Sf_Subscription_Form {
 
     /**
      * plugin Version
@@ -64,7 +64,7 @@ final class Mrm_Subscription_Form {
      * 
      * @since 1.0.0
      * 
-     * @return \Mrm_Subscription_Form
+     * @return \Sf_Subscription_Form
      */
     public static function init() {
         static $instance = false;
@@ -131,10 +131,10 @@ final class Mrm_Subscription_Form {
  * 
  * @since 1.0.0
  * 
- * @return \Mrm_Subscription_Form 
+ * @return \Sf_Subscription_Form 
  */
-function mrm_subscription_form() {
-    return Mrm_Subscription_Form::init();
+function sf_subscription_form() {
+    return Sf_Subscription_Form::init();
 }
 
 /**
@@ -142,6 +142,6 @@ function mrm_subscription_form() {
  * 
  * @since 1.0.0
  */
-mrm_subscription_form();
+sf_subscription_form();
 
 

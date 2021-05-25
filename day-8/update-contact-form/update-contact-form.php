@@ -33,7 +33,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 /**
  * The Main Plugin class
  */
-final class Mrm_Form_Submit_Ajax {
+final class Ucf_Form_Submit_Ajax {
 
     /**
      * plugin Version
@@ -64,7 +64,7 @@ final class Mrm_Form_Submit_Ajax {
      *  
      * @since 1.0.0
      * 
-     * @return \Mrm_Form_Submit_Ajax
+     * @return \Ucf_Form_Submit_Ajax
      */
     public static function init() {
         static $instance = false;
@@ -130,10 +130,10 @@ final class Mrm_Form_Submit_Ajax {
  *
  * @since 1.0.0
  *  
- * @return \Mrm_Form_Submit_Ajax
+ * @return \Ucf_Form_Submit_Ajax
  */
-function mrm_form_submit_ajax() {
-    return Mrm_Form_Submit_Ajax::init();
+function ucf_form_submit_ajax() {
+    return Ucf_Form_Submit_Ajax::init();
 }
  
 /**
@@ -141,6 +141,6 @@ function mrm_form_submit_ajax() {
  * 
  * @since 1.0.0
  */
-mrm_form_submit_ajax();
+ucf_form_submit_ajax();
 
 

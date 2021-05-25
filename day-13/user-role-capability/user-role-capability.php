@@ -33,7 +33,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * 
  * @since 1.0.0
  */
-final class User_Role_Capability {
+final class Urc_User_Role_Capability {
 
     /**
      * plugin Version
@@ -64,7 +64,7 @@ final class User_Role_Capability {
      * 
      * @since 1.0.0
      * 
-     * @return \User_Role_Capability
+     * @return \Urc_User_Role_Capability
      */
     public static function init() {
         static $instance = false;
@@ -127,10 +127,10 @@ final class User_Role_Capability {
  * 
  * @since 1.0.0
  * 
- * @return \User_Role_Capability
+ * @return \Urc_User_Role_Capability
  */
-function mrm_user_role_capability() {
-    return User_Role_Capability::init();
+function urc_user_role_capability() {
+    return Urc_User_Role_Capability::init();
 }
 
 /**
@@ -138,6 +138,6 @@ function mrm_user_role_capability() {
  * 
  * @since 1.0.0
  */ 
-mrm_user_role_capability();
+urc_user_role_capability();
 
 

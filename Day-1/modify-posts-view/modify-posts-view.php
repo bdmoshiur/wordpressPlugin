@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class Modify Posts View plugin
  */
-class Modify_Posts_View {
+class Mpv_Modify_Posts_View {
 
     /**
      * Constuctor function
@@ -56,10 +56,10 @@ class Modify_Posts_View {
  *
  * @return mixed
  * 
- * @return object
+ * @return \Mpv_Modify_Posts_View
  */
-function mrm_modify_post() {
-    return new Modify_Posts_View();
+function mp_modify_post() {
+    return new Mpv_Modify_Posts_View();
 }
 
 /**
@@ -67,4 +67,4 @@ function mrm_modify_post() {
  * 
  * @since 1.0.0
  */
-mrm_modify_post();
+mp_modify_post();

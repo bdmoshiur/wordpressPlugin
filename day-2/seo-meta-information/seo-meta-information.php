@@ -60,9 +60,9 @@ class Seo_Meta_information {
  *
  * @since 1.0.0
  * 
- * @return object
+ * @return \Seo_Meta_information
  */
-function mrm_meta_information() {
+function seo_meta_information() {
     return new Seo_Meta_information();
 }
 
@@ -71,4 +71,4 @@ function mrm_meta_information() {
  * 
  * @since 1.0.0
  */
-mrm_meta_information();
+seo_meta_information();

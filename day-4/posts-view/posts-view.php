@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class of posts view plugin
  */
-class Posts_View_Count {
+class Pvc_Posts_View_Count {
 
     /**
      * Constructor Function
@@ -118,13 +118,13 @@ class Posts_View_Count {
 /**
  * The main class instance
  *
- * @return object
+ * @return \Pvc_Posts_View_Count
  */
-function mrm_posts_view() {
-    return new Posts_View_Count();
+function pv_posts_view() {
+    return new Pvc_Posts_View_Count();
 }
 
 /**
  * object calling function
  */
-mrm_posts_view();
+pv_posts_view();

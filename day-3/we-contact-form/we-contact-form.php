@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The main class of plugin
  */
-class We_Contact_Form {
+class Cf_We_Contact_Form {
 
     /**
      * constructor function
@@ -141,13 +141,13 @@ class We_Contact_Form {
 /**
  * The main class instance function
  *
- * @return object
+ * @return \Cf_We_Contact_Form
  */
-function we_contact_form() {
-    return new We_Contact_Form();
+function cf_we_contact_form() {
+    return new Cf_We_Contact_Form();
 }
 
 /**
  * object calling function
  */
-we_contact_form();
+cf_we_contact_form();

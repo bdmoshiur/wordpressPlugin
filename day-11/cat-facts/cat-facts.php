@@ -31,7 +31,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 /**
  * The Main Plugin class
  */
-final class Cat_Facts {
+final class Cf_Cat_Facts {
 
     /**
      * plugin Version
@@ -56,7 +56,7 @@ final class Cat_Facts {
     /**
      * initialize a singleton instance 
      * 
-     * @return \Cat_Facts
+     * @return \Cf_Cat_Facts
      */
     public static function init() {
         static $instance = false;
@@ -119,15 +119,15 @@ final class Cat_Facts {
  * 
  * @since 1.0.0
  *  
- * @return \Cat_Facts 
+ * @return \Cf_Cat_Facts 
  */
-function mrm_cat_acts() {
-    return Cat_Facts::init();
+function cf_cat_acts() {
+    return Cf_Cat_Facts::init();
 }
  
 /**
  * Kick of The Plugin
  */
-mrm_cat_acts();
+cf_cat_acts();
 
 
