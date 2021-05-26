@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '29571a1102a4efc3f1e05119d3d56c1f9ab54acf',
+    'reference' => 'e44db5b06e61d4e84c5f7f0832fc83fcb76ab525',
     'name' => 'moshiur1998/book-review',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '29571a1102a4efc3f1e05119d3d56c1f9ab54acf',
+      'reference' => 'e44db5b06e61d4e84c5f7f0832fc83fcb76ab525',
     ),
   ),
 );

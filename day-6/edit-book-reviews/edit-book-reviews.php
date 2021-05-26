@@ -33,7 +33,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
 /**
  * The main class of plugin
 */
-final class Ubrp_Book_Review {
+final class Ubr_Book_Review {
 
     /**
      * plugin Version
@@ -62,7 +62,7 @@ final class Ubrp_Book_Review {
      * 
      * @since 1.0.0
      * 
-     * @return \Ubrp_Book_Review
+     * @return \Ubr_Book_Review
     */
     public static function init() {
         static $instance = false;
@@ -82,11 +82,11 @@ final class Ubrp_Book_Review {
      * @return void
     */
     public function define_constants() {
-        define( 'UBRP_BOOK_REVIEW_VERSION', self::VERSION );
-        define( 'UBRP_BOOK_REVIEW_FILE', __FILE__  );
-        define( 'UBRP_BOOK_REVIEW_PATH', __DIR__  );
-        define( 'UBRP_BOOK_REVIEW_URL', plugins_url('', UBRP_BOOK_REVIEW_FILE ) );
-        define( 'UBRP_BOOK_REVIEW_ASSETS',  UBRP_BOOK_REVIEW_URL . '/assets' );
+        define( 'UBR_BOOK_REVIEW_VERSION', self::VERSION );
+        define( 'UBR_BOOK_REVIEW_FILE', __FILE__  );
+        define( 'UBR_BOOK_REVIEW_PATH', __DIR__  );
+        define( 'UBR_BOOK_REVIEW_URL', plugins_url('', UBR_BOOK_REVIEW_FILE ) );
+        define( 'UBR_BOOK_REVIEW_ASSETS',  UBR_BOOK_REVIEW_URL . '/assets' );
     }
 
     /**
@@ -114,7 +114,7 @@ final class Ubrp_Book_Review {
            update_option( 'demo_test_time', time() );
         }
 
-        update_option( 'demo_test_version', UBRP_BOOK_REVIEW_VERSION );
+        update_option( 'demo_test_version', UBR_BOOK_REVIEW_VERSION );
     }
 }
 
@@ -123,10 +123,10 @@ final class Ubrp_Book_Review {
  *
  * @since 1.0.0
  *
- * @return \Ubrp_Book_Review 
+ * @return \Ubr_Book_Review 
 */
-function ubrp_book_review() {
-    return Ubrp_Book_Review::init();
+function ubr_book_review() {
+    return Ubr_Book_Review::init();
 }
  
 /**
@@ -134,6 +134,6 @@ function ubrp_book_review() {
  *
  * @since 1.0.0
 */
-ubrp_book_review();
+ubr_book_review();
 
 

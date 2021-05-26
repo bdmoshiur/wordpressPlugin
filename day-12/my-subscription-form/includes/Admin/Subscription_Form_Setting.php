@@ -49,6 +49,6 @@ class Subscription_Form_Setting {
      */
     public function render_api_field( ) {
         $mailchimp_link = get_option( 'mailchimp_link' );
-        echo '<input type="text" class="widefat" name="mailchimp_link" value="'. $mailchimp_link.'" placeholder="' . __( 'Enter your api key', 'my-subscription-form' ) . ">';
+        echo '<input type="text" class="widefat" name="mailchimp_link" value="'. $mailchimp_link.'" placeholder="' . __( 'Enter your api key', 'my-subscription-form' ) . '">';
     }
 }
