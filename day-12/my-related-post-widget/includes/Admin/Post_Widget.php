@@ -48,6 +48,7 @@ class Post_Widget extends \WP_Widget {
      * Front-end display of widget.
      *
      * @since 1.0.0
+     * 
      * @see WP_Widget::widget()
      *
      * @param array $args     Widget arguments.
@@ -60,10 +61,10 @@ class Post_Widget extends \WP_Widget {
             
             echo $args['before_widget'];
 
-            $title   = ! empty( $instance['title'] ) ? $instance['title']            : '';
-            $limit   = ! empty( $instance['no-of-post'] ) ? $instance['no-of-post']  : 5;
-            $image   = isset( $instance['show-image'] ) ? $instance['show-image']    : '';
-            $excerpt = isset( $instance['show-excerpt'] ) ? $instance['show-excerpt']: '';
+            $title   = ! empty( $instance['title'] ) ? sanitize_text_field( $instance['title'] )            : '';
+            $limit   = ! empty( $instance['no-of-post'] ) ? sanitize_text_field( $instance['no-of-post'] )  : 5;
+            $image   = isset( $instance['show-image'] ) ? sanitize_text_field( $instance['show-image'] )    : '';
+            $excerpt = isset( $instance['show-excerpt'] ) ? sanitize_text_field( $instance['show-excerpt'] ): '';
 
             echo $args['before_title'] . '<h2>' . apply_filters( 'widget_title', $title  ) . '</h2>' . $args['after_title'];
 
@@ -106,6 +107,7 @@ class Post_Widget extends \WP_Widget {
      * Back-end widget form.
      *
      * @since 1.0.0
+     * 
      * @see WP_Widget::form()
      *
      * @param array $instance Previously saved values from database.
@@ -113,10 +115,10 @@ class Post_Widget extends \WP_Widget {
      * @return void
      */
     public function form( $instance ) {
-        $title        = ! empty( $instance['title'] ) ? $instance['title']              : '';
-        $posts_no     = ! empty( $instance['no-of-post'] ) ? $instance['no-of-post']    : '';
-        $show_image   = ! empty( $instance['show-image'] ) ? $instance['show-image']    : '';
-        $show_excerpt = ! empty( $instance['show-excerpt'] ) ? $instance['show-excerpt']: '';
+        $title        = ! empty( $instance['title'] ) ? sanitize_text_field( $instance['title'] )              : '';
+        $posts_no     = ! empty( $instance['no-of-post'] ) ? sanitize_text_field( $instance['no-of-post'] )    : '';
+        $show_image   = ! empty( $instance['show-image'] ) ? sanitize_text_field( $instance['show-image'] )    : '';
+        $show_excerpt = ! empty( $instance['show-excerpt'] ) ? sanitize_text_field( $instance['show-excerpt'] ): '';
 
         $template = __DIR__ . '/views/view_post_widget.php';
         
@@ -126,14 +128,16 @@ class Post_Widget extends \WP_Widget {
     }
 
     /**
-     * Sanitize widget form values as they are saved.
+     * Sanitize widget form values as they are update.
+     * 
      * @since 1.0.0
+     * 
      * @see WP_Widget::update()
      *
-     * @param array $new_instance Values just sent to be saved.
-     * @param array $old_instance Previously saved values from database.
+     * @param array $new_instance Values just sent to be update.
+     * @param array $old_instance Previously update values from database.
      *
-     * @return array Updated safe values to be saved.
+     * @return array Updated safe values to be update.
      */
     public function update( $new_instance, $old_instance ) {
         $instance                 = array();

@@ -52,7 +52,7 @@ class User_Meta_Bio {
             </div>
 
             <div class="user-meta-bio-content">
-                <div class="author-name"><?php echo $author->display_name; ?></div>
+                <div class="author-name"><?php echo esc_html( $author->display_name ); ?></div>
 
                 <div class="user-meta-author-bio">
                     <?php echo wpautop( wp_kses_post( $bio ) ); ?>

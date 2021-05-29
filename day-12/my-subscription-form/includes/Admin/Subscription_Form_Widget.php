@@ -48,6 +48,7 @@ class Subscription_Form_Widget extends \WP_Widget {
      * Front-end display of widget.
      *
      * @since 1.0.0
+     * 
      * @see WP_Widget::widget()
      *
      * @param array $args     Widget arguments.
@@ -97,10 +98,12 @@ class Subscription_Form_Widget extends \WP_Widget {
         $body     = json_decode( wp_remote_retrieve_body( $response ) );
         
         if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
+            
             foreach ( $body->lists as $list ) {
                 $audience_list_name = $list->name;
                 $list_id            = $list->id;
             }
+
         } else {
             echo '<b>' . wp_remote_retrieve_response_code( $response ) . wp_remote_retrieve_response_message( $response ) . ':</b> ' . $body->detail;
         }
@@ -116,6 +119,7 @@ class Subscription_Form_Widget extends \WP_Widget {
      * Sanitize widget form values as they are saved.
      * 
      * @since 1.0.0
+     * 
      * @see WP_Widget::update()
      *
      * @param array $new_instance Values just sent to be saved.

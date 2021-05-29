@@ -44,7 +44,7 @@ class Dashboard {
         wp_enqueue_script( 'mrm-main' );
 
         $categories      = get_categories();
-        $mrm_posts_no    = get_option( 'mrm_posts_no' );   
+        $mrm_posts_no    = get_option( 'mrm_posts_no' );  
         $mrm_order       = get_option( 'mrm_order' );
         $mrm_category    = get_option( 'mrm_category_items' );
 

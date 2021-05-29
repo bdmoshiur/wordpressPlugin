@@ -30,7 +30,7 @@ class Customer_Registration_Form {
         if (  isset( $_POST['send_shortcode'] ) ) {
 
             if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'nonce_from_shortcode' ) ) {
-                wp_die( 'Aru you Cheating nonce' );
+                wp_die(  __( 'Aru you Cheating nonce', 'user-role-capability' ) );
             }
 
             $uname      = isset( $_REQUEST['uname'] ) ?  sanitize_text_field( $_REQUEST['uname'] ): '';

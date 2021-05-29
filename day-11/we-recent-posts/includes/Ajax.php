@@ -50,7 +50,7 @@ class Ajax {
         }
 
         if ( isset( $options['mrm_category_items'] ) ) {
-            update_option( 'mrm_category_items', $options['mrm_category_items'] );
+            update_option( 'mrm_category_items', sanitize_text_field( $options['mrm_category_items'] ) );
         }
 
         wp_send_json_success();

@@ -118,7 +118,7 @@ final class Urc_User_Role_Capability {
 
         update_option( 'role_capability_version', ROLE_CAPABILITY_VERSION );
 
-        add_role( 'customer_role', 'Customer Role' );
+        add_role( 'customer_role', __( 'Customer Role', 'user-role-capability' ) );
     }
 }
 

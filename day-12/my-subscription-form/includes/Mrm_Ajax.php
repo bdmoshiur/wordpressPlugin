@@ -39,8 +39,8 @@ class Mrm_Ajax {
             ] );
         }
 
-        $email   = isset( $_REQUEST['email'] ) ? $_REQUEST['email']    : '' ;
-        $list_id = isset( $_REQUEST['list_id'] ) ? $_REQUEST['list_id']: '' ;
+        $email   = isset( $_REQUEST['email'] ) ? sanitize_email( $_REQUEST['email'] )         : '' ;
+        $list_id = isset( $_REQUEST['list_id'] ) ? sanitize_text_field( $_REQUEST['list_id'] ): '' ;
         $api_key = get_option( 'mailchimp_link' );
         $status  = 'subscribed';
         
@@ -60,7 +60,7 @@ class Mrm_Ajax {
         $body     = json_decode( $response['body'] );
         
         if ( $response['response']['code'] == 200 && $body->status == $status ) {
-            echo 'The user has been successfully ' . $status . '.';
+            echo __( 'The user has been successfully', 'my-subscription-form' ) . $status . '.';
         } else {
             echo '<b>' . $response['response']['code'] . $body->title . ':</b> ' . $body->detail;
         }
