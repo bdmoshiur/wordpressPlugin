@@ -18,7 +18,7 @@ class Shortcode {
      * @return void
      */
    function __construct() {
-      add_shortcode( 'setting-field', [ $this, 'add_setting_field' ] );
+      add_shortcode( 'setting-field', [$this, 'add_setting_field'] );
    }
 
    /**
@@ -29,9 +29,9 @@ class Shortcode {
      * @return void
      */
    public function add_setting_field( $atts ) {
-      $no_of_posts       = get_option[ 'no_of_post' ];
-      $order_of_posts    = get_option[ 'posts_order' ];
-      $selected_category = isset( get_option[ 'posts_category' ] ) ? implode( ",", get_option[ 'posts_category' ] ) : '';
+      $no_of_posts       = get_option['no_of_post'];
+      $order_of_posts    = get_option['posts_order'];
+      $selected_category = isset( get_option['posts_category'] ) ? implode( ",", get_option['posts_category'] ) : '';
    
       $default = shortcode_atts( array(
          'posts'  => $no_of_posts,
@@ -40,10 +40,10 @@ class Shortcode {
       ), $atts );
 
       $args = array(
-         'post_type'        => 'post',
-         'posts_per_page'   => $default[ 'posts' ],
-         'order'            => $default[ 'order' ],
-         'category_name'    => $default[ 'select' ],
+         'post_type'      => 'post',
+         'posts_per_page' => $default['posts'],
+         'order'          => $default['order'],
+         'category_name'  => $default['select'],
       );
 
       $the_query = get_transient( 'feature_post_transient_data' );
@@ -60,9 +60,11 @@ class Shortcode {
       if ( $the_query->have_posts() ) {
          $posts = $the_query->posts;
          echo '<ul>';
-         foreach ($posts as $post) {
-            echo '<h2>' . $post->post_title . '</h2>';
+
+         foreach ( $posts as $post ) {
+            echo '<h2>' . esc_html( $post->post_title ) . '</h2>';
          }
+
          echo '</ul>';
       }
       

@@ -4,7 +4,7 @@
 
         <input type="text" name="search-location" id="search-location" placeholder="<?php esc_attr_e( 'Search Jobs Location', 'github_jobs_earch' ); ?>">
 
-        <?php $job_fulltime = isset( $_GET['search-fulltime'] ) ? $_GET['search-fulltime'] : '' ?>
+        <?php $job_fulltime = isset( $_GET['search-fulltime'] ) ? sanitize_text_field( $_GET['search-fulltime'] ) : '' ?>
         <input type="checkbox" name="search-fulltime" id="search-fulltime" value="on" <?php checked( $job_fulltime, 'on' ); ?>>
         <label for="search-fulltime"><?php esc_html_e( 'Full time', 'github_jobs_earch' ); ?></label>
 

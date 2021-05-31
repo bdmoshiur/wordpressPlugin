@@ -17,8 +17,8 @@ class Featured_Post_Settings {
      * @return void
      */
     public function __construct() {
-        add_action( 'admin_menu', [ $this, 'fps_add_options_menu' ] );
-        add_action( 'admin_init', [ $this, 'fps_featured_posts_field_register' ] );
+        add_action( 'admin_menu', [$this, 'fps_add_options_menu'] );
+        add_action( 'admin_init', [$this, 'fps_featured_posts_field_register'] );
     }
 
     /**
@@ -29,7 +29,7 @@ class Featured_Post_Settings {
      * @return void
      */
     public function fps_add_options_menu() {
-        add_options_page( __( 'Featured posts setting', 'featured-posts ' ), __( 'Featured Posts', 'featured-posts' ), 'manage_options', 'post_options', [ $this, 'fps_display_options_menu' ] );
+        add_options_page( __( 'Featured posts setting', 'featured-posts ' ), __( 'Featured Posts', 'featured-posts' ), 'manage_options', 'post_options', [$this, 'fps_display_options_menu'] );
     }
 
     /**
@@ -65,11 +65,11 @@ class Featured_Post_Settings {
      * @return void
      */
     public function fps_featured_posts_field_register() {
-        add_settings_section( 'post_sections', __( 'Featured Posts Setting', 'featured-posts' ), [ $this,'fps_add_field' ], 'post_options' );
+        add_settings_section( 'post_sections', __( 'Featured Posts Setting', 'featured-posts' ), [$this,'fps_add_field'], 'post_options' );
 
-        add_settings_field( 'no_of_post', __( 'No fo Posts', 'featured-posts' ), [ $this, 'no_of_post_display' ], 'post_options', 'post_sections' );
-        add_settings_field( 'posts_order', __( 'Posts Order', 'featured-posts' ), [ $this, 'post_order_display' ], 'post_options', 'post_sections' );
-        add_settings_field( 'posts_category', __( 'Posts Categoory', 'featured-posts' ), [ $this, 'post_category_display' ], 'post_options', 'post_sections' );
+        add_settings_field( 'no_of_post', __( 'No fo Posts', 'featured-posts' ), [$this, 'no_of_post_display'], 'post_options', 'post_sections' );
+        add_settings_field( 'posts_order', __( 'Posts Order', 'featured-posts' ), [$this, 'post_order_display'], 'post_options', 'post_sections' );
+        add_settings_field( 'posts_category', __( 'Posts Categoory', 'featured-posts' ), [$this, 'post_category_display'], 'post_options', 'post_sections' );
 
         register_setting( 'post_sections', 'no_of_post' );
         register_setting( 'post_sections', 'posts_order' );
@@ -112,7 +112,7 @@ class Featured_Post_Settings {
             __( 'Random', 'featured-posts' ),
             __( 'ASE', 'featured-posts' ),
             __( 'DESC', 'featured-posts' ),
-        ];
+       ];
 
         printf( "<select class='regular-text' id='%s' name='%s' >", 'posts_order', 'posts_order' );
 
@@ -141,8 +141,8 @@ class Featured_Post_Settings {
         $categories = get_categories();
 
         foreach( $categories as $category ){
-            echo '<input type="checkbox" id="'.$category->cat_ID.'" name="posts_category['. $category->slug .']" value="'. $category->slug .'"'.checked( $category->slug, $option, false ).'>';
-            echo '<label for="'. $category->slug .'">'. $category->name .'</label><br>';
+            echo '<input type="checkbox" id="' . esc_attr( $category->cat_ID ) . '" name="posts_category[' . esc_attr( $category->slug ) . ']" value="' . esc_attr( $category->slug ) . '"' . checked( $category->slug, $option, false ) . '>';
+            echo '<label for="' . esc_attr( $category->slug ) . '">' . esc_html( $category->name ) . '</label><br>';
         }
     }
 }

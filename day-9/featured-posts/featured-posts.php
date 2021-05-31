@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Featured Posts 
+ * Plugin Name:       Featured Posts
  * Plugin URI:        https://moshiur.com/plugins/
  * Description:       Featured Posts plugin.
  * Version:           1.0.0
@@ -10,7 +10,7 @@
  * Author URI:        https://moshiur.com/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       featured-posts 
+ * Text Domain:       featured-posts
  * Domain Path:       /languages
  */
 
@@ -56,9 +56,9 @@ final class Fp_Featured_Posts {
     private function __construct() {
         $this->define_constants();
 
-        register_activation_hook( __FILE__,  [ $this, 'activate' ] );
+        register_activation_hook( __FILE__,  [$this, 'activate'] );
         
-        add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
+        add_action( 'plugins_loaded', [$this, 'init_plugin'] );
      }
 
     /**
