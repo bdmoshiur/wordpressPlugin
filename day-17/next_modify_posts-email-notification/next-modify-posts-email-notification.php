@@ -94,7 +94,7 @@ class Nme_Posts_Email_Notification {
 			'post_status' => 'publish',
 			'date_query'  => [
 				[
-				    'year'  => $day['year'],
+				'year'  => $day['year'],
 		            'month' => $day['mon'],
 		            'day'   => $day['mday'],
                 ],
@@ -105,9 +105,11 @@ class Nme_Posts_Email_Notification {
 
 		$post_titles = '<ul>';
 		$num_of_posts = count( $posts );
+
 		foreach ( $posts as $post ) {
 			$post_titles .= '<li>' . $post->post_title . '</li>';
 		}
+
 		$post_titles .= '</ul>';
 
 		$admin_email = [ get_option( 'admin_email' ) ];
