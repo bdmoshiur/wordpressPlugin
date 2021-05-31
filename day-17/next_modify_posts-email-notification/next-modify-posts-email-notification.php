@@ -97,9 +97,9 @@ class Nme_Posts_Email_Notification {
 				    'year'  => $day['year'],
 		            'month' => $day['mon'],
 		            'day'   => $day['mday'],
-			    ],
-		    ];
-
+                ],
+		    ],
+        ];
 		$query       = new \WP_Query( $args );
 		$posts       = $query->posts;
 
