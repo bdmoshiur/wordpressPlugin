@@ -24,7 +24,7 @@ function wp_ac_insert_address( $args = [] ) {
 
     $data = wp_parse_args( $args, $defaults );
 
-    if ( $data['id'] ) {
+    if ( isset( $data['id'] ) ) {
         
         $id = $data['id'];
         unset( $data['id'] );
@@ -93,6 +93,16 @@ function wp_ac_get_address( $args = [] ) {
     $items = $wpdb->get_results( $sql );
 
     return $items;
+}
+
+function wp_ac_get_single_address( $id ) {
+    global $wpdb;
+
+    $sql = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}ac_address WHERE id=%d", $id);
+
+    $item = $wpdb->get_row( $sql );
+
+    return $item;
 }
 
 /**

@@ -51,11 +51,11 @@ class Addressbook {
      * @return void
      */
     public function form_handler() {
-        if ( ! isset( $_POST['submit_address'] ) ) {
+        if ( ! isset( $_POST['submit_addres'] ) ) {
             return;
         }
 
-        if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'new-address' ) ) {
+        if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'new-addres' ) ) {
             wp_die( 'Aru you Cheating nonce' );
         }
 

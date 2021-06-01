@@ -33,9 +33,8 @@
                 </tr>
             </tbody>
         </table>
-
-        <?php  wp_nonce_field( 'new-address' ) ?>
-        <?php submit_button( 'Save Addrtess', 'primary', 'submit_address' ) ?>
+        <?php  wp_nonce_field( 'new-addres' ) ?>
+        <?php submit_button( 'Save Addrtess', 'primary', 'submit_addres' ) ?>
     </form>
     
 </div>

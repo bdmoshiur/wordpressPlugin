@@ -26,7 +26,7 @@ class API {
      * @return void
      */
     public function registet_api() {
-        $addressbook = new API\Addressbook();
-        $addressbook->register_routes();
+        $product = new API\Product();
+        $product->register_routes();
     }
 } 
