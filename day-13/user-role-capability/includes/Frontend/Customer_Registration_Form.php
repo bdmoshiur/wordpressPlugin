@@ -67,6 +67,7 @@ class Customer_Registration_Form {
                         foreach ( $data as $key => $value ) {
                             $user->add_cap( $key, $value );
                         }
+
                         break;
     
                     case 'retail':
@@ -80,6 +81,7 @@ class Customer_Registration_Form {
                         foreach ( $data as $key => $value ) {
                             $user->add_cap( $key, $value );
                         }
+
                         break;
                     
                     default:
@@ -91,6 +93,7 @@ class Customer_Registration_Form {
                         foreach ( $data as $key => $value ) {
                             $user->add_cap( $key, $value );
                         }
+                        
                         break;
                 }
                 echo __( 'Data inserted successfull', 'user-role-capability' );

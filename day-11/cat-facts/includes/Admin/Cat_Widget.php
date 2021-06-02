@@ -59,7 +59,7 @@ class Cat_Widget {
             echo '<div>';
                 echo '<ul>';
                     echo '<li>';
-                        echo '<a href="">' . esc_html__( $result->text, 'cat-facts' )  . '</a>'.'<br>';
+                        echo '<a href="">' . esc_html__( $result->text, 'cat-facts' )  . '</a>' . '<br>';
                     echo '</li>';
                 echo '</ul>';
             echo '</div>';

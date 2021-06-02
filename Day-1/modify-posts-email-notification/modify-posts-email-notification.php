@@ -35,7 +35,7 @@ class Pe_Modify_Posts_Email_Notification {
      * 
      * @return void
      */
-    function __construct() {
+    public function __construct() {
         add_filter( 'modify_email', [ $this,'modify_post_published_notification' ] );
     }
 
@@ -48,7 +48,7 @@ class Pe_Modify_Posts_Email_Notification {
      * 
      * @return array
      */
-    function modify_post_published_notification( $to ) {
+    public function modify_post_published_notification( $to ) {
         $to = [
             get_option( 'admin_email' ),
             'test@gmail.com',

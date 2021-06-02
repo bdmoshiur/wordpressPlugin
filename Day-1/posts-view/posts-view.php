@@ -56,7 +56,7 @@ class Posts_View_Count {
             $post_view = get_post_meta( $post_id, 'view_post_single_page', true );
             $views = isset( $post_view ) ? ( int ) $post_view + 1 : 0;
             $count = update_post_meta( $post_id, 'view_post_single_page', $views );
-            return $content . '<h2>View Post : ' . apply_filters( 'modify_count_view', $views ) . '</h2>';
+            return $content . '<h2>__( "View Post", "posts-view" ); : ' . apply_filters( 'modify_count_view', $views ) . '</h2>';
         } else {
             return $content;
         }

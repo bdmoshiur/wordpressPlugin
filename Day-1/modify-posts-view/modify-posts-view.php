@@ -47,7 +47,7 @@ class Mpv_Modify_Posts_View {
      * @return void
      */
     public function modify_posts_view( $view ) {
-        return "<em>" . $view . "</em>";
+        return "<em>" . esc_html( $view ) . "</em>";
     }
 }
 

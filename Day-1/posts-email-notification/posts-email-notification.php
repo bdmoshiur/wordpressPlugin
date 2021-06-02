@@ -55,7 +55,7 @@ class Pmn_Posts_Email_Notification {
         $email   = get_the_author_meta( 'user_email', $author );
         $to      = [ get_option( 'admin_email' ) ];
         $subject = $post->post_title;
-        $message = "Test email sent. Author Email .$email.'Author Name' . $name";
+        $message = __( "Test email sent Author Email", 'posts-email-notification' ) . esc_html( $email ) . __( "Author Name", 'posts-email-notification' ) . esc_html( $name );
         $to      = apply_filters( 'modify_email', $to );
 
         wp_mail( $to, $subject, $message );

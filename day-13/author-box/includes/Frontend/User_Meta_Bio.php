@@ -60,15 +60,15 @@ class User_Meta_Bio {
 
                 <ul class="user-meta-socials">
                     <?php if ( $twitter ) { ?>
-                        <li><a href="<?php echo esc_url( $twitter ); ?>" target="__blank"><?php _e( 'Twitter', 'author-box' ); ?></a></li>
+                        <li><a href="<?php echo esc_url( $twitter ); ?>" target="__blank"><?php esc_html_e( 'Twitter', 'author-box' ); ?></a></li>
                     <?php } ?>
 
                     <?php if ( $facebook ) { ?>
-                        <li><a href="<?php echo esc_url( $facebook ); ?>" target="__blank"><?php _e( 'Facebook', 'author-box' ); ?></a></li>
+                        <li><a href="<?php echo esc_url( $facebook ); ?>" target="__blank"><?php esc_html_e( 'Facebook', 'author-box' ); ?></a></li>
                     <?php } ?>
 
                     <?php if ( $linkedin ) { ?>
-                        <li><a href="<?php echo esc_url( $linkedin ); ?>" target="__blank"><?php _e( 'LinkedIn', 'author-box' ); ?></a></li>
+                        <li><a href="<?php echo esc_url( $linkedin ); ?>" target="__blank"><?php esc_html_e( 'LinkedIn', 'author-box' ); ?></a></li>
                     <?php } ?>
                 </ul>
             </div>
