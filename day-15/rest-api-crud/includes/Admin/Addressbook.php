@@ -19,8 +19,8 @@ class Addressbook {
      * @return void
      */
     public function plugin_page() {
-        $action = isset( $_GET['action'] ) ? $_GET['action']: 'list';
-        $id     = isset( $_GET['id'] ) ? intval( $_GET['id'] )        : 0;
+        $action = isset( $_GET['action'] ) ? $_GET['action']  : 'list';
+        $id     = isset( $_GET['id'] ) ? intval( $_GET['id'] ): 0;
 
         switch ( $action ) {
             case 'new':
@@ -56,11 +56,11 @@ class Addressbook {
         }
 
         if ( ! wp_verify_nonce( $_POST['_wpnonce'], 'new-addres' ) ) {
-            wp_die( 'Aru you Cheating nonce' );
+            wp_die( __( 'Aru you Cheating nonce', 'wedevs-academy' ) );
         }
 
         if ( ! current_user_can( 'manage_options') ) {
-            wp_die( 'Aru you Cheating not user');
+            wp_die( __( 'Aru you Cheating not user', 'wedevs-academy' ) );
         }
 
         $id      = isset( $_POST['id'] ) ? intval( $_POST['id'] )                           : 0;
@@ -111,11 +111,11 @@ class Addressbook {
 
     public function delete_address() {
         if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'wd-ac-delete-address' ) ) {
-            wp_die( 'Aru you Cheating nonce' );
+            wp_die( __( 'Aru you Cheating nonce', 'wedevs-academy' ) );
         }
 
         if ( ! current_user_can( 'manage_options') ) {
-            wp_die( 'Aru you Cheating not user');
+            wp_die( __( 'Aru you Cheating not user', 'wedevs-academy' ) );
         }
 
         $id = isset( $_REQUEST['id'] ) ? intval( $_REQUEST['id'] ) : 0 ;

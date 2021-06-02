@@ -83,6 +83,7 @@ function wp_ac_get_address( $args = [] ) {
         'order' => 'ASC',
     ];
     $args = wp_parse_args( $args, $defaults );
+
     $sql = $wpdb->prepare(
         "SELECT * FROM {$wpdb->prefix}ac_address
         ORDER BY {$args['orderby']} {$args['order']}
@@ -98,7 +99,7 @@ function wp_ac_get_address( $args = [] ) {
 function wp_ac_get_single_address( $id ) {
     global $wpdb;
 
-    $sql = $wpdb->prepare("SELECT * FROM {$wpdb->prefix}ac_address WHERE id=%d", $id);
+    $sql = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}ac_address WHERE id=%d", $id );
 
     $item = $wpdb->get_row( $sql );
 
@@ -151,4 +152,3 @@ function wp_ac_delete_address( $id ) {
         [ '%d' ]
     );
 }
-

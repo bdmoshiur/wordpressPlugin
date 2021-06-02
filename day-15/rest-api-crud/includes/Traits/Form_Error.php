@@ -10,6 +10,8 @@ trait Form_Error {
     /**
      * Set variable
      *
+     * @since 1.0.0
+     * 
      * @var array
      */
     public $errors = [];
@@ -17,7 +19,9 @@ trait Form_Error {
     /**
      * Hass error function
      *
-     * @param [type] $key
+     * @since 1.0.0
+     * 
+     * @param string $key
      * @return boolean
      */
     function has_error( $key ) {

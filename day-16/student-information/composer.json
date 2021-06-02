@@ -1,0 +1,21 @@
+{
+    "name": "moshiur1998/student-information",
+    "description": "my student information",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "moshiur rahman",
+            "email": "moshiurcse888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4" : {
+            "Student\\Info\\" : "includes/"
+        },
+        "files": [ "includes/functions.php" ]
+    }
+
+}

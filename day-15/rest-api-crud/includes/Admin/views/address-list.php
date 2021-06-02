@@ -15,11 +15,9 @@
 
     <form action="" method="post">
         <?php 
-        
-        $table = new Rest\Product\Admin\Address_List();
-        $table->prepare_items();
-        $table->display();
-
+            $table = new Rest\Product\Admin\Address_List();
+            $table->prepare_items();
+            $table->display();
         ?>
     </form>
 </div>

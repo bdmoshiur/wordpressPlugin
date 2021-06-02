@@ -67,8 +67,8 @@ class Address_List extends \WP_List_Table {
     /**
      * Default column set function
      *
-     * @param [type] $item
-     * @param [type] $column_name
+     * @param object $item
+     * @param string $column_name
      * 
      * @return void
      */

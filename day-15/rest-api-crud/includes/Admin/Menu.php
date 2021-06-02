@@ -39,9 +39,9 @@ class Menu {
     public function admin_menu() {
         $parent_slug = 'wedevs-academy';
         $capability  = 'manage_options';
-        add_menu_page( 'Wedevs Academy', 'Academy', $capability, $parent_slug, [ $this->addressbook, 'plugin_page' ], 'dashicons-amazon' );
-        add_submenu_page( $parent_slug, 'Address Books', 'Address Book', $capability, $parent_slug, [ $this->addressbook, 'plugin_page' ] );
-        add_submenu_page( $parent_slug, 'Address Setting', 'Setting', $capability, 'address-setting', [ $this, 'wd_menu_setting' ] );
+        add_menu_page( __( 'Wedevs Academy', 'wedevs-academy' ), __('Academy', ), $capability, $parent_slug, [ $this->addressbook, 'plugin_page' ], 'dashicons-amazon' );
+        add_submenu_page( $parent_slug, __( 'Address Books', 'wedevs-academy' ), __( 'Address Book', 'wedevs-academy' ), $capability, $parent_slug, [ $this->addressbook, 'plugin_page' ] );
+        add_submenu_page( $parent_slug, __('Address Setting', 'wedevs-academy' ), __( 'Setting', 'wedevs-academy' ), $capability, 'address-setting', [ $this, 'wd_menu_setting' ] );
     }
 
     /**
