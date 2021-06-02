@@ -13,12 +13,11 @@
         </thead>
         <tbody>
             <?php
-                $i = 1;
-                $students = si_get_student_info();
                 foreach ( $students as $student ) {
+                $serial = ++$offset;
             ?>
                 <tr class="row">
-                    <td scope="row"><label><?php echo $i++; ?></label></td>
+                    <td scope="row"><label><?php echo esc_html( $serial ); ?></label></td>
                     <td scope="row"><label><?php echo esc_html( $student->first_name ) ?></label></td>
                     <td scope="row"><label><?php echo esc_html( $student->last_name ) ?></label></td>
                     <td scope="row"><label><?php echo esc_html( $student->class ) ?></label></td>
@@ -37,20 +36,16 @@
                 </tr>
             <?php
             }
-
-                $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-                $args = array(
-                    'posts_per_page' => 5,
-                    'paged' => $paged,
-                );
-                
-                $the_query = new WP_Query( $args );
-                echo paginate_links( array(
-                    'format' => '?paged=%#%',
-                    'current' => max( 1, get_query_var('paged') ),
-                    'total' => $the_query->max_num_pages
-                ) );
             ?>
         </tbody>
     </table>
+    <div>
+        <?php
+            echo paginate_links( array(
+                'format' => '?paged=%#%',
+                'current' => max( 1, get_query_var('paged') ),
+                'total' => $total_page,
+            ) );
+        ?>
+    </div>
 </div>

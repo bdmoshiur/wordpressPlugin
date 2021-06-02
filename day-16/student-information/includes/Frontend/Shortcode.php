@@ -145,6 +145,17 @@ class Shortcode {
      * @return void
      */
     public function render_student_show( $atts, $content = '' ) {
+        $paged      = ! empty( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+        $per_page   = 3;
+        $total_page = ceil( si_student_count()/$per_page );
+        $offset     = ( $paged - 1 ) * $per_page;
+
+        $args = [
+            'paged'  => $per_page,
+            'offset' => $offset,
+        ];
+        $students = si_get_student_info( $args );
+
         $template = __DIR__ . '/views/list-student.php';
         
         if ( file_exists( $template ) ) {

@@ -44,6 +44,13 @@ function insert_student_info( $args = [] ) {
     return $wpdb->insert_id;
 }
 
+/**
+ * Student count function
+ *
+ * @since 1.0.0
+ * 
+ * @return void
+ */
 function si_student_count() {
     global $wpdb;
 
