@@ -540,5 +540,3 @@ class Product extends WP_REST_Controller {
         return $params;
     }
 }
-
-
