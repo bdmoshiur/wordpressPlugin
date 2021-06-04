@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Next Book Reviews
+ * Plugin Name:       Book Review rewrite
  * Plugin URI:        https://example.com/plugins/the-basics/
  * Description:       Handle the Next Book Reviews plugin..
  * Version:           1.0.0
@@ -10,7 +10,7 @@
  * Author URI:        https://author.example.com/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       nbr-book-review
+ * Text Domain:       nrr-book-review
  * Domain Path:       /languages
  */
 
@@ -29,7 +29,7 @@ require_once __DIR__ . "/vendor/autoload.php";
 /**
  * Main plugin class
  */
-final class Nbr_Book_Review {
+final class Brr_Book_Review {
 
     /**
      * Plugin version
@@ -58,7 +58,7 @@ final class Nbr_Book_Review {
      *
      * @since  1.0.0
      *
-     * @return \Nbr_Book_Review
+     * @return \Brr_Book_Review
      */
     public static function init() {
         static $instance = false;
@@ -78,11 +78,11 @@ final class Nbr_Book_Review {
      * @return void
      */
     public function define_constants() {
-        define( 'NBR_BOOK_REVIEW_VERSION', self::VERSION );
-        define( 'NBR_BOOK_REVIEW_FILE', __FILE__ );
-        define( 'NBR_BOOK_REVIEW_PATH', __DIR__ );
-        define( 'NBR_BOOK_REVIEW_URL', plugins_url( '', NBR_BOOK_REVIEW_FILE ) );
-        define( 'NBR_BOOK_REVIEW_ASSETS', NBR_BOOK_REVIEW_URL . '/assets' );
+        define( 'BRR_BOOK_REVIEW_VERSION', self::VERSION );
+        define( 'BRR_BOOK_REVIEW_FILE', __FILE__ );
+        define( 'BRR_BOOK_REVIEW_PATH', __DIR__ );
+        define( 'BRR_BOOK_REVIEW_URL', plugins_url( '', BRR_BOOK_REVIEW_FILE ) );
+        define( 'BRR_BOOK_REVIEW_ASSETS', BRR_BOOK_REVIEW_URL . '/assets' );
     }
 
     /**
@@ -93,8 +93,8 @@ final class Nbr_Book_Review {
      * @return void
      */
     public function init_plugin() {
-        new Nbr\Book\Review\Admin();
-        new Nbr\Book\Review\Frontend();
+        new Book\Review\Rewrite\Admin();
+        new Book\Review\Rewrite\Frontend();
     }
 
     /**
@@ -105,7 +105,7 @@ final class Nbr_Book_Review {
      * @return void
      */
     public function activate() {
-        $installer = new Nbr\Book\Review\Admin\Installer();
+        $installer = new Book\Review\Rewrite\Admin\Installer();
         $installer->run();
     }
 }
@@ -115,10 +115,10 @@ final class Nbr_Book_Review {
  *
  * @since 1.0.0
  * 
- * @return \Nbr_Book_Review
+ * @return \Brr_Book_Review
  */
-function nbr_book_review() {
-    return Nbr_Book_Review::init();
+function brr_book_review() {
+    return Brr_Book_Review::init();
 }
 
 /**
@@ -126,4 +126,4 @@ function nbr_book_review() {
  * 
  * @since 1.0.0
  */
-nbr_book_review();
+brr_book_review();

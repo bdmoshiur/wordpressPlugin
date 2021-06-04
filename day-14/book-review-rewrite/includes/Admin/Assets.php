@@ -1,6 +1,6 @@
 <?php
 
-namespace Nbr\Book\Review\Admin;
+namespace Book\Review\Rewrite\Admin;
 
 /**
  * Handle the assets class
@@ -26,14 +26,14 @@ class Assets {
     public function get_scripts() {
         return [
             'nbr-rating-plugin-script' => [
-                'src'       => NBR_BOOK_REVIEW_ASSETS . '/js/rater.min.js',
-                'version'   => filemtime( NBR_BOOK_REVIEW_PATH . '/assets/js/rater.min.js' ),
+                'src'       => BRR_BOOK_REVIEW_ASSETS . '/js/rater.min.js',
+                'version'   => filemtime( BRR_BOOK_REVIEW_PATH . '/assets/js/rater.min.js' ),
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true,
             ],
             'nbr-rating-handler-script' => [
-                'src'       => NBR_BOOK_REVIEW_ASSETS . '/js/rating-handler.js',
-                'version'   => filemtime( NBR_BOOK_REVIEW_PATH . '/assets/js/rating-handler.js' ),
+                'src'       => BRR_BOOK_REVIEW_ASSETS . '/js/rating-handler.js',
+                'version'   => filemtime( BRR_BOOK_REVIEW_PATH . '/assets/js/rating-handler.js' ),
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true,
             ],
@@ -49,7 +49,7 @@ class Assets {
      */
     public function register_assets() {
         $scripts = $this->get_scripts();
-
+        
         foreach ( $scripts as $handle => $script ) {
             $deps      = isset( $script['deps'] ) ? $script['deps'] : [];
             $in_footer = isset( $script['in_footer'] ) ? $script['in_footer'] : false;
