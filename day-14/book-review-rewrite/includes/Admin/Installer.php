@@ -29,7 +29,7 @@ class Installer {
     public function nbr_version() {
         $installed = get_option( 'nbr_book_review_installed' );
 
-        if( ! $installed ) {
+        if ( ! $installed ) {
             update_option( 'nbr_book_review_installed', time() );
         }
 
@@ -60,7 +60,7 @@ class Installer {
         ) $charset_collate;";
 
         if ( ! function_exists( 'dbDelta' ) ) {
-            require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+            include ABSPATH . 'wp-admin/includes/upgrade.php';
         }
 
         dbDelta( $schema );

@@ -58,7 +58,7 @@ class Metabox {
          * Include book metabox form template
          */
         ob_start();
-        require_once NBR_BOOK_REVIEW_PATH . "/templates/metabox_book_form.php";
+        include NBR_BOOK_REVIEW_PATH . "/templates/metabox_book_form.php";
         echo ob_get_clean();
     }
 
@@ -75,35 +75,43 @@ class Metabox {
         /**
          * Assign empty value to the input array keys
          */
-        $book_meta_fields = apply_filters( 'metabox_book_input_fields', array(
+        $book_meta_fields = apply_filters( 'metabox_book_input_fields', [
             'name'           => '',
             'date'           => '',
             'code'           => '',
             'price'          => '',
             'description'    => '',
-        ) );
+         ] );
 
         /**
          * Assign input values to the meta input array
+         * 
+         * @since 1.0.0
          */
-        if( isset( $_POST['name'] ) ) {
-            $book_meta_fields['name'] = sanitize_text_field($_POST['name']);
+        if ( isset( $_POST['name'] ) ) {
+            $book_meta_fields['name'] = sanitize_text_field( $_POST['name'] );
         }
-        if( isset( $_POST['date'] ) ) {
-            $book_meta_fields['date'] = sanitize_text_field($_POST['date']);
+
+        if ( isset( $_POST['date'] ) ) {
+            $book_meta_fields['date'] = sanitize_text_field( $_POST['date'] );
         }
-        if( isset( $_POST['code'] ) ) {
-            $book_meta_fields['code'] = sanitize_text_field($_POST['code']);
+
+        if ( isset( $_POST['code'] ) ) {
+            $book_meta_fields['code'] = sanitize_text_field( $_POST['code'] );
         }
-        if( isset( $_POST['price'] ) ) {
-            $book_meta_fields['price'] = sanitize_text_field($_POST['price']);
+
+        if ( isset( $_POST['price'] ) ) {
+            $book_meta_fields['price'] = sanitize_text_field( $_POST['price'] );
         }
-        if( isset( $_POST['description'] ) ) {
-            $book_meta_fields['description'] = sanitize_textarea_field($_POST['description']);
+
+        if ( isset( $_POST['description'] ) ) {
+            $book_meta_fields['description'] = sanitize_textarea_field( $_POST['description'] );
         }
 
         /**
          * Update post meta
+         * 
+         * @since 1.0.0
          */
         foreach ( $book_meta_fields as $field_key => $field_value ) {
             update_post_meta(

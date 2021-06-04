@@ -29,7 +29,7 @@ class Installer {
     public function nbr_version() {
         $installed = get_option( 'nbr_book_review_installed' );
 
-        if( ! $installed ) {
+        if ( ! $installed ) {
             update_option( 'nbr_book_review_installed', time() );
         }
 

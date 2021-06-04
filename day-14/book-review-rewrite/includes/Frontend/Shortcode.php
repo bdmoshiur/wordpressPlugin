@@ -25,7 +25,7 @@ class Shortcode {
      */
     public function render_shortcode_form() {
         ob_start();
-        require_once BRR_BOOK_REVIEW_PATH . "/templates/shortcode_search_form.php";
+        include BRR_BOOK_REVIEW_PATH . "/templates/shortcode_search_form.php";
         echo ob_get_clean();
 
         $this->post_meta_search_handler();
@@ -53,38 +53,38 @@ class Shortcode {
 
         $search_keyword = $_REQUEST['keyword'];
 
-        $book_meta_query_args =  array(
+        $book_meta_query_args =  [
             'post_type'   => 'book',
             'post_status' => 'publish',
-            'meta_query'  => array(
+            'meta_query'  => [
                 'relation' => 'OR',
-                array(
+                [
                     'key'     => 'book_meta_key_name',
                     'value'   => $search_keyword,
                     'compare' => 'LIKE',
-                ),
-                array(
+                ],
+                [
                     'key'     => 'book_meta_key_date',
                     'value'   => $search_keyword,
                     'compare' => 'LIKE',
-                ),
-                array(
+                ],
+                [
                     'key'     => 'book_meta_key_code',
                     'value'   => $search_keyword,
                     'compare' => 'LIKE',
-                ),
-                array(
+                ],
+                [
                     'key'     => 'book_meta_key_price',
                     'value'   => $search_keyword,
                     'compare' => 'LIKE',
-                ),
-                array(
+                ],
+                [
                     'key'     => 'book_meta_key_description',
                     'value'   => $search_keyword,
                     'compare' => 'LIKE',
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
 
         $this->post_meta_query_handler( $book_meta_query_args );
     }

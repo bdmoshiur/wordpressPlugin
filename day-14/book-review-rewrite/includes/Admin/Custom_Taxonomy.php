@@ -11,6 +11,8 @@ class Custom_Taxonomy {
      * Initialize the class
      *
      * @since  1.0.0
+     * 
+     * @return void
      */
     public function __construct() {
         add_action( 'init', [ $this, 'custom_taxonomy_genre' ] );
@@ -26,6 +28,8 @@ class Custom_Taxonomy {
     public function custom_taxonomy_genre() {
         /**
          * Labels array for custom taxonomy
+         * 
+         * @since 1.0.0
          */
         $labels = [
             'name'              => _x( 'Genres', 'taxonomy general name', 'nbr-book-review' ),
@@ -42,7 +46,9 @@ class Custom_Taxonomy {
         ];
 
         /**
-         * Arguments array for custom taxonomy: Genre
+         * Arguments array for custom taxonomy
+         * 
+         * @since 1.0.0
          */
         $args = [
             'labels'            => $labels,
@@ -54,7 +60,9 @@ class Custom_Taxonomy {
         ];
 
         /**
-         * Register custom taxonomy: Genre
+         * Register custom taxonomy
+         * 
+         * @since 1.0.0
          */
         register_taxonomy( 'genre', array( 'book' ), $args );
     }

@@ -11,7 +11,7 @@ if ( ! empty( $unique_posts ) ) {
         $post_url               = get_the_permalink( $post_id );
         $avatar_url             = get_avatar_url( $author_id );
         $author_nicename        = get_the_author_meta( 'nickname', $author_id );
-        $avarage_rating         = get_average_review_by_post_id( $post_id );
+        $avarage_rating         = get_all_rating_by_post_id( $post_id );
         $post_created_times_ago = human_time_diff( strtotime( $created_at ), current_time( 'timestamp' ) );
 
         include BRR_BOOK_REVIEW_PATH . '/templates/rating-content.php';

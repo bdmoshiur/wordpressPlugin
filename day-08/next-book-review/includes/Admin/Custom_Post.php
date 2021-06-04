@@ -40,7 +40,9 @@ class Custom_Post {
         ];
 
         /**
-         * Arguments array for custom post type: Book
+         * Arguments array for custom post type
+         * 
+         * @since 1.0.0
          */
         $args = [
             'labels'             => $labels,
@@ -49,19 +51,21 @@ class Custom_Post {
             'show_ui'            => true,
             'show_in_menu'       => true,
             'query_var'          => true,
-            'rewrite'            => array( 'slug' => 'book' ),
+            'rewrite'            => [ 'slug' => 'book' ],
             'capability_type'    => 'post',
             'has_archive'        => true,
             'hierarchical'       => false,
             'menu_position'      => null,
-            'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
-            'taxonomies'         => array( 'category' ),
+            'supports'           => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ],
+            'taxonomies'         => [ 'category' ],
             'show_in_rest'       => true,
             'menu_icon'          => 'dashicons-book',
         ];
 
         /**
          * Register post type book
+         * 
+         * @since 1.0.0
          */
         register_post_type( 'book', $args );
     }

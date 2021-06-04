@@ -8,46 +8,51 @@ namespace Book\Review\Rewrite\Admin;
 class Rewrite {
 
     /**
-     * Class constructor
+     * Class constructor function
+     * 
+     * @since 1.0.0
      */
     public function __construct() {
-        add_action( 'init', [ $this, 'cpt_custom_permalink' ] );
+        add_action( 'init', [ $this, 'custom_permalink' ] );
 
         add_filter( 'query_vars', [ $this, 'query_var_register' ] );
 
-        add_filter( 'template_include', [ $this, 'post_review_display' ] );
+        add_action( 'template_include', [ $this, 'post_review_display' ] );
 
-        add_filter( 'template_include', [ $this, 'post_review_display_details' ] );
+        add_action( 'template_include', [ $this, 'post_review_display_details' ] );
     }
 
     /**
-     * Add custom rewrite roles for book cpt
+     * Add custom rewrite roles for book custom post type
+     * 
+     * @since 1.0.0
      * 
      * @return void
      */
-    public function cpt_custom_permalink() {
+    public function custom_permalink() {
         add_rewrite_rule( 
-            'book/rating/view/([0-9]{1,})/?$', 
-            'index.php?post_type=book&pagename=view&rating_post_id=$matches[1]', 
-            'top' 
+            'book/rating/view/([0-9]{1,})/?$',
+            'index.php?post_type=book&pagename=view&rating_post_id=$matches[1]',
+            'top'
         );
-        add_rewrite_rule( 
-            'book/rating/([0-9]{1,})/?$', 
-            'index.php?post_type=book&pagename=rating&paged=$matches[1]', 
-            'top' 
+        add_rewrite_rule(
+            'book/rating/([0-9]{1,})/?$',
+            'index.php?post_type=book&pagename=rating&paged=$matches[1]',
+            'top'
         );
     }
 
     /**
      * Register custom query var
+     *
+     * @since 1.0.0
      * 
-     * @param array $vars Query vars
+     * @param array $vars
      * 
      * @return array
      */
     public function query_var_register( $vars ) {
-        $vars[] = 'view';
-        $vars[] = 'rating';
+        $vars[] = 'pagename';
         $vars[] = 'rating_post_id';
 
         return $vars;
@@ -56,11 +61,14 @@ class Rewrite {
     /**
      * Display book review page
      * 
-     * @param string $template  Template to display
+     * @since 1.0.0
+     * 
+     * @param string $template
      * 
      * @return void
      */
     public function post_review_display( $template ) {
+        
         if ( 'rating' === get_query_var( 'pagename' ) ) {
             $current_page = ( ! empty( get_query_var( 'paged' ) ) ) ? get_query_var( 'paged' ) : 1;
 
@@ -100,7 +108,9 @@ class Rewrite {
     /**
      * Display book review details page
      * 
-     * @param string $template  Template to display
+     * @since 1.0.0
+     * 
+     * @param string $template
      * 
      * @return void
      */

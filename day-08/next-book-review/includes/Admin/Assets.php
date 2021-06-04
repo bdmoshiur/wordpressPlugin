@@ -11,6 +11,8 @@ class Assets {
      * Constructor function
      *
      * @since  1.0.0
+     * 
+     * @return void
      */
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'register_assets' ] );

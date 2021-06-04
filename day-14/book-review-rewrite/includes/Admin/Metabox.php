@@ -53,9 +53,11 @@ class Metabox {
 
         /**
          * Include book metabox form template
+         * 
+         * @since 1.0.0
          */
         ob_start();
-        require_once BRR_BOOK_REVIEW_PATH . "/templates/metabox_book_form.php";
+        include BRR_BOOK_REVIEW_PATH . "/templates/metabox_book_form.php";
         echo ob_get_clean();
     }
 
@@ -69,32 +71,38 @@ class Metabox {
      * @return void
      */
     public function books_metabox_update_metadata( $post_id ) {
-        $book_meta_fields = apply_filters( 'metabox_book_input_fields', array(
+        $book_meta_fields = apply_filters( 'metabox_book_input_fields', [
             'name'           => '',
             'date'           => '',
             'code'           => '',
             'price'          => '',
             'description'    => '',
-        ) );
+         ] );
 
-        if( isset( $_POST['name'] ) ) {
+        if ( isset( $_POST['name'] ) ) {
             $book_meta_fields['name'] = sanitize_text_field( $_POST['name'] );
         }
-        if( isset( $_POST['date'] ) ) {
+
+        if ( isset( $_POST['date'] ) ) {
             $book_meta_fields['date'] = sanitize_text_field( $_POST['date'] );
         }
-        if( isset( $_POST['code'] ) ) {
+
+        if ( isset( $_POST['code'] ) ) {
             $book_meta_fields['code'] = sanitize_text_field( $_POST['code'] );
         }
-        if( isset( $_POST['price'] ) ) {
+        
+        if ( isset( $_POST['price'] ) ) {
             $book_meta_fields['price'] = sanitize_text_field( $_POST['price'] );
         }
-        if( isset( $_POST['description'] ) ) {
+
+        if ( isset( $_POST['description'] ) ) {
             $book_meta_fields['description'] = sanitize_textarea_field( $_POST['description'] );
         }
 
         /**
          * Update post meta
+         * 
+         * @since 1.0.0
          */
         foreach ( $book_meta_fields as $field_key => $field_value ) {
             update_post_meta(

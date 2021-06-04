@@ -11,6 +11,8 @@ class Ajax {
      * Constructor function
      *
      * @since  1.0.0
+     * 
+     * @return void
      */
     public function __construct() {
         add_action( 'wp_ajax_nbr-book-rating', [ $this, 'book_rating_request_handler' ] );

@@ -222,15 +222,12 @@ function get_all_rating_by_post_id( $post_id ) {
     ];
 
     $sql = $wpdb->prepare(
-            "SELECT * FROM {$wpdb->prefix}wedevs_book_review_rating
-            WHERE post_id = %d
-            ORDER BY {$args['orderby']} {$args['order']}
-            LIMIT %d, %d",
-            $post_id,
-            $args['offset'], $args['number']
+            "SELECT avg(rating) FROM {$wpdb->prefix}wedevs_book_review_rating
+            WHERE post_id = %d",
+            $post_id
     );
 
-    $items = $wpdb->get_results( $sql, ARRAY_A );
+    $avg = $wpdb->get_var( $sql );
 
-    return $items;
+    return round($avg, 2);
 }
