@@ -1,0 +1,20 @@
+{
+    "name": "moshiur1998/woocommerce-multipart-checkout-form",
+    "description": "multipart checkout form",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "moshiur rahman",
+            "email": "moshiurcse888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4" : {
+            "Woo\\Multipart\\Form\\" : "includes/"
+        },
+        "files": []
+    }
+}
