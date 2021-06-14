@@ -35,8 +35,7 @@ class Multipart_checkout {
     }
 
     /**
-     * Undocumented function
-     *
+     * Custom woocommerce locate template function
      * 
      * @since 1.0.0
      * 

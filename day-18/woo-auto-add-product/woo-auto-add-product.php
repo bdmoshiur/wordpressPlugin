@@ -32,6 +32,7 @@ require_once  __DIR__ . '/vendor/autoload.php';
  * The Main Plugin class
  */
 final class Woo_Auto_Add_Product {
+
     /**
      * plugin Version
      * 
@@ -118,13 +119,13 @@ final class Woo_Auto_Add_Product {
 }
 
 /**
- * initialize the main plugin
+ * Initialize the main plugin
  * 
  * @since 1.0.0
  * 
  * @return \Woo_Auto_Add_Product
  */
-function woo-auto-add-product() {
+function woo_auto_add_product() {
     return Woo_Auto_Add_Product::init();
 }
  
@@ -133,6 +134,4 @@ function woo-auto-add-product() {
  * 
  * @since 1.0.0
  */
-woo-auto-add-product();
-
-
+woo_auto_add_product();

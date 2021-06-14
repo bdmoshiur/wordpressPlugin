@@ -18,8 +18,18 @@ class Auto_add_product {
         add_filter( 'single_template', [ $this, 'auto_add_product'] );
     }
 
+    /**
+     * Undocumented function
+     *
+     * @since 1.0.0
+     * 
+     * @param string $template
+     * 
+     * @return void
+     */
     public function auto_add_product( $template ) {
         if ( is_singular( 'product' ) ) {
+
             global $post;
             
             $product_id = $post->ID;
@@ -33,7 +43,16 @@ class Auto_add_product {
         return $template;
     }
 
-    public function check_product($id) {
+    /**
+     * check product function
+     *
+     * @since 1.0.0
+     * 
+     * @param int $id
+     * 
+     * @return void
+     */
+    public function check_product( $id ) {
         $test = false;
 
         foreach ( WC()->cart->get_cart() as $cart_item_key => $values ) {
@@ -42,7 +61,7 @@ class Auto_add_product {
             if ( $_product == $id ){
                 $test = true;
             }
-
+            
         }
 
         return $test;

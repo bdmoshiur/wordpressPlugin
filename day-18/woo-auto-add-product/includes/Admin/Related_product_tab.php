@@ -20,7 +20,13 @@ class Related_product_tab {
     }
 
     /**
+     * woocommerce product tabs render function
      * 
+     * @since 1.0.0
+     * 
+     * @param array $tabs
+     * 
+     * @return array
      */
     public function woocommerce_product_tabs_render( $tabs = array() ) {
         global $post;
@@ -37,7 +43,11 @@ class Related_product_tab {
     }
 
     /**
+     * woocommerce product relatedproduct tab render
      * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     public function woocommerce_product_relatedproduct_tab_render() {
         wc_set_loop_prop( 'related_product_loops', 'one' );
@@ -52,8 +62,11 @@ class Related_product_tab {
     }
 
     /**
-     * Render the woocommerce shop loop item title
+     * Render the woocommerce shop loop item title function
      * 
+     * @since 1.0.0
+     * 
+     * @return void
      */
     public function woocommerce_shop_loop_item_title_render() {
         global $product;
