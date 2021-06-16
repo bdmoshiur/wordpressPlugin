@@ -24,8 +24,7 @@ class Customer_purchase_product {
      * 
      * @return void
      */
-    public function dokan_order_detail_after_order_notes_render ( $order_id ) {
-        $order   = wc_get_order( $order_id );
+    public function dokan_order_detail_after_order_notes_render ( $order ) {
         $user_id = $order->get_customer_id();
         $data    = wc_get_customer_total_spent( $user_id );
 
