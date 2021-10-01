@@ -1,0 +1,31 @@
+.form-row {
+    margin-bottom: 15px;
+}
+#woo-coupons-content-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.woo-single-coupon-content {
+    background: #daccff;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+.woo-single-coupon-content p {
+    background: #fff;
+    padding: 5px;
+}
+.woo-my-coupons-panel {
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+.woo-my-coupons-panel div {
+    width: 100%;
+}
+.woo-my-coupons-panel h4 {
+    text-align: right;
+    font-size: 16px;
+    margin-top: 0;
+}

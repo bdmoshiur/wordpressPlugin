@@ -1,0 +1,29 @@
+#woo-coupon-form .form-table tbody tr td input {
+	padding: 6px;
+	border: 1px solid #ddd;
+}
+#coupon-conversion-form p label {
+	width: 100px;
+	display: inline-block;
+}
+#coupon-conversion-form p input {
+	padding: 6px;
+	border: 1px solid #ddd;
+}
+#coupon-conversion-table {
+	margin-top: 15px;
+	width: 40%;
+}
+#coupon-conversion-table table {
+	width: 100%;
+  border-collapse: collapse;
+}
+#coupon-conversion-table table thead tr th {
+	padding: 10px;
+}
+#coupon-conversion-table table tbody tr td {
+	padding: 10px;
+}
+#coupon-conversion-table table th, #coupon-conversion-table table td {
+  border: 1px solid black;
+}
