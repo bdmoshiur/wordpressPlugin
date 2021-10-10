@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Posts View
  * Plugin URI:        https://posts-view.com
- * Description:       Posts view with this plugin.
+ * Description:       Posts view plugin Develop by Moshiur.
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
